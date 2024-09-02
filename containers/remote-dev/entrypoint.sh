@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-exec /app/remote-dev
+/app/remote-dev
 # (
 #     echo "Starting rust"
 #     /app/remote-dev &

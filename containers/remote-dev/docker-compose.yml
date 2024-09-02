@@ -6,3 +6,7 @@ services:
     # network_mode: host
     ports:
       - "1234:1234"
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
