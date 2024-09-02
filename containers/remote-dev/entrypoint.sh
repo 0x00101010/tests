@@ -3,7 +3,7 @@ set -eu
 
 (
     echo "Starting rust"
-    exec /app/remote-dev
+    /app/remote-dev &
 )
 RUST_PID=$!
 echo "Rust program started with PID: $RUST_PID"
