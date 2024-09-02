@@ -3,4 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    network_mode: host
+    # network_mode: host
+    ports:
+      - "1234:1234"
