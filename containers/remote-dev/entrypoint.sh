@@ -1,7 +1,10 @@
 #!/bin/bash
-set -eu
+set -e
 
-exec lldb-server gdbserver 0.0.0.0:1234 -- /app/remote-dev
+/app/remote-dev &
+PID=$!
+
+exec lldb-server gdbserver 0.0.0.0:1234 --attach $PID
 
 # (
 #     echo "Starting rust"
