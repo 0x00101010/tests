@@ -1,0 +1,1557 @@
+make[1]: Entering directory '/root/project/op-e2e'
+make -C .. cannon-prestate
+make[2]: Entering directory '/root/project'
+make -C ./op-program op-program
+make[3]: Entering directory '/root/project/op-program'
+env GO111MODULE=on GOOS= GOARCH= CGO_ENABLED=0 go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program ./host/cmd/main.go
+command-line-arguments
+env GO111MODULE=on GOOS= GOARCH= go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program-client ./client/cmd/main.go
+command-line-arguments
+env GO111MODULE=on GOOS=linux GOARCH=mips GOMIPS=softfloat go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program-client.elf ./client/cmd/main.go
+command-line-arguments
+# verify output with: readelf -h bin/op-program-client.elf
+# result is mips32, big endian, R3000
+make[3]: Leaving directory '/root/project/op-program'
+make -C ./cannon cannon
+make[3]: Entering directory '/root/project/cannon'
+env GO111MODULE=on GOOS= GOARCH= go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/cannon .
+github.com/ethereum-optimism/optimism/cannon
+make[3]: Leaving directory '/root/project/cannon'
+./cannon/bin/cannon load-elf --path op-program/bin/op-program-client.elf --out op-program/bin/prestate.json --meta op-program/bin/meta.json
+./cannon/bin/cannon run --proof-at '=0'  --stop-at '=1' --input op-program/bin/prestate.json --meta op-program/bin/meta.json --proof-fmt 'op-program/bin/%d.json' --output ""
+t=2024-09-22T21:51:57+0000 lvl=info msg="Using cannon VM" module=vm
+t=2024-09-22T21:51:57+0000 lvl=info msg=processing module=vm step=0 pc=000af204 insn=0802bc7d ips=0 pages=8708 mem="34.0 MiB" name=_rt0_mips_linux
+t=2024-09-22T21:51:58+0000 lvl=info msg="Reached stop at" module=vm
+t=2024-09-22T21:51:58+0000 lvl=info msg="Execution stopped" module=vm exited=false code=0
+mv op-program/bin/0.json op-program/bin/prestate-proof.json
+make[2]: Leaving directory '/root/project'
+make -C .. cannon-prestate-mt
+make[2]: Entering directory '/root/project'
+make -C ./op-program op-program
+make[3]: Entering directory '/root/project/op-program'
+env GO111MODULE=on GOOS= GOARCH= CGO_ENABLED=0 go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program ./host/cmd/main.go
+env GO111MODULE=on GOOS= GOARCH= go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program-client ./client/cmd/main.go
+env GO111MODULE=on GOOS=linux GOARCH=mips GOMIPS=softfloat go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/op-program-client.elf ./client/cmd/main.go
+# verify output with: readelf -h bin/op-program-client.elf
+# result is mips32, big endian, R3000
+make[3]: Leaving directory '/root/project/op-program'
+make -C ./cannon cannon
+make[3]: Entering directory '/root/project/cannon'
+env GO111MODULE=on GOOS= GOARCH= go build -v -ldflags "-X main.GitCommit=39c72b0d728868281182a35e0b9debef0e304bc0 -X main.GitDate=1727041690 -X github.com/ethereum-optimism/optimism/op-program/version.Version=v0.0.0 -X github.com/ethereum-optimism/optimism/op-program/version.Meta=" -o ./bin/cannon .
+make[3]: Leaving directory '/root/project/cannon'
+./cannon/bin/cannon load-elf --type cannon-mt --path op-program/bin/op-program-client.elf --out op-program/bin/prestate-mt.bin.gz --meta op-program/bin/meta-mt.json
+./cannon/bin/cannon run --proof-at '=0' --stop-at '=1' --input op-program/bin/prestate-mt.bin.gz --meta op-program/bin/meta-mt.json --proof-fmt 'op-program/bin/%d-mt.json' --output ""
+t=2024-09-22T21:52:02+0000 lvl=info msg="Using cannon multithreaded VM" module=vm
+t=2024-09-22T21:52:02+0000 lvl=info msg=processing module=vm step=0 pc=000af204 insn=0802bc7d ips=0 pages=8708 mem="34.0 MiB" name=_rt0_mips_linux
+t=2024-09-22T21:52:03+0000 lvl=info msg="Reached stop at" module=vm
+t=2024-09-22T21:52:03+0000 lvl=info msg="Execution stopped" module=vm exited=false code=0
+mv op-program/bin/0-mt.json op-program/bin/prestate-proof-mt.json
+make[2]: Leaving directory '/root/project'
+make[1]: Leaving directory '/root/project/op-e2e'
+OP_E2E_USE_HTTP=true OP_TESTLOG_DISABLE_COLOR=true OP_E2E_DISABLE_PARALLEL=false gotestsum --format=testname --junitfile=/tmp/test-results/op-e2e_test-http.xml --jsonfile=/testlogs/test.log -- -failfast -timeout=60m -parallel=8 ./system/... ./e2eutils/... ./opgeth/... ./interop/...
+[33mEMPTY[0m op-e2e/system/e2esys
+[33mEMPTY[0m op-e2e/system/helpers
+[33mSKIP[0m op-e2e/system/altda.TestBatcherConcurrentAltDARequests (0.00s)
+[32mPASS[0m op-e2e/system/altda
+[33mSKIP[0m op-e2e/system/bridge.TestDepositTxCreateContract (0.00s)
+[33mSKIP[0m op-e2e/system/bridge.TestL2SequencerRPCDepositTx (0.00s)
+[33mSKIP[0m op-e2e/system/bridge.TestERC20BridgeDeposits (0.00s)
+[33mSKIP[0m op-e2e/system/bridge.TestMintOnRevertedDeposit (0.00s)
+[33mSKIP[0m op-e2e/system/bridge.TestMixedWithdrawalValidity (0.00s)
+[33mSKIP[0m op-e2e/system/bridge.TestWithdrawals (0.00s)
+[33mEMPTY[0m op-e2e/e2eutils/batcher
+[33mEMPTY[0m op-e2e/e2eutils/challenger
+[33mEMPTY[0m op-e2e/e2eutils/disputegame
+[33mEMPTY[0m op-e2e/e2eutils/disputegame/preimage
+[33mEMPTY[0m op-e2e/e2eutils/fakebeacon
+[33mEMPTY[0m op-e2e/e2eutils/geth
+[33mEMPTY[0m op-e2e/e2eutils/opnode
+[33mEMPTY[0m op-e2e/e2eutils/receipts
+[33mEMPTY[0m op-e2e/e2eutils/services
+[33mEMPTY[0m op-e2e/e2eutils/setuputils
+[33mEMPTY[0m op-e2e/e2eutils/transactions
+[33mEMPTY[0m op-e2e/e2eutils/wait
+[33mSKIP[0m op-e2e/system/conductor.TestPersistSequencerStateWhenChanged (0.00s)
+[33mSKIP[0m op-e2e/system/conductor.TestSequencerFailover_SetupCluster (0.00s)
+[33mSKIP[0m op-e2e/system/conductor.TestSequencerFailover_ActiveSequencerDown (0.00s)
+[33mSKIP[0m op-e2e/system/conductor.TestStopStartSequencer (0.00s)
+[33mSKIP[0m op-e2e/system/conductor.TestPostUnsafePayload (0.00s)
+[33mSKIP[0m op-e2e/system/gastoken.TestCustomGasToken (0.00s)
+[32mPASS[0m op-e2e/system/gastoken
+[33mSKIP[0m op-e2e/system/fjord.TestCheckFjordScript (0.00s)
+[32mPASS[0m op-e2e/system/fjord
+[33mSKIP[0m op-e2e/system/contracts.TestArtifacts (0.00s)
+[32mPASS[0m op-e2e/system/contracts
+[33mSKIP[0m op-e2e/system/p2p.TestSystemDenseTopology (0.00s)
+[33mSKIP[0m op-e2e/system/p2p.TestSystemMockP2P (0.00s)
+[33mSKIP[0m op-e2e/system/p2p.TestTxGossip (0.00s)
+[33mSKIP[0m op-e2e/system/verifier.TestPendingGasLimit (0.00s)
+[33mSKIP[0m op-e2e/system/verifier.TestFinalize (0.00s)
+[33mSKIP[0m op-e2e/system/verifier.TestConfirmationDepth (0.00s)
+[33mSKIP[0m op-e2e/system/verifier.TestSystemE2E (0.00s)
+[33mSKIP[0m op-e2e/system/runcfg.TestRuntimeConfigReload (0.00s)
+[33mSKIP[0m op-e2e/system/runcfg.TestRecommendedProtocolVersionChange (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestL2OutputSubmitterFaultProofs (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestVerifyL2OutputRootEmptyBlockDetachedSpanBatch (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestVerifyL2OutputRootEmptyBlockSpanBatch (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestVerifyL2OutputRootSpanBatch (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestL2OutputSubmitter (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestVerifyL2OutputRootDetachedSpanBatch (0.00s)
+[32mPASS[0m op-e2e/e2eutils.TestCollectAddresses (0.24s)
+[32mPASS[0m op-e2e/e2eutils.TestWriteDefaultJWT (0.00s)
+[33mSKIP[0m op-e2e/system/proofs.TestVerifyL2OutputRootEmptyBlock (0.00s)
+[32mPASS[0m op-e2e/e2eutils.TestSetup (0.28s)
+[32mPASS[0m op-e2e/e2eutils
+[33mEMPTY[0m op-e2e/interop/contracts
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/DepositNonce_RegolithNotYetActive (1.96s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/GasUsed_RegolithNotYetActive (2.00s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/DepositNonce_RegolithNotScheduled (2.04s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/UnusedGasConsumed_RegolithNotYetActive (2.10s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/UnusedGasConsumed_RegolithNotScheduled (2.11s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/AllowSystemTx_RegolithNotScheduled (2.11s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/AllowSystemTx_RegolithNotYetActive (2.11s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith/GasUsed_RegolithNotScheduled (2.16s)
+[32mPASS[0m op-e2e/opgeth.TestPreregolith (0.00s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/RejectSystemTx_ActivateAtGenesis (0.63s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/DepositNonceCorrect_ActivateAtGenesis (0.66s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/ReturnUnusedGasToPool_ActivateAtGenesis (0.67s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/GasUsedIsAccurate_ActivateAtGenesis (0.70s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/ReturnUnusedGasToPool_ActivateAfterGenesis (0.70s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/GasUsedIsAccurate_ActivateAfterGenesis (0.70s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/IncludeGasRefunds_ActivateAtGenesis (0.70s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/RejectSystemTx_ActivateAfterGenesis (0.70s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/DepositNonceCorrect_ActivateAfterGenesis (0.44s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith/IncludeGasRefunds_ActivateAfterGenesis (0.46s)
+[32mPASS[0m op-e2e/opgeth.TestRegolith (0.00s)
+[32mPASS[0m op-e2e/system/conductor.TestLoadSequencerStateOnStarted_Started (4.18s)
+[32mPASS[0m op-e2e/system/conductor.TestLoadSequencerStateOnStarted_Stopped (4.26s)
+[32mPASS[0m op-e2e/system/verifier.TestPendingBlockIsLatest/block (0.00s)
+[32mPASS[0m op-e2e/system/verifier.TestPendingBlockIsLatest/header (0.00s)
+[32mPASS[0m op-e2e/system/verifier.TestPendingBlockIsLatest (3.80s)
+[32mPASS[0m op-e2e/interop.TestInteropDevRecipe (2.09s)
+[32mPASS[0m op-e2e/opgeth.TestPreCanyon/ReturnsNilWithdrawals_CanyonNotScheduled (0.82s)
+[32mPASS[0m op-e2e/opgeth.TestPreCanyon/RejectPushZeroTx_CanyonNotScheduled (0.85s)
+[32mPASS[0m op-e2e/opgeth.TestPreCanyon/ReturnsNilWithdrawals_CanyonNotYetActive (0.84s)
+[32mPASS[0m op-e2e/opgeth.TestPreCanyon/RejectPushZeroTx_CanyonNotYetActive (0.86s)
+[32mPASS[0m op-e2e/opgeth.TestPreCanyon (0.00s)
+[32mPASS[0m op-e2e/opgeth.TestCanyon/AcceptsPushZeroTxn_ActivateAfterGenesis (0.43s)
+[32mPASS[0m op-e2e/opgeth.TestCanyon/ReturnsEmptyWithdrawals_ActivateAtGenesis (0.46s)
+[32mPASS[0m op-e2e/opgeth.TestCanyon/ReturnsEmptyWithdrawals_ActivateAfterGenesis (0.48s)
+[32mPASS[0m op-e2e/opgeth.TestCanyon/AcceptsPushZeroTxn_ActivateAtGenesis (0.49s)
+[32mPASS[0m op-e2e/opgeth.TestCanyon (0.00s)
+[32mPASS[0m op-e2e/opgeth.TestPreEcotone/NilParentBeaconRoot_EcotoneNotYetActive (0.43s)
+[32mPASS[0m op-e2e/opgeth.TestPreEcotone/RejectTstoreTxn_EcotoneNotScheduled (0.46s)
+[32mPASS[0m op-e2e/opgeth.TestPreEcotone/RejectTstoreTxn_EcotoneNotYetActive (0.47s)
+[32mPASS[0m op-e2e/opgeth.TestPreEcotone/NilParentBeaconRoot_EcotoneNotScheduled (0.49s)
+[32mPASS[0m op-e2e/opgeth.TestPreEcotone (0.00s)
+[32mPASS[0m op-e2e/opgeth.TestEcotone/HashParentBeaconBlockRoot_ActivateAfterGenesis (0.46s)
+[32mPASS[0m op-e2e/opgeth.TestEcotone/TstoreTxn_ActivateAtGenesis (0.47s)
+[32mPASS[0m op-e2e/opgeth.TestEcotone/HashParentBeaconBlockRoot_ActivateAtGenesis (0.51s)
+[32mPASS[0m op-e2e/opgeth.TestEcotone/TstoreTxn_ActivateAfterGenesis (0.52s)
+[32mPASS[0m op-e2e/opgeth.TestEcotone (0.00s)
+=== RUN   TestSequencerFailover_DisasterRecovery_OverrideLeader
+=== PAUSE TestSequencerFailover_DisasterRecovery_OverrideLeader
+=== CONT  TestSequencerFailover_DisasterRecovery_OverrideLeader
+    e2e.go:124: Running test. Assigned executor (1) matches current executor (1) of total (4)
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+INFO [09-22|21:52:10.165] Building developer L1 genesis block
+    setup.go:520: Generating L2 genesis l2_allocs_mode ecotone
+    config.go:120:              INFO [09-22|21:52:14.181] No persisted sequencer state loaded      role=sequencer1
+    types.go:637:               INFO [09-22|21:52:14.181] Rollup Config                            role=sequencer1 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.182] Initializing rollup node                 role=sequencer1 version=
+INFO [09-22|21:52:14.184] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.184] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer1 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.188] loaded new runtime config values!        role=sequencer1 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.188] Peer scoring disabled                    role=sequencer1
+    node.go:168:                INFO [09-22|21:52:14.188] started p2p host                         role=sequencer1 addrs=[/ip6/100::f743:fdbf:8020:579b/tcp/4242] peerID=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z
+    node.go:442:                INFO [09-22|21:52:14.189] Admin RPC enabled                        role=sequencer1
+    node.go:444:                INFO [09-22|21:52:14.189] Starting JSON-RPC server                 role=sequencer1
+    node.go:454:                INFO [09-22|21:52:14.189] metrics disabled                         role=sequencer1
+    node.go:516:                INFO [09-22|21:52:14.189] Starting execution engine driver         role=sequencer1
+INFO [09-22|21:52:14.189] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.189] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.189] State loop started                       role=sequencer1
+    state.go:390:               WARN [09-22|21:52:14.189] Deriver system is resetting              role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.189] Sequencer encountered reset signal, aborting work role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.190] Served eth_getBlockByNumber              conn=127.0.0.1:39230 reqid=3 duration="36.098µs" err="finalized block not found"
+WARN [09-22|21:52:14.190] Served eth_getBlockByNumber              conn=127.0.0.1:39230 reqid=4 duration="29.513µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.191] Loaded current L2 heads                  role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.191] Walking back L1Block by number           role=sequencer1 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.192] Hit finalized L2 head, returning immediately role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.192] Current hardfork version detected        role=sequencer1 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.192] Engine reset confirmed, sequencer may continue role=sequencer1 next=false
+    status.go:86:               INFO [09-22|21:52:14.284] Received first L1 head signal            role=sequencer1 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.462] No persisted sequencer state loaded      role=sequencer2
+    types.go:637:               INFO [09-22|21:52:14.462] Rollup Config                            role=sequencer2 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.463] Initializing rollup node                 role=sequencer2 version=
+INFO [09-22|21:52:14.465] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.465] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer2 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.473] loaded new runtime config values!        role=sequencer2 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.475] Peer scoring disabled                    role=sequencer2
+INFO [09-22|21:52:14.474] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:168:                INFO [09-22|21:52:14.475] started p2p host                         role=sequencer2 addrs=[/ip6/100::3580:7dfc:abde:c131/tcp/4242] peerID=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA
+    node.go:442:                INFO [09-22|21:52:14.476] Admin RPC enabled                        role=sequencer2
+    node.go:444:                INFO [09-22|21:52:14.476] Starting JSON-RPC server                 role=sequencer2
+    node.go:454:                INFO [09-22|21:52:14.476] metrics disabled                         role=sequencer2
+    node.go:516:                INFO [09-22|21:52:14.476] Starting execution engine driver         role=sequencer2
+INFO [09-22|21:52:14.476] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.476] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.477] State loop started                       role=sequencer2
+    state.go:390:               WARN [09-22|21:52:14.477] Deriver system is resetting              role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.478] Sequencer encountered reset signal, aborting work role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.478] Served eth_getBlockByNumber              conn=127.0.0.1:41514 reqid=3 duration="47.304µs" err="finalized block not found"
+WARN [09-22|21:52:14.479] Served eth_getBlockByNumber              conn=127.0.0.1:41514 reqid=4 duration="35.762µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.480] Loaded current L2 heads                  role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.480] Walking back L1Block by number           role=sequencer2 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.481] Hit finalized L2 head, returning immediately role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.481] Current hardfork version detected        role=sequencer2 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.481] Engine reset confirmed, sequencer may continue role=sequencer2 next=false
+    status.go:86:               INFO [09-22|21:52:14.565] Received first L1 head signal            role=sequencer2 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.607] No persisted sequencer state loaded      role=sequencer3
+    types.go:637:               INFO [09-22|21:52:14.607] Rollup Config                            role=sequencer3 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.608] Initializing rollup node                 role=sequencer3 version=
+INFO [09-22|21:52:14.608] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.609] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer3 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.615] loaded new runtime config values!        role=sequencer3 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.615] Peer scoring disabled                    role=sequencer3
+    node.go:168:                INFO [09-22|21:52:14.615] started p2p host                         role=sequencer3 addrs=[/ip6/100::92d0:d0e2:b425:88bf/tcp/4242] peerID=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE
+    node.go:442:                INFO [09-22|21:52:14.615] Admin RPC enabled                        role=sequencer3
+    node.go:444:                INFO [09-22|21:52:14.615] Starting JSON-RPC server                 role=sequencer3
+    node.go:454:                INFO [09-22|21:52:14.615] metrics disabled                         role=sequencer3
+    node.go:516:                INFO [09-22|21:52:14.615] Starting execution engine driver         role=sequencer3
+    state.go:148:               INFO [09-22|21:52:14.615] State loop started                       role=sequencer3
+    state.go:390:               WARN [09-22|21:52:14.616] Deriver system is resetting              role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.616] Sequencer encountered reset signal, aborting work role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:50774 reqid=4 duration="23.168µs" err="safe block not found"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:47894 reqid=3 duration="34.001µs" err="finalized block not found"
+WARN [09-22|21:52:14.617] Served eth_getBlockByNumber              conn=127.0.0.1:47894 reqid=4 duration="30.689µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.618] Loaded current L2 heads                  role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.619] Walking back L1Block by number           role=sequencer3 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.619] Hit finalized L2 head, returning immediately role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.619] Current hardfork version detected        role=sequencer3 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.620] Engine reset confirmed, sequencer may continue role=sequencer3 next=false
+    status.go:86:               INFO [09-22|21:52:14.713] Received first L1 head signal            role=sequencer3 l1_head=9a151b..26e983:2
+    types.go:637:               INFO [09-22|21:52:14.743] Rollup Config                            role=verifier l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.743] Initializing rollup node                 role=verifier version=
+INFO [09-22|21:52:14.749] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.749] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=verifier version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.756] loaded new runtime config values!        role=verifier p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.757] Peer scoring disabled                    role=verifier
+    node.go:168:                INFO [09-22|21:52:14.757] started p2p host                         role=verifier addrs=[/ip6/100::24d1:f4be:f1da:92d7/tcp/4242] peerID=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg
+    node.go:442:                INFO [09-22|21:52:14.757] Admin RPC enabled                        role=verifier
+    node.go:444:                INFO [09-22|21:52:14.757] Starting JSON-RPC server                 role=verifier
+    node.go:454:                INFO [09-22|21:52:14.757] metrics disabled                         role=verifier
+    node.go:516:                INFO [09-22|21:52:14.757] Starting execution engine driver         role=verifier
+INFO [09-22|21:52:14.757] Starting driver                          sequencerEnabled=false sequencerStopped=false
+INFO [09-22|21:52:14.757] Rollup node started
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer1 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer1 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer2 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer2 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer3 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer3 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    service.go:105:             INFO [09-22|21:52:14.758] initializing OpConductor                 version=0.0.1
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer3 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer1 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    state.go:148:               INFO [09-22|21:52:14.759] State loop started                       role=verifier
+    state.go:390:               WARN [09-22|21:52:14.759] Deriver system is resetting              role=verifier err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.759] Served eth_getBlockByNumber              conn=127.0.0.1:44452 reqid=3 duration="41.111µs" err="finalized block not found"
+WARN [09-22|21:52:14.760] Served eth_getBlockByNumber              conn=127.0.0.1:44452 reqid=4 duration="37.882µs" err="safe block not found"
+    notifications.go:32:        INFO [09-22|21:52:14.760] connected to peer                        role=sequencer2 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    start.go:121:               INFO [09-22|21:52:14.761] Loaded current L2 heads                  role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    service.go:816:             INFO [09-22|21:52:14.761] sequencer active status updated          active=false
+    start.go:181:               INFO [09-22|21:52:14.766] Walking back L1Block by number           role=verifier curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.766] Hit finalized L2 head, returning immediately role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.766] Current hardfork version detected        role=verifier forkName=ecotone
+2024-09-22T21:52:14.768Z [INFO]  raft: initial configuration: index=0 servers=[]
+    service.go:333:             INFO [09-22|21:52:14.774] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.775] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.775] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.775] starting JSON-RPC server
+WARN [09-22|21:52:14.775] Served eth_getBlockByNumber              conn=127.0.0.1:41254 reqid=3 duration="35.583µs" err="finalized block not found"
+    service.go:363:             INFO [09-22|21:52:14.785] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.786] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.787] sequencer active status updated          active=false
+2024-09-22T21:52:14.789Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.789Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:50529 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.790] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.790] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.790] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.790] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.800] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.801] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.802] sequencer active status updated          active=false
+2024-09-22T21:52:14.803Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.803Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:62073 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.804] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.804] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.804] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.804] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.815] OpConductor started
+    sequencer_failover_setup.go:168: setupHAInfra took 4.676483403s
+    status.go:86:               INFO [09-22|21:52:14.846] Received first L1 head signal            role=verifier l1_head=9a151b..26e983:2
+    monitor.go:212:             INFO [09-22|21:52:15.776] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.791] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.805] sequencer is healthy
+    service.go:568:             INFO [09-22|21:52:15.823] Leadership status changed                server=sequencer1 leader=true
+2024-09-22T21:52:15.883Z [WARN]  raft: no known peers, aborting election
+INFO [09-22|21:52:16.005] Stopping work on payload                 id=0x03946c527028d789 reason=delivery elapsed=993.156ms
+INFO [09-22|21:52:16.005] Stopping work on payload                 id=0x03946c527028d789 reason=delivery elapsed=900.464ms
+INFO [09-22|21:52:16.005] Imported new potential chain segment     number=3 hash=a72b24..c6fff7 blocks=1 txs=0 mgas=0.000 elapsed="365.523µs" mgasps=0.000 triedirty=0.00B
+INFO [09-22|21:52:16.005] Imported new potential chain segment     number=3 hash=a72b24..c6fff7 blocks=1 txs=0 mgas=0.000 elapsed="379.439µs" mgasps=0.000 triedirty=0.00B
+INFO [09-22|21:52:16.005] Chain head was updated                   number=3 hash=a72b24..c6fff7 root=a292e8..50c46d elapsed="30.458µs"
+INFO [09-22|21:52:16.005] Chain head was updated                   number=3 hash=a72b24..c6fff7 root=a292e8..50c46d elapsed="45.224µs"
+    status.go:108:              INFO [09-22|21:52:16.185] New L1 finalized block                   role=sequencer1 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.185] New L1 safe block                        role=sequencer1 l1_safe=043e4f..e3e6c6:0
+    pipeline.go:197:            INFO [09-22|21:52:16.341] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer1
+    l1_traversal.go:93:         INFO [09-22|21:52:16.341] completed reset of derivation pipeline   role=sequencer1 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.341] Reset of L1Retrieval done                role=sequencer1 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.344] Advancing bq origin                      role=sequencer1 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.345] Advancing bq origin                      role=sequencer1 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.347] Advancing bq origin                      role=sequencer1 origin=a72b24..c6fff7:3 originBehind=false
+    status.go:104:              INFO [09-22|21:52:16.466] New L1 safe block                        role=sequencer2 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.466] New L1 finalized block                   role=sequencer2 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.610] New L1 safe block                        role=sequencer3 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.611] New L1 finalized block                   role=sequencer3 l1_finalized=043e4f..e3e6c6:0
+2024-09-22T21:52:16.620Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2024-09-22T21:52:16.620Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:57135 [Candidate]" term=2
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-voting for self: term=2 id=sequencer1
+2024-09-22T21:52:16.620Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-vote received: from=sequencer1 term=2 tally=0
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+2024-09-22T21:52:16.620Z [DEBUG] raft: voting for self: term=2 id=sequencer1
+2024-09-22T21:52:16.620Z [DEBUG] raft: vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: election won: term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:57135 [Leader]"
+    pipeline.go:197:            INFO [09-22|21:52:16.654] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer3
+    l1_traversal.go:93:         INFO [09-22|21:52:16.654] completed reset of derivation pipeline   role=sequencer3 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.654] Reset of L1Retrieval done                role=sequencer3 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.657] Advancing bq origin                      role=sequencer3 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.658] Advancing bq origin                      role=sequencer3 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.659] Advancing bq origin                      role=sequencer3 origin=a72b24..c6fff7:3 originBehind=false
+    pipeline.go:197:            INFO [09-22|21:52:16.684] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer2
+    l1_traversal.go:93:         INFO [09-22|21:52:16.684] completed reset of derivation pipeline   role=sequencer2 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.685] Reset of L1Retrieval done                role=sequencer2 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.687] Advancing bq origin                      role=sequencer2 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.690] Advancing bq origin                      role=sequencer2 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.692] Advancing bq origin                      role=sequencer2 origin=a72b24..c6fff7:3 originBehind=false
+    monitor.go:212:             INFO [09-22|21:52:16.777] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.791] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.806] sequencer is healthy
+    sequencer_failover_setup.go:94: 
+        	Error Trace:	/root/project/op-e2e/system/conductor/sequencer_failover_setup.go:94
+        	            				/root/project/op-e2e/system/conductor/sequencer_failover_test.go:204
+        	Error:      	Received unexpected error:
+        	            	method handler crashed
+        	Test:       	TestSequencerFailover_DisasterRecovery_OverrideLeader
+2024-09-22T21:52:16.821Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+2024-09-22T21:52:16.821Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer3 server-addr=127.0.0.1:56814 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:57135} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:49767} {Suffrage:Voter ID:sequencer3 Address:127.0.0.1:56814}]"
+    setup.go:394: CLOSING
+2024-09-22T21:52:16.821Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer2 127.0.0.1:49767}" next=1
+    node.go:666:                INFO [09-22|21:52:16.821] stopping node: sequencer already stopped role=sequencer1 latestHead=000000..000000
+2024-09-22T21:52:16.821Z [INFO]  raft: added peer, starting replication: peer=sequencer3
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+2024-09-22T21:52:16.822Z [INFO]  raft: pipelining replication: peer="{Voter sequencer2 127.0.0.1:49767}"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.822] State loop returned                      role=sequencer1
+2024-09-22T21:52:16.822Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+2024-09-22T21:52:16.822Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer3 127.0.0.1:56814}" next=1
+    node.go:666:                INFO [09-22|21:52:16.822] stopping node: sequencer already stopped role=sequencer2 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.822] State loop returned                      role=sequencer2
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+2024-09-22T21:52:16.822Z [INFO]  raft: pipelining replication: peer="{Voter sequencer3 127.0.0.1:56814}"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    node.go:666:                INFO [09-22|21:52:16.822] stopping node: sequencer already stopped role=sequencer3 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.823] State loop returned                      role=sequencer3
+    state.go:277:               INFO [09-22|21:52:16.823] State loop returned                      role=verifier
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:35425
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:40219
+INFO [09-22|21:52:16.823] Ethereum protocol stopped
+INFO [09-22|21:52:16.823] Transaction pool stopped
+INFO [09-22|21:52:16.823] Blockchain stopped
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:37053
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:33147
+INFO [09-22|21:52:16.823] Ethereum protocol stopped
+INFO [09-22|21:52:16.823] Transaction pool stopped
+INFO [09-22|21:52:16.823] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:41855
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:36989
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.824] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:43867
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:44611
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.824] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:33957
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.825] Blockchain stopped
+INFO [09-22|21:52:16.825] HTTP server stopped                      endpoint=127.0.0.1:35631
+INFO [09-22|21:52:16.825] HTTP server stopped                      endpoint=127.0.0.1:33505
+INFO [09-22|21:52:16.825] Ethereum protocol stopped
+INFO [09-22|21:52:16.825] Transaction pool stopped
+INFO [09-22|21:52:16.825] Blockchain stopped
+ERROR[09-22|21:52:16.825] RPC method admin_startSequencer crashed: runtime error: invalid memory address or nil pointer dereference
+goroutine 193703 [running]:
+github.com/ethereum/go-ethereum/rpc.(*callback).call.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:199 +0x85
+panic({0x1e80f40?, 0x40b1d30?})
+	/usr/local/go/src/runtime/panic.go:914 +0x21f
+github.com/ethereum-optimism/optimism/op-conductor/rpc.(*APIClient).Leader(0x0, {0x301fec8, 0xc007a81dc0})
+	/root/project/op-conductor/rpc/client.go:84 +0x6a
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader.func1()
+	/root/project/op-node/node/conductor.go:79 +0x68
+github.com/ethereum-optimism/optimism/op-service/retry.Do[...]({0x301fec8?, 0xc007a81dc0}, 0x2, {0x3007be0, 0xc01d5262a8}, 0xc0036a9298)
+	/root/project/op-service/retry/operation.go:52 +0x109
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader(0xc00f15de30, {0x301fe58?, 0xc00239c0a0?})
+	/root/project/op-node/node/conductor.go:77 +0x10b
+github.com/ethereum-optimism/optimism/op-node/rollup/sequencing.(*Sequencer).Start(0xc015bea700, {0x301fe58, 0xc00239c0a0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/sequencing/sequencer.go:585 +0x5e
+github.com/ethereum-optimism/optimism/op-node/rollup/driver.(*Driver).StartSequencer(0x1f0f1c0?, {0x301fe58?, 0xc00239c0a0?}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/driver/state.go:471 +0x3f
+github.com/ethereum-optimism/optimism/op-node/node.(*adminAPI).StartSequencer(0xc0159707f8, {0x301fe58, 0xc00239c0a0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/node/api.go:65 +0x9e
+reflect.Value.call({0xc01b1a6420?, 0xc009f66620?, 0x7f6658d12bc0?}, {0x21e0402, 0x4}, {0xc00239c140, 0x3, 0x41a052?})
+	/usr/local/go/src/reflect/value.go:596 +0xce7
+reflect.Value.Call({0xc01b1a6420?, 0xc009f66620?, 0x5941e5?}, {0xc00239c140?, 0x1?, 0x16?})
+	/usr/local/go/src/reflect/value.go:380 +0xb9
+github.com/ethereum/go-ethereum/rpc.(*callback).call(0xc01b1a6480, {0x301fe58?, 0xc00239c0a0}, {0xc022e9f908, 0x14}, {0xc0098ba408, 0x1, 0x499def?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:205 +0x37c
+github.com/ethereum/go-ethereum/rpc.(*handler).runMethod(0xc006fb9540?, {0x301fe58?, 0xc00239c0a0?}, 0xc007a81d50, 0x1?, {0xc0098ba408?, 0x41b728?, 0x7a000000043b0c00?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:568 +0x3c
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCall(0xc012580fa0, 0xc0153efe60, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:515 +0x22f
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCallMsg(0xc012580fa0, 0xc0153efec0?, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:473 +0x22d
+github.com/ethereum/go-ethereum/rpc.(*handler).handleNonBatchCall(0xc012580fa0, 0xc0153efe60, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:299 +0x187
+github.com/ethereum/go-ethereum/rpc.(*handler).handleMsg.func1.1(0x301fe58?)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:272 +0x25
+github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:390 +0xbe
+created by github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc in goroutine 192529
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:386 +0x79
+
+WARN [09-22|21:52:16.825] Served admin_startSequencer              conn=127.0.0.1:43036 reqid=1 duration="209.17µs" err="method handler crashed"
+--- FAIL: TestSequencerFailover_DisasterRecovery_OverrideLeader (6.69s)
+[31mFAIL[0m op-e2e/system/conductor.TestSequencerFailover_DisasterRecovery_OverrideLeader (6.69s)
+=== RUN   TestSequencerFailover_ConductorRPC
+=== PAUSE TestSequencerFailover_ConductorRPC
+=== CONT  TestSequencerFailover_ConductorRPC
+    e2e.go:124: Running test. Assigned executor (1) matches current executor (1) of total (4)
+    config.go:611:              WARN [09-22|21:52:10.164] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.164] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+INFO [09-22|21:52:10.165] Included L1 deployment                   name=AddressManager address=0xe4EB561155AFCe723bB1fF8606Fbfe9b28d5d38D balance=0 storage=2 nonce=1
+    setup.go:520: Generating L2 genesis l2_allocs_mode ecotone
+    config.go:120:              INFO [09-22|21:52:14.173] No persisted sequencer state loaded      role=sequencer1
+    types.go:637:               INFO [09-22|21:52:14.173] Rollup Config                            role=sequencer1 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.174] Initializing rollup node                 role=sequencer1 version=
+INFO [09-22|21:52:14.178] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.178] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer1 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.184] loaded new runtime config values!        role=sequencer1 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.184] Peer scoring disabled                    role=sequencer1
+    node.go:168:                INFO [09-22|21:52:14.184] started p2p host                         role=sequencer1 addrs=[/ip6/100::e541:76f1:ff26:8317/tcp/4242] peerID=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY
+    node.go:442:                INFO [09-22|21:52:14.184] Admin RPC enabled                        role=sequencer1
+    node.go:444:                INFO [09-22|21:52:14.184] Starting JSON-RPC server                 role=sequencer1
+    node.go:454:                INFO [09-22|21:52:14.185] metrics disabled                         role=sequencer1
+    node.go:516:                INFO [09-22|21:52:14.185] Starting execution engine driver         role=sequencer1
+INFO [09-22|21:52:14.185] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.185] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.185] State loop started                       role=sequencer1
+    state.go:390:               WARN [09-22|21:52:14.185] Deriver system is resetting              role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.185] Sequencer encountered reset signal, aborting work role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.185] Served eth_getBlockByNumber              conn=127.0.0.1:57708 reqid=3 duration="29.147µs" err="finalized block not found"
+WARN [09-22|21:52:14.186] Served eth_getBlockByNumber              conn=127.0.0.1:57708 reqid=4 duration="190.012µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.187] Loaded current L2 heads                  role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.188] Walking back L1Block by number           role=sequencer1 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.188] Hit finalized L2 head, returning immediately role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.188] Current hardfork version detected        role=sequencer1 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.189] Engine reset confirmed, sequencer may continue role=sequencer1 next=false
+    status.go:86:               INFO [09-22|21:52:14.278] Received first L1 head signal            role=sequencer1 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.468] No persisted sequencer state loaded      role=sequencer2
+    types.go:637:               INFO [09-22|21:52:14.468] Rollup Config                            role=sequencer2 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.469] Initializing rollup node                 role=sequencer2 version=
+    node.go:376:                INFO [09-22|21:52:14.475] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer2 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.481] loaded new runtime config values!        role=sequencer2 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.482] Peer scoring disabled                    role=sequencer2
+    node.go:168:                INFO [09-22|21:52:14.482] started p2p host                         role=sequencer2 addrs=[/ip6/100::b6e:cb6d:d750:bb42/tcp/4242] peerID=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh
+    node.go:442:                INFO [09-22|21:52:14.482] Admin RPC enabled                        role=sequencer2
+    node.go:444:                INFO [09-22|21:52:14.482] Starting JSON-RPC server                 role=sequencer2
+    node.go:454:                INFO [09-22|21:52:14.482] metrics disabled                         role=sequencer2
+    node.go:516:                INFO [09-22|21:52:14.482] Starting execution engine driver         role=sequencer2
+INFO [09-22|21:52:14.482] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.482] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.483] State loop started                       role=sequencer2
+    state.go:390:               WARN [09-22|21:52:14.483] Deriver system is resetting              role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.483] Sequencer encountered reset signal, aborting work role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.484] Served eth_getBlockByNumber              conn=127.0.0.1:47950 reqid=3 duration="32.441µs" err="finalized block not found"
+WARN [09-22|21:52:14.484] Served eth_getBlockByNumber              conn=127.0.0.1:47950 reqid=4 duration="28.673µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.485] Loaded current L2 heads                  role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.486] Walking back L1Block by number           role=sequencer2 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.486] Hit finalized L2 head, returning immediately role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.486] Current hardfork version detected        role=sequencer2 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.487] Engine reset confirmed, sequencer may continue role=sequencer2 next=false
+    status.go:86:               INFO [09-22|21:52:14.572] Received first L1 head signal            role=sequencer2 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.606] No persisted sequencer state loaded      role=sequencer3
+    types.go:637:               INFO [09-22|21:52:14.606] Rollup Config                            role=sequencer3 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.607] Initializing rollup node                 role=sequencer3 version=
+    node.go:376:                INFO [09-22|21:52:14.609] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer3 version="fakebeacon 1.2.3"
+INFO [09-22|21:52:14.609] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    runtime_config.go:125:      INFO [09-22|21:52:14.614] loaded new runtime config values!        role=sequencer3 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.614] Peer scoring disabled                    role=sequencer3
+    node.go:168:                INFO [09-22|21:52:14.615] started p2p host                         role=sequencer3 addrs=[/ip6/100::128c:f81d:6ff7:fccb/tcp/4242] peerID=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc
+    node.go:442:                INFO [09-22|21:52:14.615] Admin RPC enabled                        role=sequencer3
+    node.go:444:                INFO [09-22|21:52:14.615] Starting JSON-RPC server                 role=sequencer3
+    node.go:454:                INFO [09-22|21:52:14.615] metrics disabled                         role=sequencer3
+    node.go:516:                INFO [09-22|21:52:14.615] Starting execution engine driver         role=sequencer3
+INFO [09-22|21:52:14.615] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.615] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.615] State loop started                       role=sequencer3
+INFO [09-22|21:52:14.615] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.615] Rollup node started
+    state.go:390:               WARN [09-22|21:52:14.616] Deriver system is resetting              role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.616] Sequencer encountered reset signal, aborting work role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:50774 reqid=3 duration="24.631µs" err="finalized block not found"
+    start.go:121:               INFO [09-22|21:52:14.617] Loaded current L2 heads                  role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.618] Walking back L1Block by number           role=sequencer3 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.618] Hit finalized L2 head, returning immediately role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.618] Current hardfork version detected        role=sequencer3 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.619] Engine reset confirmed, sequencer may continue role=sequencer3 next=false
+    status.go:86:               INFO [09-22|21:52:14.711] Received first L1 head signal            role=sequencer3 l1_head=9a151b..26e983:2
+    types.go:637:               INFO [09-22|21:52:14.753] Rollup Config                            role=verifier l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.754] Initializing rollup node                 role=verifier version=
+INFO [09-22|21:52:14.756] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.756] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=verifier version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.773] loaded new runtime config values!        role=verifier p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.773] Peer scoring disabled                    role=verifier
+2024-09-22T21:52:14.773Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:55513 [Follower]" leader-address= leader-id=
+    node.go:168:                INFO [09-22|21:52:14.773] started p2p host                         role=verifier addrs=[/ip6/100::1c15:3627:dffb:61ff/tcp/4242] peerID=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn
+    node.go:442:                INFO [09-22|21:52:14.773] Admin RPC enabled                        role=verifier
+    node.go:444:                INFO [09-22|21:52:14.774] Starting JSON-RPC server                 role=verifier
+    node.go:454:                INFO [09-22|21:52:14.774] metrics disabled                         role=verifier
+    node.go:516:                INFO [09-22|21:52:14.774] Starting execution engine driver         role=verifier
+INFO [09-22|21:52:14.774] Starting driver                          sequencerEnabled=false sequencerStopped=false
+INFO [09-22|21:52:14.774] Rollup node started
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer1 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    state.go:148:               INFO [09-22|21:52:14.774] State loop started                       role=verifier
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    state.go:390:               WARN [09-22|21:52:14.774] Deriver system is resetting              role=verifier err="reset: cannot continue derivation until Engine has been reset"
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer1 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=verifier peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=verifier peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=sequencer1 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=verifier peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    service.go:105:             INFO [09-22|21:52:14.775] initializing OpConductor                 version=0.0.1
+WARN [09-22|21:52:14.775] Served eth_getBlockByNumber              conn=127.0.0.1:41254 reqid=4 duration="30.318µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.777] Loaded current L2 heads                  role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    service.go:816:             INFO [09-22|21:52:14.777] sequencer active status updated          active=false
+    start.go:181:               INFO [09-22|21:52:14.777] Walking back L1Block by number           role=verifier curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.778] Hit finalized L2 head, returning immediately role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.778] Current hardfork version detected        role=verifier forkName=ecotone
+2024-09-22T21:52:14.779Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.779Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:57135 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.780] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.780] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.780] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.780] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.790] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.791] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.792] sequencer active status updated          active=false
+2024-09-22T21:52:14.794Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.794Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:49767 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.794] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.794] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.794] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.794] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.805] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.805] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.807] sequencer active status updated          active=false
+2024-09-22T21:52:14.809Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.809Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:56814 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.809] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.809] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.809] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.809] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.820] OpConductor started
+    sequencer_failover_setup.go:168: setupHAInfra took 4.681351881s
+    status.go:86:               INFO [09-22|21:52:14.856] Received first L1 head signal            role=verifier l1_head=9a151b..26e983:2
+INFO [09-22|21:52:15.012] Starting work on payload                 id=0x03946c527028d789
+INFO [09-22|21:52:15.012] Updated payload                          id=0x03946c527028d789 number=3 hash=a72b24..c6fff7 txs=0 withdrawals=0 gas=0 fees=0 root=a292e8..50c46d elapsed="230.901µs"
+INFO [09-22|21:52:15.104] Starting work on payload                 id=0x03946c527028d789
+INFO [09-22|21:52:15.105] Updated payload                          id=0x03946c527028d789 number=3 hash=a72b24..c6fff7 txs=0 withdrawals=0 gas=0 fees=0 root=a292e8..50c46d elapsed="180.022µs"
+    monitor.go:212:             INFO [09-22|21:52:15.782] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.796] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.812] sequencer is healthy
+2024-09-22T21:52:15.822Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2024-09-22T21:52:15.822Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:55513 [Candidate]" term=2
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-voting for self: term=2 id=sequencer1
+2024-09-22T21:52:15.822Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-vote received: from=sequencer1 term=2 tally=0
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:15.822Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+2024-09-22T21:52:15.822Z [DEBUG] raft: voting for self: term=2 id=sequencer1
+2024-09-22T21:52:15.823Z [DEBUG] raft: vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:15.823Z [INFO]  raft: election won: term=2 tally=1
+2024-09-22T21:52:15.823Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:55513 [Leader]"
+    status.go:104:              INFO [09-22|21:52:16.179] New L1 safe block                        role=sequencer1 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.179] New L1 finalized block                   role=sequencer1 l1_finalized=043e4f..e3e6c6:0
+    pipeline.go:197:            INFO [09-22|21:52:16.302] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer1
+    l1_traversal.go:93:         INFO [09-22|21:52:16.302] completed reset of derivation pipeline   role=sequencer1 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.302] Reset of L1Retrieval done                role=sequencer1 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.305] Advancing bq origin                      role=sequencer1 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.306] Advancing bq origin                      role=sequencer1 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.307] Advancing bq origin                      role=sequencer1 origin=a72b24..c6fff7:3 originBehind=false
+2024-09-22T21:52:16.316Z [WARN]  raft: no known peers, aborting election
+    status.go:108:              INFO [09-22|21:52:16.475] New L1 finalized block                   role=sequencer2 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.476] New L1 safe block                        role=sequencer2 l1_safe=043e4f..e3e6c6:0
+2024-09-22T21:52:16.494Z [WARN]  raft: no known peers, aborting election
+    pipeline.go:197:            INFO [09-22|21:52:16.572] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer2
+    l1_traversal.go:93:         INFO [09-22|21:52:16.572] completed reset of derivation pipeline   role=sequencer2 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.572] Reset of L1Retrieval done                role=sequencer2 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.575] Advancing bq origin                      role=sequencer2 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.576] Advancing bq origin                      role=sequencer2 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.578] Advancing bq origin                      role=sequencer2 origin=a72b24..c6fff7:3 originBehind=false
+    status.go:108:              INFO [09-22|21:52:16.610] New L1 finalized block                   role=sequencer3 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.610] New L1 safe block                        role=sequencer3 l1_safe=043e4f..e3e6c6:0
+    service.go:568:             INFO [09-22|21:52:16.621] Leadership status changed                server=sequencer1 leader=true
+    pipeline.go:197:            INFO [09-22|21:52:16.699] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer3
+    l1_traversal.go:93:         INFO [09-22|21:52:16.699] completed reset of derivation pipeline   role=sequencer3 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.699] Reset of L1Retrieval done                role=sequencer3 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.702] Advancing bq origin                      role=sequencer3 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.704] Advancing bq origin                      role=sequencer3 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.705] Advancing bq origin                      role=sequencer3 origin=a72b24..c6fff7:3 originBehind=false
+2024-09-22T21:52:16.738Z [WARN]  raft: no known peers, aborting election
+    monitor.go:212:             INFO [09-22|21:52:16.781] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.796] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.811] sequencer is healthy
+2024-09-22T21:52:16.817Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer2 server-addr=127.0.0.1:50529 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:55513} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:50529}]"
+2024-09-22T21:52:16.817Z [INFO]  raft: added peer, starting replication: peer=sequencer2
+2024-09-22T21:52:16.818Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer3 server-addr=127.0.0.1:62073 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:55513} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:50529} {Suffrage:Voter ID:sequencer3 Address:127.0.0.1:62073}]"
+2024-09-22T21:52:16.818Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+2024-09-22T21:52:16.818Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer2 127.0.0.1:50529}" next=1
+2024-09-22T21:52:16.818Z [INFO]  raft: added peer, starting replication: peer=sequencer3
+2024-09-22T21:52:16.818Z [INFO]  raft: pipelining replication: peer="{Voter sequencer2 127.0.0.1:50529}"
+2024-09-22T21:52:16.818Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+2024-09-22T21:52:16.818Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer3 127.0.0.1:62073}" next=1
+2024-09-22T21:52:16.819Z [INFO]  raft: pipelining replication: peer="{Voter sequencer3 127.0.0.1:62073}"
+2024-09-22T21:52:16.821Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer2 server-addr=127.0.0.1:49767 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:57135} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:49767}]"
+ERROR[09-22|21:52:16.821] RPC method admin_startSequencer crashed: runtime error: invalid memory address or nil pointer dereference
+goroutine 193583 [running]:
+github.com/ethereum/go-ethereum/rpc.(*callback).call.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:199 +0x85
+panic({0x1e80f40?, 0x40b1d30?})
+	/usr/local/go/src/runtime/panic.go:914 +0x21f
+github.com/ethereum-optimism/optimism/op-conductor/rpc.(*APIClient).Leader(0x0, {0x301fec8, 0xc0004897a0})
+	/root/project/op-conductor/rpc/client.go:84 +0x6a
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader.func1()
+	/root/project/op-node/node/conductor.go:79 +0x68
+github.com/ethereum-optimism/optimism/op-service/retry.Do[...]({0x301fec8?, 0xc0004897a0}, 0x2, {0x3007be0, 0xc01c9362f8}, 0xc0033cf298)
+	/root/project/op-service/retry/operation.go:52 +0x109
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader(0xc0198bcae0, {0x301fe58?, 0xc0097887d0?})
+	/root/project/op-node/node/conductor.go:77 +0x10b
+github.com/ethereum-optimism/optimism/op-node/rollup/sequencing.(*Sequencer).Start(0xc01b908000, {0x301fe58, 0xc0097887d0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/sequencing/sequencer.go:585 +0x5e
+github.com/ethereum-optimism/optimism/op-node/rollup/driver.(*Driver).StartSequencer(0x1f0f1c0?, {0x301fe58?, 0xc0097887d0?}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/driver/state.go:471 +0x3f
+github.com/ethereum-optimism/optimism/op-node/node.(*adminAPI).StartSequencer(0xc01b955da0, {0x301fe58, 0xc0097887d0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/node/api.go:65 +0x9e
+reflect.Value.call({0xc01b1a6420?, 0xc006c8ad98?, 0x7f6638259268?}, {0x21e0402, 0x4}, {0xc009788870, 0x3, 0x41a052?})
+	/usr/local/go/src/reflect/value.go:596 +0xce7
+reflect.Value.Call({0xc01b1a6420?, 0xc006c8ad98?, 0x5941e5?}, {0xc009788870?, 0x1?, 0x16?})
+	/usr/local/go/src/reflect/value.go:380 +0xb9
+github.com/ethereum/go-ethereum/rpc.(*callback).call(0xc01bcb2360, {0x301fe58?, 0xc0097887d0}, {0xc0073c6fd8, 0x14}, {0xc0089a51d0, 0x1, 0x499def?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:205 +0x37c
+github.com/ethereum/go-ethereum/rpc.(*handler).runMethod(0xc00005af50?, {0x301fe58?, 0xc0097887d0?}, 0xc000489730, 0x1?, {0xc0089a51d0?, 0x41b728?, 0xc40000c000346000?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:568 +0x3c
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCall(0xc003d26fa0, 0xc01bca0c30, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:515 +0x22f
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCallMsg(0xc003d26fa0, 0xc01bca0c90?, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:473 +0x22d
+github.com/ethereum/go-ethereum/rpc.(*handler).handleNonBatchCall(0xc003d26fa0, 0xc01bca0c30, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:299 +0x187
+github.com/ethereum/go-ethereum/rpc.(*handler).handleMsg.func1.1(0x301fe58?)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:272 +0x25
+github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:390 +0xbe
+created by github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc in goroutine 182061
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:386 +0x79
+
+2024-09-22T21:52:16.821Z [INFO]  raft: added peer, starting replication: peer=sequencer2
+WARN [09-22|21:52:16.821] Served admin_startSequencer              conn=127.0.0.1:56930 reqid=1 duration="208.23µs" err="method handler crashed"
+    sequencer_failover_setup.go:94: 
+        	Error Trace:	/root/project/op-e2e/system/conductor/sequencer_failover_setup.go:94
+        	            				/root/project/op-e2e/system/conductor/sequencer_failover_test.go:31
+        	Error:      	Received unexpected error:
+        	            	method handler crashed
+        	Test:       	TestSequencerFailover_ConductorRPC
+    setup.go:394: CLOSING
+    node.go:666:                INFO [09-22|21:52:16.825] stopping node: sequencer already stopped role=sequencer2 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer1 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:16.826] connected to peer                        role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=verifier peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.826] State loop returned                      role=sequencer2
+    notifications.go:32:        INFO [09-22|21:52:16.826] connected to peer                        role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=verifier peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.826] State loop returned                      role=sequencer3
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer1 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.827] disconnected from peer                   role=verifier peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.827] disconnected from peer                   role=sequencer1 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.827] State loop returned                      role=verifier
+    state.go:277:               INFO [09-22|21:52:16.827] State loop returned                      role=sequencer1
+INFO [09-22|21:52:16.827] HTTP server stopped                      endpoint=127.0.0.1:39061
+INFO [09-22|21:52:16.827] HTTP server stopped                      endpoint=127.0.0.1:43883
+INFO [09-22|21:52:16.827] Ethereum protocol stopped
+INFO [09-22|21:52:16.827] Transaction pool stopped
+INFO [09-22|21:52:16.827] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:42565
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:37065
+INFO [09-22|21:52:16.828] Ethereum protocol stopped
+INFO [09-22|21:52:16.828] Transaction pool stopped
+INFO [09-22|21:52:16.828] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:45623
+INFO [09-22|21:52:16.828] Ethereum protocol stopped
+INFO [09-22|21:52:16.828] Transaction pool stopped
+INFO [09-22|21:52:16.828] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:44361
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:44645
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:36171
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:32881
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:38739
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:44859
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+--- FAIL: TestSequencerFailover_ConductorRPC (6.69s)
+[31mFAIL[0m op-e2e/system/conductor.TestSequencerFailover_ConductorRPC (6.69s)
+[31mFAIL[0m op-e2e/system/conductor
+[32mPASS[0m op-e2e/opgeth.TestPreFjord/RIP7212_FjordNotYetActive (0.41s)
+[32mPASS[0m op-e2e/opgeth.TestPreFjord/RIP7212_FjordNotScheduled (0.44s)
+[32mPASS[0m op-e2e/opgeth.TestPreFjord (0.00s)
+[32mPASS[0m op-e2e/opgeth.TestFjord/RIP7212_ActivateAtGenesis (0.42s)
+[32mPASS[0m op-e2e/opgeth.TestFjord/RIP7212_ActivateAfterGenesis (0.44s)
+[32mPASS[0m op-e2e/opgeth.TestFjord (0.00s)
+[33mSKIP[0m op-e2e/opgeth.TestMissingGasLimit (0.00s)
+[33mSKIP[0m op-e2e/opgeth.TestGethOnlyPendingBlockIsLatest (0.00s)
+[33mSKIP[0m op-e2e/opgeth.TestInvalidDepositInFCU (0.00s)
+[33mSKIP[0m op-e2e/opgeth.TestTxGasSameAsBlockGasLimit (0.00s)
+[32mPASS[0m op-e2e/opgeth
+[32mPASS[0m op-e2e/system/fees.TestFees/fjord (7.71s)
+[32mPASS[0m op-e2e/system/fees.TestFees/regolith (7.71s)
+[32mPASS[0m op-e2e/system/fees.TestFees/ecotone (7.75s)
+[32mPASS[0m op-e2e/system/verifier.TestMissingBatchE2E (8.29s)
+[32mPASS[0m op-e2e/system/fees.TestFees/pre-regolith (11.71s)
+[32mPASS[0m op-e2e/system/fees.TestFees (0.00s)
+[33mSKIP[0m op-e2e/system/fees.TestGasPriceOracleFeeUpdates (0.00s)
+[32mPASS[0m op-e2e/system/runcfg.TestRequiredProtocolVersionChangeAndHalt (15.24s)
+[32mPASS[0m op-e2e/system/runcfg
+[32mPASS[0m op-e2e/system/verifier.TestSystemE2EDencunAtGenesis (15.34s)
+[32mPASS[0m op-e2e/system/verifier
+[32mPASS[0m op-e2e/system/fees.TestL1InfoContract (6.88s)
+[32mPASS[0m op-e2e/system/fees
+[32mPASS[0m op-e2e/system/da.TestSystem4844E2E/calldata (18.60s)
+[32mPASS[0m op-e2e/system/da.TestSystem4844E2E/single-blob (18.69s)
+[32mPASS[0m op-e2e/system/da.TestSystem4844E2E/multi-blob (19.05s)
+[32mPASS[0m op-e2e/system/da.TestSystem4844E2E (0.00s)
+[32mPASS[0m op-e2e/system/p2p.TestSystemP2PAltSync (19.37s)
+[32mPASS[0m op-e2e/system/p2p
+[32mPASS[0m op-e2e/system/proofs.TestVerifyL2OutputRoot (20.29s)
+[32mPASS[0m op-e2e/system/proofs.TestVerifyL2OutputRootDetached (20.81s)
+[32mPASS[0m op-e2e/interop.TestInteropTrivial (23.15s)
+[32mPASS[0m op-e2e/interop
+[32mPASS[0m op-e2e/system/da.TestSystemBatchType/StopStartBatcher_SpanBatch (50.51s)
+[32mPASS[0m op-e2e/system/da.TestSystemBatchType/StopStartBatcher_SingularBatch (50.55s)
+[32mPASS[0m op-e2e/system/da.TestSystemBatchType/StopStartBatcher_SpanBatchMaxBlocks (50.55s)
+[32mPASS[0m op-e2e/system/da.TestSystemBatchType (0.00s)
+[33mSKIP[0m op-e2e/system/da.TestBatcherAutoDA (0.00s)
+[33mSKIP[0m op-e2e/system/da.TestGetVersion (0.00s)
+[33mSKIP[0m op-e2e/system/da.Test404NotFound (0.00s)
+[32mPASS[0m op-e2e/system/proofs.TestVerifyL2OutputRootEmptyBlockDetached (70.75s)
+[32mPASS[0m op-e2e/system/proofs
+[32mPASS[0m op-e2e/system/da.TestSystemE2EDencunAtGenesisWithBlobs (10.38s)
+[32mPASS[0m op-e2e/system/da.TestBatcherMultiTx (14.12s)
+[32mPASS[0m op-e2e/system/da.TestBrotliBatcherFjord (17.91s)
+[32mPASS[0m op-e2e/system/da
+[32mPASS[0m op-e2e/system/bridge.TestMixedDepositValidity (123.36s)
+[32mPASS[0m op-e2e/system/bridge
+
+=== [33mSkipped[0m
+=== [33mSKIP[0m: op-e2e/opgeth TestMissingGasLimit (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/opgeth TestGethOnlyPendingBlockIsLatest (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/opgeth TestInvalidDepositInFCU (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/opgeth TestTxGasSameAsBlockGasLimit (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/altda TestBatcherConcurrentAltDARequests (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestDepositTxCreateContract (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestL2SequencerRPCDepositTx (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestERC20BridgeDeposits (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestMintOnRevertedDeposit (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestMixedWithdrawalValidity (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/bridge TestWithdrawals (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/conductor TestPersistSequencerStateWhenChanged (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/conductor TestSequencerFailover_SetupCluster (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/conductor TestSequencerFailover_ActiveSequencerDown (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/conductor TestStopStartSequencer (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/conductor TestPostUnsafePayload (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/contracts TestArtifacts (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/da TestBatcherAutoDA (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/da TestGetVersion (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/da Test404NotFound (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/fees TestGasPriceOracleFeeUpdates (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/fjord TestCheckFjordScript (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/gastoken TestCustomGasToken (0.00s)
+    e2e.go:72: Skipping test for fault proofs
+
+=== [33mSKIP[0m: op-e2e/system/p2p TestSystemDenseTopology (0.00s)
+    gossip_test.go:106: Skipping dense topology test to avoid flakiness. @refcell address in p2p scoring pr.
+
+=== [33mSKIP[0m: op-e2e/system/p2p TestSystemMockP2P (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/p2p TestTxGossip (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestL2OutputSubmitterFaultProofs (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestVerifyL2OutputRootEmptyBlockDetachedSpanBatch (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestVerifyL2OutputRootEmptyBlockSpanBatch (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestVerifyL2OutputRootSpanBatch (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestL2OutputSubmitter (0.00s)
+    e2e.go:72: Skipping test for fault proofs
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestVerifyL2OutputRootDetachedSpanBatch (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/proofs TestVerifyL2OutputRootEmptyBlock (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/runcfg TestRuntimeConfigReload (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 0, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/runcfg TestRecommendedProtocolVersionChange (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/verifier TestPendingGasLimit (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/verifier TestFinalize (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/verifier TestConfirmationDepth (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 2, current executor 1 of total 4
+
+=== [33mSKIP[0m: op-e2e/system/verifier TestSystemE2E (0.00s)
+    e2e.go:127: Skipping test. Assigned executor 3, current executor 1 of total 4
+
+=== [31mFailed[0m
+=== [31mFAIL[0m: op-e2e/system/conductor TestSequencerFailover_DisasterRecovery_OverrideLeader (6.69s)
+    e2e.go:124: Running test. Assigned executor (1) matches current executor (1) of total (4)
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+INFO [09-22|21:52:10.165] Building developer L1 genesis block
+    setup.go:520: Generating L2 genesis l2_allocs_mode ecotone
+    config.go:120:              INFO [09-22|21:52:14.181] No persisted sequencer state loaded      role=sequencer1
+    types.go:637:               INFO [09-22|21:52:14.181] Rollup Config                            role=sequencer1 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.182] Initializing rollup node                 role=sequencer1 version=
+INFO [09-22|21:52:14.184] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.184] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer1 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.188] loaded new runtime config values!        role=sequencer1 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.188] Peer scoring disabled                    role=sequencer1
+    node.go:168:                INFO [09-22|21:52:14.188] started p2p host                         role=sequencer1 addrs=[/ip6/100::f743:fdbf:8020:579b/tcp/4242] peerID=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z
+    node.go:442:                INFO [09-22|21:52:14.189] Admin RPC enabled                        role=sequencer1
+    node.go:444:                INFO [09-22|21:52:14.189] Starting JSON-RPC server                 role=sequencer1
+    node.go:454:                INFO [09-22|21:52:14.189] metrics disabled                         role=sequencer1
+    node.go:516:                INFO [09-22|21:52:14.189] Starting execution engine driver         role=sequencer1
+INFO [09-22|21:52:14.189] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.189] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.189] State loop started                       role=sequencer1
+    state.go:390:               WARN [09-22|21:52:14.189] Deriver system is resetting              role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.189] Sequencer encountered reset signal, aborting work role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.190] Served eth_getBlockByNumber              conn=127.0.0.1:39230 reqid=3 duration="36.098µs" err="finalized block not found"
+WARN [09-22|21:52:14.190] Served eth_getBlockByNumber              conn=127.0.0.1:39230 reqid=4 duration="29.513µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.191] Loaded current L2 heads                  role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.191] Walking back L1Block by number           role=sequencer1 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.192] Hit finalized L2 head, returning immediately role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.192] Current hardfork version detected        role=sequencer1 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.192] Engine reset confirmed, sequencer may continue role=sequencer1 next=false
+    status.go:86:               INFO [09-22|21:52:14.284] Received first L1 head signal            role=sequencer1 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.462] No persisted sequencer state loaded      role=sequencer2
+    types.go:637:               INFO [09-22|21:52:14.462] Rollup Config                            role=sequencer2 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.463] Initializing rollup node                 role=sequencer2 version=
+INFO [09-22|21:52:14.465] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.465] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer2 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.473] loaded new runtime config values!        role=sequencer2 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.475] Peer scoring disabled                    role=sequencer2
+INFO [09-22|21:52:14.474] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:168:                INFO [09-22|21:52:14.475] started p2p host                         role=sequencer2 addrs=[/ip6/100::3580:7dfc:abde:c131/tcp/4242] peerID=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA
+    node.go:442:                INFO [09-22|21:52:14.476] Admin RPC enabled                        role=sequencer2
+    node.go:444:                INFO [09-22|21:52:14.476] Starting JSON-RPC server                 role=sequencer2
+    node.go:454:                INFO [09-22|21:52:14.476] metrics disabled                         role=sequencer2
+    node.go:516:                INFO [09-22|21:52:14.476] Starting execution engine driver         role=sequencer2
+INFO [09-22|21:52:14.476] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.476] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.477] State loop started                       role=sequencer2
+    state.go:390:               WARN [09-22|21:52:14.477] Deriver system is resetting              role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.478] Sequencer encountered reset signal, aborting work role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.478] Served eth_getBlockByNumber              conn=127.0.0.1:41514 reqid=3 duration="47.304µs" err="finalized block not found"
+WARN [09-22|21:52:14.479] Served eth_getBlockByNumber              conn=127.0.0.1:41514 reqid=4 duration="35.762µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.480] Loaded current L2 heads                  role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.480] Walking back L1Block by number           role=sequencer2 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.481] Hit finalized L2 head, returning immediately role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.481] Current hardfork version detected        role=sequencer2 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.481] Engine reset confirmed, sequencer may continue role=sequencer2 next=false
+    status.go:86:               INFO [09-22|21:52:14.565] Received first L1 head signal            role=sequencer2 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.607] No persisted sequencer state loaded      role=sequencer3
+    types.go:637:               INFO [09-22|21:52:14.607] Rollup Config                            role=sequencer3 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.608] Initializing rollup node                 role=sequencer3 version=
+INFO [09-22|21:52:14.608] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.609] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer3 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.615] loaded new runtime config values!        role=sequencer3 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.615] Peer scoring disabled                    role=sequencer3
+    node.go:168:                INFO [09-22|21:52:14.615] started p2p host                         role=sequencer3 addrs=[/ip6/100::92d0:d0e2:b425:88bf/tcp/4242] peerID=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE
+    node.go:442:                INFO [09-22|21:52:14.615] Admin RPC enabled                        role=sequencer3
+    node.go:444:                INFO [09-22|21:52:14.615] Starting JSON-RPC server                 role=sequencer3
+    node.go:454:                INFO [09-22|21:52:14.615] metrics disabled                         role=sequencer3
+    node.go:516:                INFO [09-22|21:52:14.615] Starting execution engine driver         role=sequencer3
+    state.go:148:               INFO [09-22|21:52:14.615] State loop started                       role=sequencer3
+    state.go:390:               WARN [09-22|21:52:14.616] Deriver system is resetting              role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.616] Sequencer encountered reset signal, aborting work role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:50774 reqid=4 duration="23.168µs" err="safe block not found"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:47894 reqid=3 duration="34.001µs" err="finalized block not found"
+WARN [09-22|21:52:14.617] Served eth_getBlockByNumber              conn=127.0.0.1:47894 reqid=4 duration="30.689µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.618] Loaded current L2 heads                  role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.619] Walking back L1Block by number           role=sequencer3 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.619] Hit finalized L2 head, returning immediately role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.619] Current hardfork version detected        role=sequencer3 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.620] Engine reset confirmed, sequencer may continue role=sequencer3 next=false
+    status.go:86:               INFO [09-22|21:52:14.713] Received first L1 head signal            role=sequencer3 l1_head=9a151b..26e983:2
+    types.go:637:               INFO [09-22|21:52:14.743] Rollup Config                            role=verifier l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.743] Initializing rollup node                 role=verifier version=
+INFO [09-22|21:52:14.749] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.749] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=verifier version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.756] loaded new runtime config values!        role=verifier p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.757] Peer scoring disabled                    role=verifier
+    node.go:168:                INFO [09-22|21:52:14.757] started p2p host                         role=verifier addrs=[/ip6/100::24d1:f4be:f1da:92d7/tcp/4242] peerID=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg
+    node.go:442:                INFO [09-22|21:52:14.757] Admin RPC enabled                        role=verifier
+    node.go:444:                INFO [09-22|21:52:14.757] Starting JSON-RPC server                 role=verifier
+    node.go:454:                INFO [09-22|21:52:14.757] metrics disabled                         role=verifier
+    node.go:516:                INFO [09-22|21:52:14.757] Starting execution engine driver         role=verifier
+INFO [09-22|21:52:14.757] Starting driver                          sequencerEnabled=false sequencerStopped=false
+INFO [09-22|21:52:14.757] Rollup node started
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer1 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer1 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer2 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer2 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.757] connected to peer                        role=sequencer3 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer3 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    service.go:105:             INFO [09-22|21:52:14.758] initializing OpConductor                 version=0.0.1
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer3 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=verifier peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.758] connected to peer                        role=sequencer1 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    state.go:148:               INFO [09-22|21:52:14.759] State loop started                       role=verifier
+    state.go:390:               WARN [09-22|21:52:14.759] Deriver system is resetting              role=verifier err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.759] Served eth_getBlockByNumber              conn=127.0.0.1:44452 reqid=3 duration="41.111µs" err="finalized block not found"
+WARN [09-22|21:52:14.760] Served eth_getBlockByNumber              conn=127.0.0.1:44452 reqid=4 duration="37.882µs" err="safe block not found"
+    notifications.go:32:        INFO [09-22|21:52:14.760] connected to peer                        role=sequencer2 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    start.go:121:               INFO [09-22|21:52:14.761] Loaded current L2 heads                  role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    service.go:816:             INFO [09-22|21:52:14.761] sequencer active status updated          active=false
+    start.go:181:               INFO [09-22|21:52:14.766] Walking back L1Block by number           role=verifier curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.766] Hit finalized L2 head, returning immediately role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.766] Current hardfork version detected        role=verifier forkName=ecotone
+2024-09-22T21:52:14.768Z [INFO]  raft: initial configuration: index=0 servers=[]
+    service.go:333:             INFO [09-22|21:52:14.774] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.775] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.775] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.775] starting JSON-RPC server
+WARN [09-22|21:52:14.775] Served eth_getBlockByNumber              conn=127.0.0.1:41254 reqid=3 duration="35.583µs" err="finalized block not found"
+    service.go:363:             INFO [09-22|21:52:14.785] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.786] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.787] sequencer active status updated          active=false
+2024-09-22T21:52:14.789Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.789Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:50529 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.790] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.790] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.790] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.790] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.800] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.801] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.802] sequencer active status updated          active=false
+2024-09-22T21:52:14.803Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.803Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:62073 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.804] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.804] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.804] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.804] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.815] OpConductor started
+    sequencer_failover_setup.go:168: setupHAInfra took 4.676483403s
+    status.go:86:               INFO [09-22|21:52:14.846] Received first L1 head signal            role=verifier l1_head=9a151b..26e983:2
+    monitor.go:212:             INFO [09-22|21:52:15.776] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.791] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.805] sequencer is healthy
+    service.go:568:             INFO [09-22|21:52:15.823] Leadership status changed                server=sequencer1 leader=true
+2024-09-22T21:52:15.883Z [WARN]  raft: no known peers, aborting election
+INFO [09-22|21:52:16.005] Stopping work on payload                 id=0x03946c527028d789 reason=delivery elapsed=993.156ms
+INFO [09-22|21:52:16.005] Stopping work on payload                 id=0x03946c527028d789 reason=delivery elapsed=900.464ms
+INFO [09-22|21:52:16.005] Imported new potential chain segment     number=3 hash=a72b24..c6fff7 blocks=1 txs=0 mgas=0.000 elapsed="365.523µs" mgasps=0.000 triedirty=0.00B
+INFO [09-22|21:52:16.005] Imported new potential chain segment     number=3 hash=a72b24..c6fff7 blocks=1 txs=0 mgas=0.000 elapsed="379.439µs" mgasps=0.000 triedirty=0.00B
+INFO [09-22|21:52:16.005] Chain head was updated                   number=3 hash=a72b24..c6fff7 root=a292e8..50c46d elapsed="30.458µs"
+INFO [09-22|21:52:16.005] Chain head was updated                   number=3 hash=a72b24..c6fff7 root=a292e8..50c46d elapsed="45.224µs"
+    status.go:108:              INFO [09-22|21:52:16.185] New L1 finalized block                   role=sequencer1 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.185] New L1 safe block                        role=sequencer1 l1_safe=043e4f..e3e6c6:0
+    pipeline.go:197:            INFO [09-22|21:52:16.341] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer1
+    l1_traversal.go:93:         INFO [09-22|21:52:16.341] completed reset of derivation pipeline   role=sequencer1 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.341] Reset of L1Retrieval done                role=sequencer1 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.344] Advancing bq origin                      role=sequencer1 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.345] Advancing bq origin                      role=sequencer1 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.347] Advancing bq origin                      role=sequencer1 origin=a72b24..c6fff7:3 originBehind=false
+    status.go:104:              INFO [09-22|21:52:16.466] New L1 safe block                        role=sequencer2 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.466] New L1 finalized block                   role=sequencer2 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.610] New L1 safe block                        role=sequencer3 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.611] New L1 finalized block                   role=sequencer3 l1_finalized=043e4f..e3e6c6:0
+2024-09-22T21:52:16.620Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2024-09-22T21:52:16.620Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:57135 [Candidate]" term=2
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-voting for self: term=2 id=sequencer1
+2024-09-22T21:52:16.620Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-vote received: from=sequencer1 term=2 tally=0
+2024-09-22T21:52:16.620Z [DEBUG] raft: pre-vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+2024-09-22T21:52:16.620Z [DEBUG] raft: voting for self: term=2 id=sequencer1
+2024-09-22T21:52:16.620Z [DEBUG] raft: vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: election won: term=2 tally=1
+2024-09-22T21:52:16.620Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:57135 [Leader]"
+    pipeline.go:197:            INFO [09-22|21:52:16.654] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer3
+    l1_traversal.go:93:         INFO [09-22|21:52:16.654] completed reset of derivation pipeline   role=sequencer3 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.654] Reset of L1Retrieval done                role=sequencer3 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.657] Advancing bq origin                      role=sequencer3 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.658] Advancing bq origin                      role=sequencer3 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.659] Advancing bq origin                      role=sequencer3 origin=a72b24..c6fff7:3 originBehind=false
+    pipeline.go:197:            INFO [09-22|21:52:16.684] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer2
+    l1_traversal.go:93:         INFO [09-22|21:52:16.684] completed reset of derivation pipeline   role=sequencer2 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.685] Reset of L1Retrieval done                role=sequencer2 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.687] Advancing bq origin                      role=sequencer2 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.690] Advancing bq origin                      role=sequencer2 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.692] Advancing bq origin                      role=sequencer2 origin=a72b24..c6fff7:3 originBehind=false
+    monitor.go:212:             INFO [09-22|21:52:16.777] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.791] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.806] sequencer is healthy
+    sequencer_failover_setup.go:94: 
+        	Error Trace:	/root/project/op-e2e/system/conductor/sequencer_failover_setup.go:94
+        	            				/root/project/op-e2e/system/conductor/sequencer_failover_test.go:204
+        	Error:      	Received unexpected error:
+        	            	method handler crashed
+        	Test:       	TestSequencerFailover_DisasterRecovery_OverrideLeader
+2024-09-22T21:52:16.821Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+2024-09-22T21:52:16.821Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer3 server-addr=127.0.0.1:56814 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:57135} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:49767} {Suffrage:Voter ID:sequencer3 Address:127.0.0.1:56814}]"
+    setup.go:394: CLOSING
+2024-09-22T21:52:16.821Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer2 127.0.0.1:49767}" next=1
+    node.go:666:                INFO [09-22|21:52:16.821] stopping node: sequencer already stopped role=sequencer1 latestHead=000000..000000
+2024-09-22T21:52:16.821Z [INFO]  raft: added peer, starting replication: peer=sequencer3
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+2024-09-22T21:52:16.822Z [INFO]  raft: pipelining replication: peer="{Voter sequencer2 127.0.0.1:49767}"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.822] State loop returned                      role=sequencer1
+2024-09-22T21:52:16.822Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer1 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmX2nhfehBGVh5h9Aopi3GnybiiZQSLnGNhk7vofKuCK6z addr=/ip6/100::f743:fdbf:8020:579b/tcp/4242
+2024-09-22T21:52:16.822Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer3 127.0.0.1:56814}" next=1
+    node.go:666:                INFO [09-22|21:52:16.822] stopping node: sequencer already stopped role=sequencer2 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.822] State loop returned                      role=sequencer2
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmPYrCupfWAWyC1fQEEUsBAKa5KP2E8wWQM5gMgxnaPeKA addr=/ip6/100::3580:7dfc:abde:c131/tcp/4242
+2024-09-22T21:52:16.822Z [INFO]  raft: pipelining replication: peer="{Voter sequencer3 127.0.0.1:56814}"
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer2 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    node.go:666:                INFO [09-22|21:52:16.822] stopping node: sequencer already stopped role=sequencer3 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=sequencer3 peer=QmQDEm7WEB5KULFLtw9zCjPgjxsah1rwZRcKZiKr8YuqZg addr=/ip6/100::24d1:f4be:f1da:92d7/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.822] disconnected from peer                   role=verifier peer=QmWiLkG2Y2oASWTA6xXV7KGhSGJNjTX7sgnnXgsBuWppcE addr=/ip6/100::92d0:d0e2:b425:88bf/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.823] State loop returned                      role=sequencer3
+    state.go:277:               INFO [09-22|21:52:16.823] State loop returned                      role=verifier
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:35425
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:40219
+INFO [09-22|21:52:16.823] Ethereum protocol stopped
+INFO [09-22|21:52:16.823] Transaction pool stopped
+INFO [09-22|21:52:16.823] Blockchain stopped
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:37053
+INFO [09-22|21:52:16.823] HTTP server stopped                      endpoint=127.0.0.1:33147
+INFO [09-22|21:52:16.823] Ethereum protocol stopped
+INFO [09-22|21:52:16.823] Transaction pool stopped
+INFO [09-22|21:52:16.823] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:41855
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:36989
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.824] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:43867
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:44611
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.824] Blockchain stopped
+INFO [09-22|21:52:16.824] HTTP server stopped                      endpoint=127.0.0.1:33957
+INFO [09-22|21:52:16.824] Ethereum protocol stopped
+INFO [09-22|21:52:16.824] Transaction pool stopped
+INFO [09-22|21:52:16.825] Blockchain stopped
+INFO [09-22|21:52:16.825] HTTP server stopped                      endpoint=127.0.0.1:35631
+INFO [09-22|21:52:16.825] HTTP server stopped                      endpoint=127.0.0.1:33505
+INFO [09-22|21:52:16.825] Ethereum protocol stopped
+INFO [09-22|21:52:16.825] Transaction pool stopped
+INFO [09-22|21:52:16.825] Blockchain stopped
+ERROR[09-22|21:52:16.825] RPC method admin_startSequencer crashed: runtime error: invalid memory address or nil pointer dereference
+goroutine 193703 [running]:
+github.com/ethereum/go-ethereum/rpc.(*callback).call.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:199 +0x85
+panic({0x1e80f40?, 0x40b1d30?})
+	/usr/local/go/src/runtime/panic.go:914 +0x21f
+github.com/ethereum-optimism/optimism/op-conductor/rpc.(*APIClient).Leader(0x0, {0x301fec8, 0xc007a81dc0})
+	/root/project/op-conductor/rpc/client.go:84 +0x6a
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader.func1()
+	/root/project/op-node/node/conductor.go:79 +0x68
+github.com/ethereum-optimism/optimism/op-service/retry.Do[...]({0x301fec8?, 0xc007a81dc0}, 0x2, {0x3007be0, 0xc01d5262a8}, 0xc0036a9298)
+	/root/project/op-service/retry/operation.go:52 +0x109
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader(0xc00f15de30, {0x301fe58?, 0xc00239c0a0?})
+	/root/project/op-node/node/conductor.go:77 +0x10b
+github.com/ethereum-optimism/optimism/op-node/rollup/sequencing.(*Sequencer).Start(0xc015bea700, {0x301fe58, 0xc00239c0a0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/sequencing/sequencer.go:585 +0x5e
+github.com/ethereum-optimism/optimism/op-node/rollup/driver.(*Driver).StartSequencer(0x1f0f1c0?, {0x301fe58?, 0xc00239c0a0?}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/driver/state.go:471 +0x3f
+github.com/ethereum-optimism/optimism/op-node/node.(*adminAPI).StartSequencer(0xc0159707f8, {0x301fe58, 0xc00239c0a0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/node/api.go:65 +0x9e
+reflect.Value.call({0xc01b1a6420?, 0xc009f66620?, 0x7f6658d12bc0?}, {0x21e0402, 0x4}, {0xc00239c140, 0x3, 0x41a052?})
+	/usr/local/go/src/reflect/value.go:596 +0xce7
+reflect.Value.Call({0xc01b1a6420?, 0xc009f66620?, 0x5941e5?}, {0xc00239c140?, 0x1?, 0x16?})
+	/usr/local/go/src/reflect/value.go:380 +0xb9
+github.com/ethereum/go-ethereum/rpc.(*callback).call(0xc01b1a6480, {0x301fe58?, 0xc00239c0a0}, {0xc022e9f908, 0x14}, {0xc0098ba408, 0x1, 0x499def?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:205 +0x37c
+github.com/ethereum/go-ethereum/rpc.(*handler).runMethod(0xc006fb9540?, {0x301fe58?, 0xc00239c0a0?}, 0xc007a81d50, 0x1?, {0xc0098ba408?, 0x41b728?, 0x7a000000043b0c00?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:568 +0x3c
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCall(0xc012580fa0, 0xc0153efe60, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:515 +0x22f
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCallMsg(0xc012580fa0, 0xc0153efec0?, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:473 +0x22d
+github.com/ethereum/go-ethereum/rpc.(*handler).handleNonBatchCall(0xc012580fa0, 0xc0153efe60, 0xc007a81d50)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:299 +0x187
+github.com/ethereum/go-ethereum/rpc.(*handler).handleMsg.func1.1(0x301fe58?)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:272 +0x25
+github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:390 +0xbe
+created by github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc in goroutine 192529
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:386 +0x79
+
+WARN [09-22|21:52:16.825] Served admin_startSequencer              conn=127.0.0.1:43036 reqid=1 duration="209.17µs" err="method handler crashed"
+
+=== [31mFAIL[0m: op-e2e/system/conductor TestSequencerFailover_ConductorRPC (6.69s)
+    e2e.go:124: Running test. Assigned executor (1) matches current executor (1) of total (4)
+    config.go:611:              WARN [09-22|21:52:10.164] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.164] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+    config.go:611:              WARN [09-22|21:52:10.165] RequiredProtocolVersion is empty         config=SuperchainL1DeployConfig
+    config.go:614:              WARN [09-22|21:52:10.165] RecommendedProtocolVersion is empty      config=SuperchainL1DeployConfig
+    config.go:646:              WARN [09-22|21:52:10.165] L2OutputOracleStartingTimestamp is 0     config=OutputOracleDeployConfig
+    config.go:655:              WARN [09-22|21:52:10.165] L2OutputOracleStartingBlockNumber is 0, should only be 0 for fresh chains config=OutputOracleDeployConfig
+INFO [09-22|21:52:10.165] Included L1 deployment                   name=AddressManager address=0xe4EB561155AFCe723bB1fF8606Fbfe9b28d5d38D balance=0 storage=2 nonce=1
+    setup.go:520: Generating L2 genesis l2_allocs_mode ecotone
+    config.go:120:              INFO [09-22|21:52:14.173] No persisted sequencer state loaded      role=sequencer1
+    types.go:637:               INFO [09-22|21:52:14.173] Rollup Config                            role=sequencer1 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.174] Initializing rollup node                 role=sequencer1 version=
+INFO [09-22|21:52:14.178] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.178] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer1 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.184] loaded new runtime config values!        role=sequencer1 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.184] Peer scoring disabled                    role=sequencer1
+    node.go:168:                INFO [09-22|21:52:14.184] started p2p host                         role=sequencer1 addrs=[/ip6/100::e541:76f1:ff26:8317/tcp/4242] peerID=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY
+    node.go:442:                INFO [09-22|21:52:14.184] Admin RPC enabled                        role=sequencer1
+    node.go:444:                INFO [09-22|21:52:14.184] Starting JSON-RPC server                 role=sequencer1
+    node.go:454:                INFO [09-22|21:52:14.185] metrics disabled                         role=sequencer1
+    node.go:516:                INFO [09-22|21:52:14.185] Starting execution engine driver         role=sequencer1
+INFO [09-22|21:52:14.185] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.185] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.185] State loop started                       role=sequencer1
+    state.go:390:               WARN [09-22|21:52:14.185] Deriver system is resetting              role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.185] Sequencer encountered reset signal, aborting work role=sequencer1 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.185] Served eth_getBlockByNumber              conn=127.0.0.1:57708 reqid=3 duration="29.147µs" err="finalized block not found"
+WARN [09-22|21:52:14.186] Served eth_getBlockByNumber              conn=127.0.0.1:57708 reqid=4 duration="190.012µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.187] Loaded current L2 heads                  role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.188] Walking back L1Block by number           role=sequencer1 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.188] Hit finalized L2 head, returning immediately role=sequencer1 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.188] Current hardfork version detected        role=sequencer1 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.189] Engine reset confirmed, sequencer may continue role=sequencer1 next=false
+    status.go:86:               INFO [09-22|21:52:14.278] Received first L1 head signal            role=sequencer1 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.468] No persisted sequencer state loaded      role=sequencer2
+    types.go:637:               INFO [09-22|21:52:14.468] Rollup Config                            role=sequencer2 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.469] Initializing rollup node                 role=sequencer2 version=
+    node.go:376:                INFO [09-22|21:52:14.475] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer2 version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.481] loaded new runtime config values!        role=sequencer2 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.482] Peer scoring disabled                    role=sequencer2
+    node.go:168:                INFO [09-22|21:52:14.482] started p2p host                         role=sequencer2 addrs=[/ip6/100::b6e:cb6d:d750:bb42/tcp/4242] peerID=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh
+    node.go:442:                INFO [09-22|21:52:14.482] Admin RPC enabled                        role=sequencer2
+    node.go:444:                INFO [09-22|21:52:14.482] Starting JSON-RPC server                 role=sequencer2
+    node.go:454:                INFO [09-22|21:52:14.482] metrics disabled                         role=sequencer2
+    node.go:516:                INFO [09-22|21:52:14.482] Starting execution engine driver         role=sequencer2
+INFO [09-22|21:52:14.482] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.482] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.483] State loop started                       role=sequencer2
+    state.go:390:               WARN [09-22|21:52:14.483] Deriver system is resetting              role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.483] Sequencer encountered reset signal, aborting work role=sequencer2 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.484] Served eth_getBlockByNumber              conn=127.0.0.1:47950 reqid=3 duration="32.441µs" err="finalized block not found"
+WARN [09-22|21:52:14.484] Served eth_getBlockByNumber              conn=127.0.0.1:47950 reqid=4 duration="28.673µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.485] Loaded current L2 heads                  role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.486] Walking back L1Block by number           role=sequencer2 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.486] Hit finalized L2 head, returning immediately role=sequencer2 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.486] Current hardfork version detected        role=sequencer2 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.487] Engine reset confirmed, sequencer may continue role=sequencer2 next=false
+    status.go:86:               INFO [09-22|21:52:14.572] Received first L1 head signal            role=sequencer2 l1_head=9a151b..26e983:2
+    config.go:120:              INFO [09-22|21:52:14.606] No persisted sequencer state loaded      role=sequencer3
+    types.go:637:               INFO [09-22|21:52:14.606] Rollup Config                            role=sequencer3 l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.607] Initializing rollup node                 role=sequencer3 version=
+    node.go:376:                INFO [09-22|21:52:14.609] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=sequencer3 version="fakebeacon 1.2.3"
+INFO [09-22|21:52:14.609] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    runtime_config.go:125:      INFO [09-22|21:52:14.614] loaded new runtime config values!        role=sequencer3 p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.614] Peer scoring disabled                    role=sequencer3
+    node.go:168:                INFO [09-22|21:52:14.615] started p2p host                         role=sequencer3 addrs=[/ip6/100::128c:f81d:6ff7:fccb/tcp/4242] peerID=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc
+    node.go:442:                INFO [09-22|21:52:14.615] Admin RPC enabled                        role=sequencer3
+    node.go:444:                INFO [09-22|21:52:14.615] Starting JSON-RPC server                 role=sequencer3
+    node.go:454:                INFO [09-22|21:52:14.615] metrics disabled                         role=sequencer3
+    node.go:516:                INFO [09-22|21:52:14.615] Starting execution engine driver         role=sequencer3
+INFO [09-22|21:52:14.615] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.615] Rollup node started
+    state.go:148:               INFO [09-22|21:52:14.615] State loop started                       role=sequencer3
+INFO [09-22|21:52:14.615] Starting driver                          sequencerEnabled=true sequencerStopped=true
+INFO [09-22|21:52:14.615] Rollup node started
+    state.go:390:               WARN [09-22|21:52:14.616] Deriver system is resetting              role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+    sequencer.go:408:           ERROR[09-22|21:52:14.616] Sequencer encountered reset signal, aborting work role=sequencer3 err="reset: cannot continue derivation until Engine has been reset"
+WARN [09-22|21:52:14.616] Served eth_getBlockByNumber              conn=127.0.0.1:50774 reqid=3 duration="24.631µs" err="finalized block not found"
+    start.go:121:               INFO [09-22|21:52:14.617] Loaded current L2 heads                  role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    start.go:181:               INFO [09-22|21:52:14.618] Walking back L1Block by number           role=sequencer3 curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.618] Hit finalized L2 head, returning immediately role=sequencer3 unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.618] Current hardfork version detected        role=sequencer3 forkName=ecotone
+    sequencer.go:425:           INFO [09-22|21:52:14.619] Engine reset confirmed, sequencer may continue role=sequencer3 next=false
+    status.go:86:               INFO [09-22|21:52:14.711] Received first L1 head signal            role=sequencer3 l1_head=9a151b..26e983:2
+    types.go:637:               INFO [09-22|21:52:14.753] Rollup Config                            role=verifier l2_chain_id=901 l2_network="unknown L2" l1_chain_id=900 l1_network="unknown L1" l2_start_time=1,727,041,930 l2_block_hash=0x31636f3dc1606a9e330482046db0d87a4d7f040c2860267e2672bc038fbb7a6a l2_block_number=0 l1_block_hash=0x043e4fd3ae61a3cdbbcad79594307ca1774fb3dc64e85e1e568049110be3e6c6 l1_block_number=0 regolith_time="@ genesis" canyon_time="@ genesis" delta_time="@ genesis" ecotone_time="@ genesis" fjord_time="(not configured)" granite_time="(not configured)" holocene_time="(not configured)" interop_time="(not configured)" alt_da=false
+    node.go:128:                INFO [09-22|21:52:14.754] Initializing rollup node                 role=verifier version=
+INFO [09-22|21:52:14.756] http: superfluous response.WriteHeader call from github.com/ethereum-optimism/optimism/op-e2e/e2eutils/fakebeacon.(*FakeBeacon).Start.func4 (blobs.go:143)
+    node.go:376:                INFO [09-22|21:52:14.756] Connected to L1 Beacon API, ready for EIP-4844 blobs retrieval. role=verifier version="fakebeacon 1.2.3"
+    runtime_config.go:125:      INFO [09-22|21:52:14.773] loaded new runtime config values!        role=verifier p2p_seq_address=0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+    peer_scores.go:24:          INFO [09-22|21:52:14.773] Peer scoring disabled                    role=verifier
+2024-09-22T21:52:14.773Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:55513 [Follower]" leader-address= leader-id=
+    node.go:168:                INFO [09-22|21:52:14.773] started p2p host                         role=verifier addrs=[/ip6/100::1c15:3627:dffb:61ff/tcp/4242] peerID=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn
+    node.go:442:                INFO [09-22|21:52:14.773] Admin RPC enabled                        role=verifier
+    node.go:444:                INFO [09-22|21:52:14.774] Starting JSON-RPC server                 role=verifier
+    node.go:454:                INFO [09-22|21:52:14.774] metrics disabled                         role=verifier
+    node.go:516:                INFO [09-22|21:52:14.774] Starting execution engine driver         role=verifier
+INFO [09-22|21:52:14.774] Starting driver                          sequencerEnabled=false sequencerStopped=false
+INFO [09-22|21:52:14.774] Rollup node started
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer1 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    state.go:148:               INFO [09-22|21:52:14.774] State loop started                       role=verifier
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    state.go:390:               WARN [09-22|21:52:14.774] Deriver system is resetting              role=verifier err="reset: cannot continue derivation until Engine has been reset"
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer1 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer2 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=verifier peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=verifier peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=sequencer1 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.775] connected to peer                        role=verifier peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:14.774] connected to peer                        role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    service.go:105:             INFO [09-22|21:52:14.775] initializing OpConductor                 version=0.0.1
+WARN [09-22|21:52:14.775] Served eth_getBlockByNumber              conn=127.0.0.1:41254 reqid=4 duration="30.318µs" err="safe block not found"
+    start.go:121:               INFO [09-22|21:52:14.777] Loaded current L2 heads                  role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    service.go:816:             INFO [09-22|21:52:14.777] sequencer active status updated          active=false
+    start.go:181:               INFO [09-22|21:52:14.777] Walking back L1Block by number           role=verifier curr=043e4f..e3e6c6:0 next=043e4f..e3e6c6:0 l2block=31636f..bb7a6a:0
+    start.go:240:               INFO [09-22|21:52:14.778] Hit finalized L2 head, returning immediately role=verifier unsafe=31636f..bb7a6a:0 safe=31636f..bb7a6a:0 finalized=31636f..bb7a6a:0 unsafe_origin=043e4f..e3e6c6:0 safe_origin=043e4f..e3e6c6:0
+    chain_spec.go:145:          INFO [09-22|21:52:14.778] Current hardfork version detected        role=verifier forkName=ecotone
+2024-09-22T21:52:14.779Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.779Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:57135 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.780] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.780] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.780] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.780] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.790] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.791] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.792] sequencer active status updated          active=false
+2024-09-22T21:52:14.794Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.794Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:49767 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.794] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.794] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.794] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.794] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.805] OpConductor started
+    service.go:105:             INFO [09-22|21:52:14.805] initializing OpConductor                 version=0.0.1
+    service.go:816:             INFO [09-22|21:52:14.807] sequencer active status updated          active=false
+2024-09-22T21:52:14.809Z [INFO]  raft: initial configuration: index=0 servers=[]
+2024-09-22T21:52:14.809Z [INFO]  raft: entering follower state: follower="Node at 127.0.0.1:56814 [Follower]" leader-address= leader-id=
+    service.go:333:             INFO [09-22|21:52:14.809] starting OpConductor
+    monitor.go:85:              INFO [09-22|21:52:14.809] starting health monitor
+    monitor.go:89:              INFO [09-22|21:52:14.809] health monitor started
+    service.go:339:             INFO [09-22|21:52:14.809] starting JSON-RPC server
+    service.go:363:             INFO [09-22|21:52:14.820] OpConductor started
+    sequencer_failover_setup.go:168: setupHAInfra took 4.681351881s
+    status.go:86:               INFO [09-22|21:52:14.856] Received first L1 head signal            role=verifier l1_head=9a151b..26e983:2
+INFO [09-22|21:52:15.012] Starting work on payload                 id=0x03946c527028d789
+INFO [09-22|21:52:15.012] Updated payload                          id=0x03946c527028d789 number=3 hash=a72b24..c6fff7 txs=0 withdrawals=0 gas=0 fees=0 root=a292e8..50c46d elapsed="230.901µs"
+INFO [09-22|21:52:15.104] Starting work on payload                 id=0x03946c527028d789
+INFO [09-22|21:52:15.105] Updated payload                          id=0x03946c527028d789 number=3 hash=a72b24..c6fff7 txs=0 withdrawals=0 gas=0 fees=0 root=a292e8..50c46d elapsed="180.022µs"
+    monitor.go:212:             INFO [09-22|21:52:15.782] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.796] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:15.812] sequencer is healthy
+2024-09-22T21:52:15.822Z [WARN]  raft: heartbeat timeout reached, starting election: last-leader-addr= last-leader-id=
+2024-09-22T21:52:15.822Z [INFO]  raft: entering candidate state: node="Node at 127.0.0.1:55513 [Candidate]" term=2
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-voting for self: term=2 id=sequencer1
+2024-09-22T21:52:15.822Z [DEBUG] raft: calculated votes needed: needed=1 term=2
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-vote received: from=sequencer1 term=2 tally=0
+2024-09-22T21:52:15.822Z [DEBUG] raft: pre-vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:15.822Z [INFO]  raft: pre-vote successful, starting election: term=2 tally=1 refused=0 votesNeeded=1
+2024-09-22T21:52:15.822Z [DEBUG] raft: voting for self: term=2 id=sequencer1
+2024-09-22T21:52:15.823Z [DEBUG] raft: vote granted: from=sequencer1 term=2 tally=1
+2024-09-22T21:52:15.823Z [INFO]  raft: election won: term=2 tally=1
+2024-09-22T21:52:15.823Z [INFO]  raft: entering leader state: leader="Node at 127.0.0.1:55513 [Leader]"
+    status.go:104:              INFO [09-22|21:52:16.179] New L1 safe block                        role=sequencer1 l1_safe=043e4f..e3e6c6:0
+    status.go:108:              INFO [09-22|21:52:16.179] New L1 finalized block                   role=sequencer1 l1_finalized=043e4f..e3e6c6:0
+    pipeline.go:197:            INFO [09-22|21:52:16.302] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer1
+    l1_traversal.go:93:         INFO [09-22|21:52:16.302] completed reset of derivation pipeline   role=sequencer1 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.302] Reset of L1Retrieval done                role=sequencer1 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.305] Advancing bq origin                      role=sequencer1 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.306] Advancing bq origin                      role=sequencer1 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.307] Advancing bq origin                      role=sequencer1 origin=a72b24..c6fff7:3 originBehind=false
+2024-09-22T21:52:16.316Z [WARN]  raft: no known peers, aborting election
+    status.go:108:              INFO [09-22|21:52:16.475] New L1 finalized block                   role=sequencer2 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.476] New L1 safe block                        role=sequencer2 l1_safe=043e4f..e3e6c6:0
+2024-09-22T21:52:16.494Z [WARN]  raft: no known peers, aborting election
+    pipeline.go:197:            INFO [09-22|21:52:16.572] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer2
+    l1_traversal.go:93:         INFO [09-22|21:52:16.572] completed reset of derivation pipeline   role=sequencer2 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.572] Reset of L1Retrieval done                role=sequencer2 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.575] Advancing bq origin                      role=sequencer2 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.576] Advancing bq origin                      role=sequencer2 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.578] Advancing bq origin                      role=sequencer2 origin=a72b24..c6fff7:3 originBehind=false
+    status.go:108:              INFO [09-22|21:52:16.610] New L1 finalized block                   role=sequencer3 l1_finalized=043e4f..e3e6c6:0
+    status.go:104:              INFO [09-22|21:52:16.610] New L1 safe block                        role=sequencer3 l1_safe=043e4f..e3e6c6:0
+    service.go:568:             INFO [09-22|21:52:16.621] Leadership status changed                server=sequencer1 leader=true
+    pipeline.go:197:            INFO [09-22|21:52:16.699] Rewinding derivation-pipeline L1 traversal to handle reset role=sequencer3
+    l1_traversal.go:93:         INFO [09-22|21:52:16.699] completed reset of derivation pipeline   role=sequencer3 origin=043e4f..e3e6c6:0
+    l1_retrieval.go:83:         INFO [09-22|21:52:16.699] Reset of L1Retrieval done                role=sequencer3 origin=043e4f..e3e6c6:0
+    batch_queue.go:131:         INFO [09-22|21:52:16.702] Advancing bq origin                      role=sequencer3 origin=b0bd37..036268:1 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.704] Advancing bq origin                      role=sequencer3 origin=9a151b..26e983:2 originBehind=false
+    batch_queue.go:131:         INFO [09-22|21:52:16.705] Advancing bq origin                      role=sequencer3 origin=a72b24..c6fff7:3 originBehind=false
+2024-09-22T21:52:16.738Z [WARN]  raft: no known peers, aborting election
+    monitor.go:212:             INFO [09-22|21:52:16.781] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.796] sequencer is healthy
+    monitor.go:212:             INFO [09-22|21:52:16.811] sequencer is healthy
+2024-09-22T21:52:16.817Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer2 server-addr=127.0.0.1:50529 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:55513} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:50529}]"
+2024-09-22T21:52:16.817Z [INFO]  raft: added peer, starting replication: peer=sequencer2
+2024-09-22T21:52:16.818Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer3 server-addr=127.0.0.1:62073 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:55513} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:50529} {Suffrage:Voter ID:sequencer3 Address:127.0.0.1:62073}]"
+2024-09-22T21:52:16.818Z [WARN]  raft: failed to get previous log: previous-index=3 last-index=0 error="log not found"
+2024-09-22T21:52:16.818Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer2 127.0.0.1:50529}" next=1
+2024-09-22T21:52:16.818Z [INFO]  raft: added peer, starting replication: peer=sequencer3
+2024-09-22T21:52:16.818Z [INFO]  raft: pipelining replication: peer="{Voter sequencer2 127.0.0.1:50529}"
+2024-09-22T21:52:16.818Z [WARN]  raft: failed to get previous log: previous-index=4 last-index=0 error="log not found"
+2024-09-22T21:52:16.818Z [WARN]  raft: appendEntries rejected, sending older logs: peer="{Voter sequencer3 127.0.0.1:62073}" next=1
+2024-09-22T21:52:16.819Z [INFO]  raft: pipelining replication: peer="{Voter sequencer3 127.0.0.1:62073}"
+2024-09-22T21:52:16.821Z [INFO]  raft: updating configuration: command=AddVoter server-id=sequencer2 server-addr=127.0.0.1:49767 servers="[{Suffrage:Voter ID:sequencer1 Address:127.0.0.1:57135} {Suffrage:Voter ID:sequencer2 Address:127.0.0.1:49767}]"
+ERROR[09-22|21:52:16.821] RPC method admin_startSequencer crashed: runtime error: invalid memory address or nil pointer dereference
+goroutine 193583 [running]:
+github.com/ethereum/go-ethereum/rpc.(*callback).call.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:199 +0x85
+panic({0x1e80f40?, 0x40b1d30?})
+	/usr/local/go/src/runtime/panic.go:914 +0x21f
+github.com/ethereum-optimism/optimism/op-conductor/rpc.(*APIClient).Leader(0x0, {0x301fec8, 0xc0004897a0})
+	/root/project/op-conductor/rpc/client.go:84 +0x6a
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader.func1()
+	/root/project/op-node/node/conductor.go:79 +0x68
+github.com/ethereum-optimism/optimism/op-service/retry.Do[...]({0x301fec8?, 0xc0004897a0}, 0x2, {0x3007be0, 0xc01c9362f8}, 0xc0033cf298)
+	/root/project/op-service/retry/operation.go:52 +0x109
+github.com/ethereum-optimism/optimism/op-node/node.(*ConductorClient).Leader(0xc0198bcae0, {0x301fe58?, 0xc0097887d0?})
+	/root/project/op-node/node/conductor.go:77 +0x10b
+github.com/ethereum-optimism/optimism/op-node/rollup/sequencing.(*Sequencer).Start(0xc01b908000, {0x301fe58, 0xc0097887d0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/sequencing/sequencer.go:585 +0x5e
+github.com/ethereum-optimism/optimism/op-node/rollup/driver.(*Driver).StartSequencer(0x1f0f1c0?, {0x301fe58?, 0xc0097887d0?}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/rollup/driver/state.go:471 +0x3f
+github.com/ethereum-optimism/optimism/op-node/node.(*adminAPI).StartSequencer(0xc01b955da0, {0x301fe58, 0xc0097887d0}, {0x31, 0x63, 0x6f, 0x3d, 0xc1, 0x60, 0x6a, ...})
+	/root/project/op-node/node/api.go:65 +0x9e
+reflect.Value.call({0xc01b1a6420?, 0xc006c8ad98?, 0x7f6638259268?}, {0x21e0402, 0x4}, {0xc009788870, 0x3, 0x41a052?})
+	/usr/local/go/src/reflect/value.go:596 +0xce7
+reflect.Value.Call({0xc01b1a6420?, 0xc006c8ad98?, 0x5941e5?}, {0xc009788870?, 0x1?, 0x16?})
+	/usr/local/go/src/reflect/value.go:380 +0xb9
+github.com/ethereum/go-ethereum/rpc.(*callback).call(0xc01bcb2360, {0x301fe58?, 0xc0097887d0}, {0xc0073c6fd8, 0x14}, {0xc0089a51d0, 0x1, 0x499def?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/service.go:205 +0x37c
+github.com/ethereum/go-ethereum/rpc.(*handler).runMethod(0xc00005af50?, {0x301fe58?, 0xc0097887d0?}, 0xc000489730, 0x1?, {0xc0089a51d0?, 0x41b728?, 0xc40000c000346000?})
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:568 +0x3c
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCall(0xc003d26fa0, 0xc01bca0c30, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:515 +0x22f
+github.com/ethereum/go-ethereum/rpc.(*handler).handleCallMsg(0xc003d26fa0, 0xc01bca0c90?, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:473 +0x22d
+github.com/ethereum/go-ethereum/rpc.(*handler).handleNonBatchCall(0xc003d26fa0, 0xc01bca0c30, 0xc000489730)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:299 +0x187
+github.com/ethereum/go-ethereum/rpc.(*handler).handleMsg.func1.1(0x301fe58?)
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:272 +0x25
+github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc.func1()
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:390 +0xbe
+created by github.com/ethereum/go-ethereum/rpc.(*handler).startCallProc in goroutine 182061
+	/go/pkg/mod/github.com/ethereum-optimism/op-geth@v1.101408.0-rc.4.0.20240827042333-110c433a2469/rpc/handler.go:386 +0x79
+
+2024-09-22T21:52:16.821Z [INFO]  raft: added peer, starting replication: peer=sequencer2
+WARN [09-22|21:52:16.821] Served admin_startSequencer              conn=127.0.0.1:56930 reqid=1 duration="208.23µs" err="method handler crashed"
+    sequencer_failover_setup.go:94: 
+        	Error Trace:	/root/project/op-e2e/system/conductor/sequencer_failover_setup.go:94
+        	            				/root/project/op-e2e/system/conductor/sequencer_failover_test.go:31
+        	Error:      	Received unexpected error:
+        	            	method handler crashed
+        	Test:       	TestSequencerFailover_ConductorRPC
+    setup.go:394: CLOSING
+    node.go:666:                INFO [09-22|21:52:16.825] stopping node: sequencer already stopped role=sequencer2 latestHead=000000..000000
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer1 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:32:        INFO [09-22|21:52:16.826] connected to peer                        role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=verifier peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.826] State loop returned                      role=sequencer2
+    notifications.go:32:        INFO [09-22|21:52:16.826] connected to peer                        role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer2 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=verifier peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.826] State loop returned                      role=sequencer3
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer3 peer=QmQibRd7VCeWtN9E2GiShhcJW5M3qAmjiDp9Z6Zzzrr5Eh addr=/ip6/100::b6e:cb6d:d750:bb42/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.826] disconnected from peer                   role=sequencer1 peer=QmRVejcHGRQT9fgBwjzbuSBrqo45z5fGW9u8bBQ8AQQkbc addr=/ip6/100::128c:f81d:6ff7:fccb/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.827] disconnected from peer                   role=verifier peer=QmYbAFdM4Weo1w6ihemCf977bJTPtugEM17VqTx7BfT9dY addr=/ip6/100::e541:76f1:ff26:8317/tcp/4242
+    notifications.go:36:        INFO [09-22|21:52:16.827] disconnected from peer                   role=sequencer1 peer=QmNujPezCKj1r4rZ3CVU58j24nLvioMY12B67sP2YAXGgn addr=/ip6/100::1c15:3627:dffb:61ff/tcp/4242
+    state.go:277:               INFO [09-22|21:52:16.827] State loop returned                      role=verifier
+    state.go:277:               INFO [09-22|21:52:16.827] State loop returned                      role=sequencer1
+INFO [09-22|21:52:16.827] HTTP server stopped                      endpoint=127.0.0.1:39061
+INFO [09-22|21:52:16.827] HTTP server stopped                      endpoint=127.0.0.1:43883
+INFO [09-22|21:52:16.827] Ethereum protocol stopped
+INFO [09-22|21:52:16.827] Transaction pool stopped
+INFO [09-22|21:52:16.827] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:42565
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:37065
+INFO [09-22|21:52:16.828] Ethereum protocol stopped
+INFO [09-22|21:52:16.828] Transaction pool stopped
+INFO [09-22|21:52:16.828] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:45623
+INFO [09-22|21:52:16.828] Ethereum protocol stopped
+INFO [09-22|21:52:16.828] Transaction pool stopped
+INFO [09-22|21:52:16.828] Blockchain stopped
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:44361
+INFO [09-22|21:52:16.828] HTTP server stopped                      endpoint=127.0.0.1:44645
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:36171
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:32881
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:38739
+INFO [09-22|21:52:16.829] HTTP server stopped                      endpoint=127.0.0.1:44859
+INFO [09-22|21:52:16.829] Ethereum protocol stopped
+INFO [09-22|21:52:16.829] Transaction pool stopped
+INFO [09-22|21:52:16.829] Blockchain stopped
+
+DONE 122 tests, 39 skipped, 2 failures in 129.584s
+make: *** [Makefile:28: test-http] Error 1

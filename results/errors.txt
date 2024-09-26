@@ -1,0 +1,31 @@
+thread '<unnamed>' panicked at crates/trie/trie/src/witness.rs:281:40:
+cannot convert a slice of length 30 to FixedBytes<32>
+stack backtrace:
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+ts=2024-09-12T23:50:44.487220719Z level=warn target=storage::db::mdbx message="The database read transaction has been open for too long. Backtrace:\n   0: <unknown>\n   1: <unknown>\n   2: <unknown>\n   3: <unknown>\n   4: <unknown>\n   5: <unknown>\n   6: <unknown>\n   7: <unknown>\n   8: <unknown>\n   9: <unknown>\n  10: <unknown>\n  11: <unknown>\n  12: clone\n" open_duration=64.037310491s self.txn_id=1691459
+error: reth interrupted by SIGSEGV, printing backtrace
+
+./op-reth(+0x2499d06)[0x5d5d2a70ad06]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45320)[0x709c700df320]
+./op-reth(+0x28db416)[0x5d5d2ab4c416]
+
+### cycle encountered after 3 frames with period 4
+./op-reth(+0x28db42e)[0x5d5d2ab4c42e]
+./op-reth(+0x28db42e)[0x5d5d2ab4c42e]
+./op-reth(+0x28db42e)[0x5d5d2ab4c42e]
+./op-reth(+0x28db42e)[0x5d5d2ab4c42e]
+### recursed 63 times
+
+./op-reth(+0x28db42e)[0x5d5d2ab4c42e]
+
+note: reth unexpectedly overflowed its stack! this is a bug
+note: maximum backtrace depth reached, frames may have been lost
+note: we would appreciate a report at https://github.com/paradigmxyz/reth
+
+EL
+up: 3 * 128 * 6
+down: 3 * 128
+
+CL:
+up: 3 * 128 * 6
+down: 3 * 128

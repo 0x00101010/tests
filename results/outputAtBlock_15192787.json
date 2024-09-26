@@ -1,0 +1,97 @@
+{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "version": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "outputRoot": "0x1f3c4adb81a5c393831329db72384b2c851405b081d8fe2dd3e0f27e4759db75",
+        "blockRef": {
+            "hash": "0x30206e4393f58a3d62c9ea0ed3efb1577a53511412956cac99f6b26e7c1a6b34",
+            "number": 15192787,
+            "parentHash": "0x68b6dab5286c18142f9894bc4321f3459b41ae13c3acf6ded5c4dd03e27f8ef9",
+            "timestamp": 1726153862,
+            "l1origin": {
+                "hash": "0x60688dd5c0dffed3f68034244e7315ef09813ee19bced201a25962aeebfb98f1",
+                "number": 6678325
+            },
+            "sequenceNumber": 3
+        },
+        "withdrawalStorageRoot": "0xcf78517175f83735e123667f15d08914baa399dbac09cb27c9290126f5fea2e6",
+        "stateRoot": "0x2337801d60228dfa36dcc1b6b69091c5839d5da31c21e5019ed151a8ed1a0087",
+        "syncStatus": {
+            "current_l1": {
+                "hash": "0x29bfb99f5eb014ceb2dd21d47dc1b3982b589782af5abcb9a9a62a50a4e42d8b",
+                "number": 6678413,
+                "parentHash": "0x03882459fa2ed7a9cdbc2b2f678db059915f79397682480f665ae37376a6eb85",
+                "timestamp": 1726154772
+            },
+            "current_l1_finalized": {
+                "hash": "0x9cb246f7d0f63964675a00f38f4ea87be09ab421cb36d09dc09ab2372042b227",
+                "number": 6678321,
+                "parentHash": "0xf7a72c192fa741701aadc44ba4bc6f3d54353197f122fa22961c2e548154a6df",
+                "timestamp": 1726153440
+            },
+            "head_l1": {
+                "hash": "0x29bfb99f5eb014ceb2dd21d47dc1b3982b589782af5abcb9a9a62a50a4e42d8b",
+                "number": 6678413,
+                "parentHash": "0x03882459fa2ed7a9cdbc2b2f678db059915f79397682480f665ae37376a6eb85",
+                "timestamp": 1726154772
+            },
+            "safe_l1": {
+                "hash": "0x7fac3cf1ffd182897e538fe2346520fdee181af9df8f7731d53af1696224f1d8",
+                "number": 6678348,
+                "parentHash": "0xf12cb173e10998e51a61c595bb8514dcd0e7f5ad997c117742e0ebdd1e006f00",
+                "timestamp": 1726153824
+            },
+            "finalized_l1": {
+                "hash": "0x9cb246f7d0f63964675a00f38f4ea87be09ab421cb36d09dc09ab2372042b227",
+                "number": 6678321,
+                "parentHash": "0xf7a72c192fa741701aadc44ba4bc6f3d54353197f122fa22961c2e548154a6df",
+                "timestamp": 1726153440
+            },
+            "unsafe_l2": {
+                "hash": "0x107e12619a4ee80d2593e0d48b20e7236de440fad2d23a11a6f35fc44d36c0a9",
+                "number": 15193243,
+                "parentHash": "0xccd2930a738f4df3bda6598d1e39831c511c47ad5e8fa4481bc73d9889571ed4",
+                "timestamp": 1726154774,
+                "l1origin": {
+                    "hash": "0xb713ba828d354b61e2fc28a3d95df1af537af3b8a4af6a281bec2008bc11892f",
+                    "number": 6678387
+                },
+                "sequenceNumber": 0
+            },
+            "safe_l2": {
+                "hash": "0x94f2ff292d0c1c3608bc3017700234691018cf9733b5e018419d01ef3b95d316",
+                "number": 15193225,
+                "parentHash": "0x6d7da179b515becbab9f0e4a7bed95a25f4294db001b8986ade911a80f3c7e7e",
+                "timestamp": 1726154738,
+                "l1origin": {
+                    "hash": "0x13184be7f84cee00d2896ecf7086f8211d31cb20b25330204a7c1a1598a15490",
+                    "number": 6678384
+                },
+                "sequenceNumber": 6
+            },
+            "finalized_l2": {
+                "hash": "0x4226125913644626a52219203f3c23d3b935c062b883cf2dc2ac97af4c56351f",
+                "number": 15192544,
+                "parentHash": "0x22ddc2feeee5288a457ce1a6f84d7e566b2598ff6aef44f31321303ed1359f4c",
+                "timestamp": 1726153376,
+                "l1origin": {
+                    "hash": "0xc76c739afcac4b2c010dc6214cda460235e5c5c2c23f6b82c6602bcab9f0dc7b",
+                    "number": 6678291
+                },
+                "sequenceNumber": 1
+            },
+            "pending_safe_l2": {
+                "hash": "0x94f2ff292d0c1c3608bc3017700234691018cf9733b5e018419d01ef3b95d316",
+                "number": 15193225,
+                "parentHash": "0x6d7da179b515becbab9f0e4a7bed95a25f4294db001b8986ade911a80f3c7e7e",
+                "timestamp": 1726154738,
+                "l1origin": {
+                    "hash": "0x13184be7f84cee00d2896ecf7086f8211d31cb20b25330204a7c1a1598a15490",
+                    "number": 6678384
+                },
+                "sequenceNumber": 6
+            }
+        }
+    }
+}
