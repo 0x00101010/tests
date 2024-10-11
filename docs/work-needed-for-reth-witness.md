@@ -6,7 +6,7 @@
   * add codes in debug_execution_witness
 * geth
   * implement debug_execution_witness
-  * add ExecutionWitness type in geth
+  * add ExecutionWitness type in geth => done
   * sort keys before applying deletions on accounts / nodes => done
 * op-program
   * add hints
@@ -14,6 +14,7 @@
     * l2-execution-witness ++ block_hash
   * add a client with configurable timeout
   * allow switch between behaviors (read from debug_dbGet or execution_witness and proof)
+  * cannon change for input parameters
 
 So it sounds like your ideal path is:
 * Chat w/ peter, get commitment around execution standardization on L1 between reth/geth.
