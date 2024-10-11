@@ -18,11 +18,13 @@ func main() {
 	}
 
 	// Start from block 16364870
-	blockNumber := big.NewInt(16364870)
+	// blockNumber := big.NewInt(16364870)
 
+	var blockNumber *big.Int
 	for {
 		// Get the block
 		block, err := client.BlockByNumber(context.Background(), blockNumber)
+		blockNumber := block.Number()
 		if err != nil {
 			log.Fatalf("Failed to fetch block %d: %v", blockNumber, err)
 		}
@@ -41,12 +43,6 @@ func main() {
 
 		// Move to the previous block
 		blockNumber.Sub(blockNumber, big.NewInt(1))
-
-		// Safety check to avoid going too far back
-		if blockNumber.Cmp(big.NewInt(0)) <= 0 {
-			fmt.Println("Reached genesis block without finding a contract creation transaction")
-			return
-		}
 	}
 }
 

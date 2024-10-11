@@ -30,14 +30,14 @@ func LoadExecutionWitnessFromFile(file string) (*ExecutionWitness, error) {
 		return nil, err
 	}
 
-	var resp RPCResponse
-	if err := json.Unmarshal(bytes, &resp); err != nil {
-		return nil, err
-	}
+	// var resp RPCResponse
+	// if err := json.Unmarshal(bytes, &resp); err != nil {
+	// 	return nil, err
+	// }
 
 	// fmt.Println(resp.Result)
 	var ew ExecutionWitness
-	if err := json.Unmarshal(resp.Result, &ew); err != nil {
+	if err := json.Unmarshal(bytes, &ew); err != nil {
 		return nil, err
 	}
 
