@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch op-program trial",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/op-program/host/cmd/main.go",
+            "env": {},
+            "args": [
+                "--network",
+                "base-sepolia",
+                "--l1",
+                "http://98.82.123.63:8000",
+                "--l1.beacon",
+                "http://98.82.123.63:8010",
+                "--l2",
+                // "https://base-sepolia-dev.cbhq.net:8545",
+                "http://44.192.45.93:6000",
+                "--l1.head",
+                "0xa4346d3cbc07680bba892db6e5442521e5cc2bf485fa131ed65e1cf6c53d64cd",
+                "--l2.outputroot",
+                "0x890bc9d21aaecf5c8b8d60900fdcd394b76ccff300df2253689104d772802201",
+                "--l2.head",
+                "0x639b14c174976fa1942fd6d5ebed95950486437087b2d0dbf4740890364d1320",
+                "--l2.claim",
+                "0x890bc9d21aaecf5c8b8d60900fdcd394b76ccff300df2253689104d772802201",
+                "--l2.blocknumber",
+                "16700960",
+                "--log.format",
+                "terminal",
+                "--log.level",
+                "TRACE",
+                "--l2.experimental.enabled",
+                "--l2.experimental.url",
+                "http://44.192.45.93:6000",
+                "--log.color"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,2433 @@
+# HELP aggregate_attestations_t1 Captures times of attestation aggregation in milliseconds during the first interval per slot
+# TYPE aggregate_attestations_t1 histogram
+aggregate_attestations_t1_bucket{le="10"} 5
+aggregate_attestations_t1_bucket{le="20"} 25
+aggregate_attestations_t1_bucket{le="50"} 10333
+aggregate_attestations_t1_bucket{le="100"} 11097
+aggregate_attestations_t1_bucket{le="200"} 11100
+aggregate_attestations_t1_bucket{le="300"} 11102
+aggregate_attestations_t1_bucket{le="500"} 11103
+aggregate_attestations_t1_bucket{le="1000"} 11103
+aggregate_attestations_t1_bucket{le="+Inf"} 11103
+aggregate_attestations_t1_sum 419416
+aggregate_attestations_t1_count 11103
+# HELP aggregate_attestations_t2 Captures times of attestation aggregation in milliseconds during the second interval per slot
+# TYPE aggregate_attestations_t2 histogram
+aggregate_attestations_t2_bucket{le="10"} 11100
+aggregate_attestations_t2_bucket{le="40"} 11103
+aggregate_attestations_t2_bucket{le="100"} 11103
+aggregate_attestations_t2_bucket{le="200"} 11103
+aggregate_attestations_t2_bucket{le="600"} 11103
+aggregate_attestations_t2_bucket{le="+Inf"} 11103
+aggregate_attestations_t2_sum 9917
+aggregate_attestations_t2_count 11103
+# HELP aggregated_attestations_in_pool_total The number of aggregated attestations in the pool.
+# TYPE aggregated_attestations_in_pool_total gauge
+aggregated_attestations_in_pool_total 80
+# HELP attestation_inclusion_delay_slots The number of slots between att.Slot and block.Slot
+# TYPE attestation_inclusion_delay_slots histogram
+attestation_inclusion_delay_slots_bucket{le="1"} 955587
+attestation_inclusion_delay_slots_bucket{le="2"} 1.052458e+06
+attestation_inclusion_delay_slots_bucket{le="3"} 1.096093e+06
+attestation_inclusion_delay_slots_bucket{le="4"} 1.112013e+06
+attestation_inclusion_delay_slots_bucket{le="6"} 1.135716e+06
+attestation_inclusion_delay_slots_bucket{le="32"} 1.211931e+06
+attestation_inclusion_delay_slots_bucket{le="64"} 1.224529e+06
+attestation_inclusion_delay_slots_bucket{le="+Inf"} 1.224529e+06
+attestation_inclusion_delay_slots_sum 3.151653e+06
+attestation_inclusion_delay_slots_count 1.224529e+06
+# HELP attestation_too_early_total Increased when an attestation is considered too early
+# TYPE attestation_too_early_total counter
+attestation_too_early_total 0
+# HELP attestation_too_late_total Increased when an attestation is considered too late
+# TYPE attestation_too_late_total counter
+attestation_too_late_total 0
+# HELP attester_slashings_included_total Number of attester slashings included in blocks
+# TYPE attester_slashings_included_total counter
+attester_slashings_included_total 0
+# HELP backfill_batch_blobs_time_download Time, in milliseconds, batch spent downloading blobs from peer.
+# TYPE backfill_batch_blobs_time_download histogram
+backfill_batch_blobs_time_download_bucket{le="100"} 0
+backfill_batch_blobs_time_download_bucket{le="300"} 0
+backfill_batch_blobs_time_download_bucket{le="1000"} 0
+backfill_batch_blobs_time_download_bucket{le="2000"} 0
+backfill_batch_blobs_time_download_bucket{le="4000"} 0
+backfill_batch_blobs_time_download_bucket{le="8000"} 0
+backfill_batch_blobs_time_download_bucket{le="+Inf"} 0
+backfill_batch_blobs_time_download_sum 0
+backfill_batch_blobs_time_download_count 0
+# HELP backfill_batch_blocks_time_download Time, in milliseconds, batch spent downloading blocks from peer.
+# TYPE backfill_batch_blocks_time_download histogram
+backfill_batch_blocks_time_download_bucket{le="100"} 0
+backfill_batch_blocks_time_download_bucket{le="300"} 0
+backfill_batch_blocks_time_download_bucket{le="1000"} 0
+backfill_batch_blocks_time_download_bucket{le="2000"} 0
+backfill_batch_blocks_time_download_bucket{le="4000"} 0
+backfill_batch_blocks_time_download_bucket{le="8000"} 0
+backfill_batch_blocks_time_download_bucket{le="+Inf"} 0
+backfill_batch_blocks_time_download_sum 0
+backfill_batch_blocks_time_download_count 0
+# HELP backfill_batch_time_roundtrip Total time to import batch, from first scheduled to imported.
+# TYPE backfill_batch_time_roundtrip histogram
+backfill_batch_time_roundtrip_bucket{le="400"} 0
+backfill_batch_time_roundtrip_bucket{le="800"} 0
+backfill_batch_time_roundtrip_bucket{le="1600"} 0
+backfill_batch_time_roundtrip_bucket{le="3200"} 0
+backfill_batch_time_roundtrip_bucket{le="6400"} 0
+backfill_batch_time_roundtrip_bucket{le="12800"} 0
+backfill_batch_time_roundtrip_bucket{le="+Inf"} 0
+backfill_batch_time_roundtrip_sum 0
+backfill_batch_time_roundtrip_count 0
+# HELP backfill_batch_time_verify Time batch spent downloading blocks from peer.
+# TYPE backfill_batch_time_verify histogram
+backfill_batch_time_verify_bucket{le="100"} 0
+backfill_batch_time_verify_bucket{le="300"} 0
+backfill_batch_time_verify_bucket{le="1000"} 0
+backfill_batch_time_verify_bucket{le="2000"} 0
+backfill_batch_time_verify_bucket{le="4000"} 0
+backfill_batch_time_verify_bucket{le="8000"} 0
+backfill_batch_time_verify_bucket{le="+Inf"} 0
+backfill_batch_time_verify_sum 0
+backfill_batch_time_verify_count 0
+# HELP backfill_batch_time_waiting Time batch waited for a suitable peer.
+# TYPE backfill_batch_time_waiting histogram
+backfill_batch_time_waiting_bucket{le="50"} 0
+backfill_batch_time_waiting_bucket{le="100"} 0
+backfill_batch_time_waiting_bucket{le="300"} 0
+backfill_batch_time_waiting_bucket{le="1000"} 0
+backfill_batch_time_waiting_bucket{le="2000"} 0
+backfill_batch_time_waiting_bucket{le="+Inf"} 0
+backfill_batch_time_waiting_sum 0
+backfill_batch_time_waiting_count 0
+# HELP backfill_batches_imported Number of backfill batches downloaded and imported.
+# TYPE backfill_batches_imported counter
+backfill_batches_imported 0
+# HELP backfill_blobs_bytes_downloaded BlobSidecar bytes downloaded from peers for backfill.
+# TYPE backfill_blobs_bytes_downloaded counter
+backfill_blobs_bytes_downloaded 0
+# HELP backfill_blobs_download_count Number of BlobSidecar values downloaded from peers for backfill.
+# TYPE backfill_blobs_download_count counter
+backfill_blobs_download_count 0
+# HELP backfill_blocks_bytes_downloaded BeaconBlock bytes downloaded from peers for backfill.
+# TYPE backfill_blocks_bytes_downloaded counter
+backfill_blocks_bytes_downloaded 0
+# HELP backfill_blocks_download_count Number of BeaconBlock values downloaded from peers for backfill.
+# TYPE backfill_blocks_download_count counter
+backfill_blocks_download_count 0
+# HELP backfill_earliest_wip_slot Earliest slot that has been assigned to a worker.
+# TYPE backfill_earliest_wip_slot gauge
+backfill_earliest_wip_slot 0
+# HELP backfill_importable_batches_waiting Number of batches that are ready to be imported once they can be connected to the existing chain.
+# TYPE backfill_importable_batches_waiting gauge
+backfill_importable_batches_waiting 0
+# HELP backfill_remaining_batches Backfill remaining batches.
+# TYPE backfill_remaining_batches gauge
+backfill_remaining_batches 0
+# HELP bcnode_disk_beaconchain_bytes_total Total hard disk space used by the beaconchain database, in bytes.
+# TYPE bcnode_disk_beaconchain_bytes_total gauge
+bcnode_disk_beaconchain_bytes_total 1.744289792e+09
+# HELP beacon_clock_time_slot The current slot based on the genesis time and current clock
+# TYPE beacon_clock_time_slot gauge
+beacon_clock_time_slot 1.0203802e+07
+# HELP beacon_current_active_validators Current total active validators
+# TYPE beacon_current_active_validators gauge
+beacon_current_active_validators 1.073433e+06
+# HELP beacon_current_justified_epoch Current justified epoch of the processed state
+# TYPE beacon_current_justified_epoch gauge
+beacon_current_justified_epoch 318867
+# HELP beacon_current_justified_root Current justified root of the processed state
+# TYPE beacon_current_justified_root gauge
+beacon_current_justified_root 7.553514160799388e+17
+# HELP beacon_failed_reorg_attempts_first_threshold Count the number of times a proposer served by this beacon attempted a late block reorg but desisted in the first threshold
+# TYPE beacon_failed_reorg_attempts_first_threshold counter
+beacon_failed_reorg_attempts_first_threshold 0
+# HELP beacon_failed_reorg_attempts_second_threshold Count the number of times a proposer served by this beacon attempted a late block reorg but desisted in the second threshold
+# TYPE beacon_failed_reorg_attempts_second_threshold counter
+beacon_failed_reorg_attempts_second_threshold 1
+# HELP beacon_finalized_epoch Last finalized epoch of the processed state
+# TYPE beacon_finalized_epoch gauge
+beacon_finalized_epoch 318866
+# HELP beacon_finalized_root Last finalized root of the processed state
+# TYPE beacon_finalized_root gauge
+beacon_finalized_root -1.5498387735525809e+18
+# HELP beacon_head_slot Slot of the head block of the beacon chain
+# TYPE beacon_head_slot gauge
+beacon_head_slot 1.0203802e+07
+# HELP beacon_late_block_attempted_reorgs Count the number of times a proposer served by this beacon has attempted a late block reorg
+# TYPE beacon_late_block_attempted_reorgs counter
+beacon_late_block_attempted_reorgs 0
+# HELP beacon_prev_epoch_active_gwei The total amount of ether, in gwei, that was active for voting of previous epoch
+# TYPE beacon_prev_epoch_active_gwei gauge
+beacon_prev_epoch_active_gwei 3.4349714e+16
+# HELP beacon_prev_epoch_head_gwei The total amount of ether, in gwei, that has been used in voting attestation head of previous epoch
+# TYPE beacon_prev_epoch_head_gwei gauge
+beacon_prev_epoch_head_gwei 3.3015794e+16
+# HELP beacon_prev_epoch_source_gwei The total amount of ether, in gwei, that has been used in voting attestation source of previous epoch
+# TYPE beacon_prev_epoch_source_gwei gauge
+beacon_prev_epoch_source_gwei 3.4276528e+16
+# HELP beacon_prev_epoch_target_gwei The total amount of ether, in gwei, that has been used in voting attestation target of previous epoch
+# TYPE beacon_prev_epoch_target_gwei gauge
+beacon_prev_epoch_target_gwei 3.4282032e+16
+# HELP beacon_previous_justified_epoch Previous justified epoch of the processed state
+# TYPE beacon_previous_justified_epoch gauge
+beacon_previous_justified_epoch 318866
+# HELP beacon_previous_justified_root Previous justified root of the processed state
+# TYPE beacon_previous_justified_root gauge
+beacon_previous_justified_root -1.5498387735525809e+18
+# HELP beacon_processed_deposits_total Total number of deposits processed
+# TYPE beacon_processed_deposits_total gauge
+beacon_processed_deposits_total 1.722642e+06
+# HELP beacon_reorgs_total Count the number of times beacon chain has a reorg
+# TYPE beacon_reorgs_total counter
+beacon_reorgs_total 21
+# HELP beacon_slot Latest slot of the beacon chain state
+# TYPE beacon_slot gauge
+beacon_slot 1.0203802e+07
+# HELP beacon_state_count Count the number of active beacon state objects.
+# TYPE beacon_state_count gauge
+beacon_state_count 158
+# HELP beacondb_all_deposits_eip4881 The number of total deposits in memory
+# TYPE beacondb_all_deposits_eip4881 counter
+beacondb_all_deposits_eip4881 1.722734e+06
+# HELP beacondb_pending_deposits_eip4881 The number of pending deposits in memory
+# TYPE beacondb_pending_deposits_eip4881 gauge
+beacondb_pending_deposits_eip4881 93
+# HELP blob_disk_bytes Approximate number of bytes occupied by blobs in storage
+# TYPE blob_disk_bytes gauge
+blob_disk_bytes 3.871691016e+09
+# HELP blob_disk_count Approximate number of blob files in storage
+# TYPE blob_disk_count gauge
+blob_disk_count 29347
+# HELP blob_existed_in_db_count Count the number of times blobs have been found in the database.
+# TYPE blob_existed_in_db_count counter
+blob_existed_in_db_count 24424
+# HELP blob_pruned Number of BlobSidecar files pruned.
+# TYPE blob_pruned counter
+blob_pruned 0
+# HELP blob_recovered_from_el_count Count the number of times blobs have been recovered from the execution layer.
+# TYPE blob_recovered_from_el_count counter
+blob_recovered_from_el_count 1488
+# HELP blob_storage_get_latency Latency of BlobSidecar storage get operations in milliseconds
+# TYPE blob_storage_get_latency histogram
+blob_storage_get_latency_bucket{le="3"} 38070
+blob_storage_get_latency_bucket{le="5"} 38071
+blob_storage_get_latency_bucket{le="7"} 38071
+blob_storage_get_latency_bucket{le="9"} 38071
+blob_storage_get_latency_bucket{le="11"} 38071
+blob_storage_get_latency_bucket{le="13"} 38071
+blob_storage_get_latency_bucket{le="+Inf"} 38071
+blob_storage_get_latency_sum 8
+blob_storage_get_latency_count 38071
+# HELP blob_storage_save_latency Latency of BlobSidecar storage save operations in milliseconds
+# TYPE blob_storage_save_latency histogram
+blob_storage_save_latency_bucket{le="3"} 29338
+blob_storage_save_latency_bucket{le="5"} 29346
+blob_storage_save_latency_bucket{le="7"} 29346
+blob_storage_save_latency_bucket{le="9"} 29348
+blob_storage_save_latency_bucket{le="11"} 29348
+blob_storage_save_latency_bucket{le="13"} 29348
+blob_storage_save_latency_bucket{le="+Inf"} 29349
+blob_storage_save_latency_sum 172
+blob_storage_save_latency_count 29349
+# HELP blob_verification_proposer_signature_cache BlobSidecar proposer signature cache result.
+# TYPE blob_verification_proposer_signature_cache counter
+blob_verification_proposer_signature_cache{result="hit-valid"} 17713
+blob_verification_proposer_signature_cache{result="miss"} 10068
+# HELP blob_written Number of BlobSidecar files written
+# TYPE blob_written counter
+blob_written 29349
+# HELP block_arrival_latency_milliseconds Captures blocks propagation time. Blocks arrival in milliseconds distribution
+# TYPE block_arrival_latency_milliseconds histogram
+block_arrival_latency_milliseconds_bucket{le="100"} 0
+block_arrival_latency_milliseconds_bucket{le="250"} 7
+block_arrival_latency_milliseconds_bucket{le="500"} 99
+block_arrival_latency_milliseconds_bucket{le="750"} 205
+block_arrival_latency_milliseconds_bucket{le="1000"} 316
+block_arrival_latency_milliseconds_bucket{le="1500"} 3307
+block_arrival_latency_milliseconds_bucket{le="2000"} 8991
+block_arrival_latency_milliseconds_bucket{le="4000"} 11039
+block_arrival_latency_milliseconds_bucket{le="8000"} 11063
+block_arrival_latency_milliseconds_bucket{le="12000"} 11068
+block_arrival_latency_milliseconds_bucket{le="16000"} 11068
+block_arrival_latency_milliseconds_bucket{le="20000"} 11068
+block_arrival_latency_milliseconds_bucket{le="24000"} 11068
+block_arrival_latency_milliseconds_bucket{le="+Inf"} 12836
+block_arrival_latency_milliseconds_sum 1.9197278399e+10
+block_arrival_latency_milliseconds_count 12836
+# HELP block_arrival_latency_milliseconds_gauge Captures blocks propagation time. Blocks arrival in milliseconds
+# TYPE block_arrival_latency_milliseconds_gauge gauge
+block_arrival_latency_milliseconds_gauge 605
+# HELP bls_to_exec_message_pool_total The number of saved bls to exec messages in the operation pool.
+# TYPE bls_to_exec_message_pool_total gauge
+bls_to_exec_message_pool_total 0
+# HELP bolt_bucket_buckets Number of buckets within a bucket, including the top bucket.
+# TYPE bolt_bucket_buckets gauge
+bolt_bucket_buckets{bucket="block-root-validator-hashes",database="boltDB"} 1
+bolt_bucket_buckets{bucket="chain-metadata",database="boltDB"} 1
+bolt_bucket_buckets{bucket="check-point",database="boltDB"} 1
+bolt_bucket_buckets{bucket="fee-recipient",database="boltDB"} 1
+bolt_bucket_buckets{bucket="light-client-updates",database="boltDB"} 1
+bolt_bucket_buckets{bucket="migrations",database="boltDB"} 1
+bolt_bucket_buckets{bucket="powchain",database="boltDB"} 1
+bolt_bucket_buckets{bucket="registration",database="boltDB"} 1
+bolt_bucket_buckets{bucket="state",database="boltDB"} 1
+bolt_bucket_buckets{bucket="state-slot-indices",database="boltDB"} 1
+bolt_bucket_buckets{bucket="state-validators",database="boltDB"} 1
+# HELP bolt_bucket_depth Number of levels in B+ tree for a bucket.
+# TYPE bolt_bucket_depth gauge
+bolt_bucket_depth{bucket="block-root-validator-hashes",database="boltDB"} 1
+bolt_bucket_depth{bucket="chain-metadata",database="boltDB"} 1
+bolt_bucket_depth{bucket="check-point",database="boltDB"} 1
+bolt_bucket_depth{bucket="fee-recipient",database="boltDB"} 1
+bolt_bucket_depth{bucket="light-client-updates",database="boltDB"} 1
+bolt_bucket_depth{bucket="migrations",database="boltDB"} 1
+bolt_bucket_depth{bucket="powchain",database="boltDB"} 1
+bolt_bucket_depth{bucket="registration",database="boltDB"} 1
+bolt_bucket_depth{bucket="state",database="boltDB"} 2
+bolt_bucket_depth{bucket="state-slot-indices",database="boltDB"} 1
+bolt_bucket_depth{bucket="state-validators",database="boltDB"} 1
+# HELP bolt_bucket_inlined_buckets Number of inlined buckets for a bucket.
+# TYPE bolt_bucket_inlined_buckets gauge
+bolt_bucket_inlined_buckets{bucket="block-root-validator-hashes",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="chain-metadata",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="check-point",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="fee-recipient",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="light-client-updates",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="migrations",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="powchain",database="boltDB"} 0
+bolt_bucket_inlined_buckets{bucket="registration",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="state",database="boltDB"} 0
+bolt_bucket_inlined_buckets{bucket="state-slot-indices",database="boltDB"} 1
+bolt_bucket_inlined_buckets{bucket="state-validators",database="boltDB"} 1
+# HELP bolt_bucket_inlined_buckets_in_use_bytes Number of bytes in use for inlined buckets.
+# TYPE bolt_bucket_inlined_buckets_in_use_bytes gauge
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="block-root-validator-hashes",database="boltDB"} 16
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="chain-metadata",database="boltDB"} 111
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="check-point",database="boltDB"} 249
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="fee-recipient",database="boltDB"} 16
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="light-client-updates",database="boltDB"} 16
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="migrations",database="boltDB"} 92
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="powchain",database="boltDB"} 0
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="registration",database="boltDB"} 16
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="state",database="boltDB"} 0
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="state-slot-indices",database="boltDB"} 464
+bolt_bucket_inlined_buckets_in_use_bytes{bucket="state-validators",database="boltDB"} 16
+# HELP bolt_bucket_keys Number of key/value pairs in a bucket.
+# TYPE bolt_bucket_keys gauge
+bolt_bucket_keys{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_keys{bucket="chain-metadata",database="boltDB"} 2
+bolt_bucket_keys{bucket="check-point",database="boltDB"} 3
+bolt_bucket_keys{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_keys{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_keys{bucket="migrations",database="boltDB"} 2
+bolt_bucket_keys{bucket="powchain",database="boltDB"} 1
+bolt_bucket_keys{bucket="registration",database="boltDB"} 0
+bolt_bucket_keys{bucket="state",database="boltDB"} 8
+bolt_bucket_keys{bucket="state-slot-indices",database="boltDB"} 8
+bolt_bucket_keys{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_logical_branch_pages Number of logical branch pages for a bucket.
+# TYPE bolt_bucket_logical_branch_pages gauge
+bolt_bucket_logical_branch_pages{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="check-point",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="migrations",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="powchain",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="registration",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="state",database="boltDB"} 1
+bolt_bucket_logical_branch_pages{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_logical_branch_pages{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_logical_leaf_pages Number of logical leaf pages for a bucket.
+# TYPE bolt_bucket_logical_leaf_pages gauge
+bolt_bucket_logical_leaf_pages{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="check-point",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="migrations",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="powchain",database="boltDB"} 1
+bolt_bucket_logical_leaf_pages{bucket="registration",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="state",database="boltDB"} 2
+bolt_bucket_logical_leaf_pages{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_logical_leaf_pages{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_branch_overflow_pages Number of physical branch overflow pages for a bucket.
+# TYPE bolt_bucket_physical_branch_overflow_pages gauge
+bolt_bucket_physical_branch_overflow_pages{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="powchain",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="state",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_branch_overflow_pages{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_branch_pages_allocated_bytes Number of bytes allocated in physical branch pages for a bucket.
+# TYPE bolt_bucket_physical_branch_pages_allocated_bytes gauge
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="powchain",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="state",database="boltDB"} 4096
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_allocated_bytes{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_branch_pages_in_use_bytes Number of bytes in use in physical branch pages for a bucket.
+# TYPE bolt_bucket_physical_branch_pages_in_use_bytes gauge
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="powchain",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="state",database="boltDB"} 112
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_branch_pages_in_use_bytes{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_leaf_overflow_pages Number of physical leaf overflow pages for a bucket.
+# TYPE bolt_bucket_physical_leaf_overflow_pages gauge
+bolt_bucket_physical_leaf_overflow_pages{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="powchain",database="boltDB"} 101610
+bolt_bucket_physical_leaf_overflow_pages{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="state",database="boltDB"} 181501
+bolt_bucket_physical_leaf_overflow_pages{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_leaf_overflow_pages{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_leaf_pages_allocated_bytes Number of bytes allocated in physical leaf pages for a bucket.
+# TYPE bolt_bucket_physical_leaf_pages_allocated_bytes gauge
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="powchain",database="boltDB"} 4.16198656e+08
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="state",database="boltDB"} 7.43436288e+08
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_allocated_bytes{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_bucket_physical_leaf_pages_in_use_bytes Number of bytes in use in physical leaf pages for a bucket.
+# TYPE bolt_bucket_physical_leaf_pages_in_use_bytes gauge
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="block-root-validator-hashes",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="chain-metadata",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="check-point",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="fee-recipient",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="light-client-updates",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="migrations",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="powchain",database="boltDB"} 4.16197195e+08
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="registration",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="state",database="boltDB"} 7.43431481e+08
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="state-slot-indices",database="boltDB"} 0
+bolt_bucket_physical_leaf_pages_in_use_bytes{bucket="state-validators",database="boltDB"} 0
+# HELP bolt_db_freelist_free_page_allocated_bytes Number of bytes allocated in free pages on the freelist.
+# TYPE bolt_db_freelist_free_page_allocated_bytes gauge
+bolt_db_freelist_free_page_allocated_bytes{database="boltDB"} 3.90795264e+08
+# HELP bolt_db_freelist_free_pages Number of free pages on the freelist.
+# TYPE bolt_db_freelist_free_pages gauge
+bolt_db_freelist_free_pages{database="boltDB"} 95214
+# HELP bolt_db_freelist_in_use_bytes Number of bytes in use by the freelist.
+# TYPE bolt_db_freelist_in_use_bytes gauge
+bolt_db_freelist_in_use_bytes{database="boltDB"} 763296
+# HELP bolt_db_freelist_pending_pages Number of pending pages on the freelist.
+# TYPE bolt_db_freelist_pending_pages gauge
+bolt_db_freelist_pending_pages{database="boltDB"} 195
+# HELP bolt_db_open_read_tx Number of currently open read-only transactions for the database.
+# TYPE bolt_db_open_read_tx gauge
+bolt_db_open_read_tx{database="boltDB"} 0
+# HELP bolt_db_read_tx_total Total number of started read transactions for the database.
+# TYPE bolt_db_read_tx_total counter
+bolt_db_read_tx_total{database="boltDB"} 209704
+# HELP bolt_tx_cursors_total Total number of cursors created by transactions
+# TYPE bolt_tx_cursors_total counter
+bolt_tx_cursors_total{database="boltDB"} 1.165663e+06
+# HELP bolt_tx_node_rebalance_seconds_total Total amount of time in seconds spent rebalancing nodes by transactions
+# TYPE bolt_tx_node_rebalance_seconds_total counter
+bolt_tx_node_rebalance_seconds_total{database="boltDB"} 0.002688446
+# HELP bolt_tx_node_rebalances_total Total number of node rebalances by transactions.
+# TYPE bolt_tx_node_rebalances_total counter
+bolt_tx_node_rebalances_total{database="boltDB"} 17730
+# HELP bolt_tx_nodes_allocated_total Total number of nodes allocated by transactions.
+# TYPE bolt_tx_nodes_allocated_total counter
+bolt_tx_nodes_allocated_total{database="boltDB"} 185869
+# HELP bolt_tx_nodes_dereferenced_total Total number of nodes dereferenced by transactions.
+# TYPE bolt_tx_nodes_dereferenced_total counter
+bolt_tx_nodes_dereferenced_total{database="boltDB"} 2
+# HELP bolt_tx_nodes_spilled_seconds_total Total amount of time in seconds spent spilling nodes by transactions.
+# TYPE bolt_tx_nodes_spilled_seconds_total counter
+bolt_tx_nodes_spilled_seconds_total{database="boltDB"} 130.864906322
+# HELP bolt_tx_nodes_spilled_total Total number of nodes spilled by transactions.
+# TYPE bolt_tx_nodes_spilled_total counter
+bolt_tx_nodes_spilled_total{database="boltDB"} 190189
+# HELP bolt_tx_nodes_split_total Total number of nodes split by transactions.
+# TYPE bolt_tx_nodes_split_total counter
+bolt_tx_nodes_split_total{database="boltDB"} 5338
+# HELP bolt_tx_pages_allocated_bytes_total Total number of bytes allocated for transaction pages.
+# TYPE bolt_tx_pages_allocated_bytes_total counter
+bolt_tx_pages_allocated_bytes_total{database="boltDB"} 3.95431821312e+11
+# HELP bolt_tx_pages_allocated_total Total number of transaction page allocations.
+# TYPE bolt_tx_pages_allocated_total counter
+bolt_tx_pages_allocated_total{database="boltDB"} 9.6540972e+07
+# HELP bolt_tx_write_seconds_total Total amount of time in seconds spent writing to disk by transactions.
+# TYPE bolt_tx_write_seconds_total counter
+bolt_tx_write_seconds_total{database="boltDB"} 285.107524874
+# HELP bolt_tx_writes_total Total number of writes to disk performed by transactions.
+# TYPE bolt_tx_writes_total counter
+bolt_tx_writes_total{database="boltDB"} 241107
+# HELP builder_get_payload_miss_count The number of get payload misses for validator requests to builder
+# TYPE builder_get_payload_miss_count counter
+builder_get_payload_miss_count 0
+# HELP builder_value_gwei Builder payload value in gwei
+# TYPE builder_value_gwei gauge
+builder_value_gwei 0
+# HELP chain_service_processing_milliseconds Total time to call a chain service in ReceiveBlock()
+# TYPE chain_service_processing_milliseconds summary
+chain_service_processing_milliseconds_sum 2.461943e+06
+chain_service_processing_milliseconds_count 11160
+# HELP check_point_state_cache_hit The number of check point state requests that are present in the cache.
+# TYPE check_point_state_cache_hit counter
+check_point_state_cache_hit 40092
+# HELP check_point_state_cache_miss The number of check point state requests that aren't present in the cache.
+# TYPE check_point_state_cache_miss counter
+check_point_state_cache_miss 384
+# HELP committee_cache_hit The number of committee requests that are present in the cache.
+# TYPE committee_cache_hit counter
+committee_cache_hit 5.0205482e+07
+# HELP committee_cache_in_progress_hit The number of committee requests that are present in the cache.
+# TYPE committee_cache_in_progress_hit counter
+committee_cache_in_progress_hit 0
+# HELP committee_cache_miss The number of committee requests that aren't present in the cache.
+# TYPE committee_cache_miss counter
+committee_cache_miss 28
+# HELP connected_libp2p_peers Tracks the total number of connected libp2p peers by agent string
+# TYPE connected_libp2p_peers gauge
+connected_libp2p_peers{agent="lighthouse"} 2
+connected_libp2p_peers{agent="lodestar"} 2
+connected_libp2p_peers{agent="nimbus"} 8
+connected_libp2p_peers{agent="prysm"} 59
+connected_libp2p_peers{agent="rust-libp2p"} 1
+connected_libp2p_peers{agent="teku"} 2
+connected_libp2p_peers{agent="unknown"} 3
+# HELP connected_libp2p_peers_average_scores Tracks the overall p2p scores of connected libp2p peers by agent string
+# TYPE connected_libp2p_peers_average_scores gauge
+connected_libp2p_peers_average_scores{agent="lighthouse"} 0.6003499999999999
+connected_libp2p_peers_average_scores{agent="lodestar"} -0.8007000000000001
+connected_libp2p_peers_average_scores{agent="nimbus"} 0.21355000000000002
+connected_libp2p_peers_average_scores{agent="prysm"} 1.1883813559322032
+connected_libp2p_peers_average_scores{agent="rust-libp2p"} 0.3296
+connected_libp2p_peers_average_scores{agent="teku"} 0.40545
+connected_libp2p_peers_average_scores{agent="unknown"} 0.0656
+# HELP current_eth1_data_deposit_count The current eth1 deposit count in the last processed state eth1data field.
+# TYPE current_eth1_data_deposit_count gauge
+current_eth1_data_deposit_count 1.722641e+06
+# HELP da_waited_time_milliseconds Total time spent waiting for a data availability check in ReceiveBlock()
+# TYPE da_waited_time_milliseconds summary
+da_waited_time_milliseconds_sum 16073
+da_waited_time_milliseconds_count 11160
+# HELP db_beacon_state_reading_milliseconds Milliseconds it takes to read a beacon state from the DB
+# TYPE db_beacon_state_reading_milliseconds summary
+db_beacon_state_reading_milliseconds_sum 2984
+db_beacon_state_reading_milliseconds_count 5
+# HELP db_beacon_state_saving_milliseconds Milliseconds it takes to save a beacon state to the DB
+# TYPE db_beacon_state_saving_milliseconds summary
+db_beacon_state_saving_milliseconds_sum 21388
+db_beacon_state_saving_milliseconds_count 8
+# HELP doublylinkedtree_attestation_processed_count The number of times an attestation is processed for fork choice.
+# TYPE doublylinkedtree_attestation_processed_count counter
+doublylinkedtree_attestation_processed_count 2.020096e+06
+# HELP doublylinkedtree_block_processed_count The number of times a block is processed for fork choice.
+# TYPE doublylinkedtree_block_processed_count counter
+doublylinkedtree_block_processed_count 11161
+# HELP doublylinkedtree_head_changed_count The number of times head changes.
+# TYPE doublylinkedtree_head_changed_count counter
+doublylinkedtree_head_changed_count 11138
+# HELP doublylinkedtree_head_requested_count The number of times someone called head.
+# TYPE doublylinkedtree_head_requested_count counter
+doublylinkedtree_head_requested_count 22263
+# HELP doublylinkedtree_head_slot The slot number of the current head.
+# TYPE doublylinkedtree_head_slot gauge
+doublylinkedtree_head_slot 1.0203802e+07
+# HELP doublylinkedtree_node_count The number of nodes in the doubly linked tree based store structure.
+# TYPE doublylinkedtree_node_count gauge
+doublylinkedtree_node_count 90
+# HELP doublylinkedtree_pruned_count The number of times pruning happened.
+# TYPE doublylinkedtree_pruned_count counter
+doublylinkedtree_pruned_count 347
+# HELP execution_internal_error_count The number of errors that occurred due to internal error
+# TYPE execution_internal_error_count counter
+execution_internal_error_count 0
+# HELP execution_invalid_forkchoice_state_count The number of errors that occurred due to invalid forkchoice state
+# TYPE execution_invalid_forkchoice_state_count counter
+execution_invalid_forkchoice_state_count 0
+# HELP execution_invalid_params_count The number of errors that occurred due to invalid params
+# TYPE execution_invalid_params_count counter
+execution_invalid_params_count 0
+# HELP execution_invalid_payload_attributes_count The number of errors that occurred due to invalid payload attributes
+# TYPE execution_invalid_payload_attributes_count counter
+execution_invalid_payload_attributes_count 0
+# HELP execution_invalid_request_count The number of errors that occurred due to invalid request
+# TYPE execution_invalid_request_count counter
+execution_invalid_request_count 0
+# HELP execution_method_not_found_count The number of errors that occurred due to method not found
+# TYPE execution_method_not_found_count counter
+execution_method_not_found_count 0
+# HELP execution_parse_error_count The number of errors that occurred while parsing execution payload
+# TYPE execution_parse_error_count counter
+execution_parse_error_count 0
+# HELP execution_payload_bodies_count The number of requested payload bodies is too large
+# TYPE execution_payload_bodies_count counter
+execution_payload_bodies_count 0
+# HELP execution_server_error_count The number of errors that occurred due to server error
+# TYPE execution_server_error_count counter
+execution_server_error_count 0
+# HELP execution_unknown_payload_count The number of errors that occurred due to unknown payload
+# TYPE execution_unknown_payload_count counter
+execution_unknown_payload_count 0
+# HELP expired_aggregated_atts_total The number of expired and deleted aggregated attestations in the pool.
+# TYPE expired_aggregated_atts_total counter
+expired_aggregated_atts_total 1440
+# HELP expired_block_atts_total The number of expired and deleted block attestations in the pool.
+# TYPE expired_block_atts_total counter
+expired_block_atts_total 254
+# HELP expired_unaggregated_atts_total The number of expired and deleted unaggregated attestations in the pool.
+# TYPE expired_unaggregated_atts_total counter
+expired_unaggregated_atts_total 959
+# HELP field_references The number of states a particular field is shared with.
+# TYPE field_references gauge
+field_references{state="balances_trie"} 4
+field_references{state="blockRoots_trie"} 4
+field_references{state="currentEpochParticipationBits"} 9
+field_references{state="eth1DataVotes"} 4
+field_references{state="eth1DataVotes_trie"} 4
+field_references{state="historicalRoots"} 100
+field_references{state="historicalSummaries"} 100
+field_references{state="latestExecutionPayloadHeaderDeneb"} 100
+field_references{state="previousEpochParticipationBits"} 4
+field_references{state="randaoMixes_trie"} 4
+field_references{state="slashings"} 9
+field_references{state="stateRoots_trie"} 4
+field_references{state="validators_trie"} 4
+# HELP forkchoice_updated_invalid_node_count Count the number of invalid nodes after forkchoiceUpdated EE call
+# TYPE forkchoice_updated_invalid_node_count counter
+forkchoice_updated_invalid_node_count 0
+# HELP forkchoice_updated_optimistic_node_count Count the number of optimistic nodes after forkchoiceUpdated EE call
+# TYPE forkchoice_updated_optimistic_node_count counter
+forkchoice_updated_optimistic_node_count 1941
+# HELP forkchoice_updated_v1_latency_milliseconds Captures RPC latency for forkchoiceUpdatedV1 in milliseconds
+# TYPE forkchoice_updated_v1_latency_milliseconds histogram
+forkchoice_updated_v1_latency_milliseconds_bucket{le="25"} 11064
+forkchoice_updated_v1_latency_milliseconds_bucket{le="50"} 11127
+forkchoice_updated_v1_latency_milliseconds_bucket{le="100"} 11137
+forkchoice_updated_v1_latency_milliseconds_bucket{le="200"} 11138
+forkchoice_updated_v1_latency_milliseconds_bucket{le="500"} 11138
+forkchoice_updated_v1_latency_milliseconds_bucket{le="1000"} 11138
+forkchoice_updated_v1_latency_milliseconds_bucket{le="2000"} 11138
+forkchoice_updated_v1_latency_milliseconds_bucket{le="4000"} 11138
+forkchoice_updated_v1_latency_milliseconds_bucket{le="+Inf"} 11138
+forkchoice_updated_v1_latency_milliseconds_sum 40916
+forkchoice_updated_v1_latency_milliseconds_count 11138
+# HELP forkchoice_updated_valid_node_count Count the number of valid nodes after forkchoiceUpdated EE call
+# TYPE forkchoice_updated_valid_node_count counter
+forkchoice_updated_valid_node_count 9197
+# HELP get_header_latency_milliseconds Captures RPC latency for get header in milliseconds
+# TYPE get_header_latency_milliseconds histogram
+get_header_latency_milliseconds_bucket{le="1"} 0
+get_header_latency_milliseconds_bucket{le="2"} 0
+get_header_latency_milliseconds_bucket{le="5"} 0
+get_header_latency_milliseconds_bucket{le="10"} 0
+get_header_latency_milliseconds_bucket{le="20"} 0
+get_header_latency_milliseconds_bucket{le="50"} 0
+get_header_latency_milliseconds_bucket{le="100"} 0
+get_header_latency_milliseconds_bucket{le="200"} 0
+get_header_latency_milliseconds_bucket{le="500"} 0
+get_header_latency_milliseconds_bucket{le="1000"} 0
+get_header_latency_milliseconds_bucket{le="+Inf"} 0
+get_header_latency_milliseconds_sum 0
+get_header_latency_milliseconds_count 0
+# HELP get_payload_v1_latency_milliseconds Captures RPC latency for getPayloadV1 in milliseconds
+# TYPE get_payload_v1_latency_milliseconds histogram
+get_payload_v1_latency_milliseconds_bucket{le="25"} 0
+get_payload_v1_latency_milliseconds_bucket{le="50"} 0
+get_payload_v1_latency_milliseconds_bucket{le="100"} 0
+get_payload_v1_latency_milliseconds_bucket{le="200"} 0
+get_payload_v1_latency_milliseconds_bucket{le="500"} 0
+get_payload_v1_latency_milliseconds_bucket{le="1000"} 0
+get_payload_v1_latency_milliseconds_bucket{le="2000"} 0
+get_payload_v1_latency_milliseconds_bucket{le="4000"} 0
+get_payload_v1_latency_milliseconds_bucket{le="+Inf"} 0
+get_payload_v1_latency_milliseconds_sum 0
+get_payload_v1_latency_milliseconds_count 0
+# HELP go_gc_duration_seconds A summary of the wall-time pause (stop-the-world) duration in garbage collection cycles.
+# TYPE go_gc_duration_seconds summary
+go_gc_duration_seconds{quantile="0"} 8.168e-05
+go_gc_duration_seconds{quantile="0.25"} 0.000118735
+go_gc_duration_seconds{quantile="0.5"} 0.000143332
+go_gc_duration_seconds{quantile="0.75"} 0.000165386
+go_gc_duration_seconds{quantile="1"} 0.000351121
+go_gc_duration_seconds_sum 1.211007513
+go_gc_duration_seconds_count 1320
+# HELP go_gc_gogc_percent Heap size target percentage configured by the user, otherwise 100. This value is set by the GOGC environment variable, and the runtime/debug.SetGCPercent function. Sourced from /gc/gogc:percent
+# TYPE go_gc_gogc_percent gauge
+go_gc_gogc_percent 100
+# HELP go_gc_gomemlimit_bytes Go runtime memory limit configured by the user, otherwise math.MaxInt64. This value is set by the GOMEMLIMIT environment variable, and the runtime/debug.SetMemoryLimit function. Sourced from /gc/gomemlimit:bytes
+# TYPE go_gc_gomemlimit_bytes gauge
+go_gc_gomemlimit_bytes 9.223372036854776e+18
+# HELP go_goroutines Number of goroutines that currently exist.
+# TYPE go_goroutines gauge
+go_goroutines 690
+# HELP go_info Information about the Go environment.
+# TYPE go_info gauge
+go_info{version="go1.22.4"} 1
+# HELP go_maxprocs The result of runtime.GOMAXPROCS(0)
+# TYPE go_maxprocs gauge
+go_maxprocs 16
+# HELP go_memstats_alloc_bytes Number of bytes allocated in heap and currently in use. Equals to /memory/classes/heap/objects:bytes.
+# TYPE go_memstats_alloc_bytes gauge
+go_memstats_alloc_bytes 5.385331864e+09
+# HELP go_memstats_alloc_bytes_total Total number of bytes allocated in heap until now, even if released already. Equals to /gc/heap/allocs:bytes.
+# TYPE go_memstats_alloc_bytes_total counter
+go_memstats_alloc_bytes_total 2.619400781968e+12
+# HELP go_memstats_buck_hash_sys_bytes Number of bytes used by the profiling bucket hash table. Equals to /memory/classes/profiling/buckets:bytes.
+# TYPE go_memstats_buck_hash_sys_bytes gauge
+go_memstats_buck_hash_sys_bytes 1.441793e+07
+# HELP go_memstats_frees_total Total number of heap objects frees. Equals to /gc/heap/frees:objects + /gc/heap/tiny/allocs:objects.
+# TYPE go_memstats_frees_total counter
+go_memstats_frees_total 1.4705495871e+10
+# HELP go_memstats_gc_sys_bytes Number of bytes used for garbage collection system metadata. Equals to /memory/classes/metadata/other:bytes.
+# TYPE go_memstats_gc_sys_bytes gauge
+go_memstats_gc_sys_bytes 5.6550552e+07
+# HELP go_memstats_heap_alloc_bytes Number of heap bytes allocated and currently in use, same as go_memstats_alloc_bytes. Equals to /memory/classes/heap/objects:bytes.
+# TYPE go_memstats_heap_alloc_bytes gauge
+go_memstats_heap_alloc_bytes 5.385331864e+09
+# HELP go_memstats_heap_idle_bytes Number of heap bytes waiting to be used. Equals to /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.
+# TYPE go_memstats_heap_idle_bytes gauge
+go_memstats_heap_idle_bytes 7.493042176e+09
+# HELP go_memstats_heap_inuse_bytes Number of heap bytes that are in use. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes
+# TYPE go_memstats_heap_inuse_bytes gauge
+go_memstats_heap_inuse_bytes 5.705531392e+09
+# HELP go_memstats_heap_objects Number of currently allocated objects. Equals to /gc/heap/objects:objects.
+# TYPE go_memstats_heap_objects gauge
+go_memstats_heap_objects 3.2397851e+07
+# HELP go_memstats_heap_released_bytes Number of heap bytes released to OS. Equals to /memory/classes/heap/released:bytes.
+# TYPE go_memstats_heap_released_bytes gauge
+go_memstats_heap_released_bytes 6.792921088e+09
+# HELP go_memstats_heap_sys_bytes Number of heap bytes obtained from system. Equals to /memory/classes/heap/objects:bytes + /memory/classes/heap/unused:bytes + /memory/classes/heap/released:bytes + /memory/classes/heap/free:bytes.
+# TYPE go_memstats_heap_sys_bytes gauge
+go_memstats_heap_sys_bytes 1.3198573568e+10
+# HELP go_memstats_last_gc_time_seconds Number of seconds since 1970 of last garbage collection.
+# TYPE go_memstats_last_gc_time_seconds gauge
+go_memstats_last_gc_time_seconds 1.729269549773358e+09
+# HELP go_memstats_mallocs_total Total number of heap objects allocated, both live and gc-ed. Semantically a counter version for go_memstats_heap_objects gauge. Equals to /gc/heap/allocs:objects + /gc/heap/tiny/allocs:objects.
+# TYPE go_memstats_mallocs_total counter
+go_memstats_mallocs_total 1.4737893722e+10
+# HELP go_memstats_mcache_inuse_bytes Number of bytes in use by mcache structures. Equals to /memory/classes/metadata/mcache/inuse:bytes.
+# TYPE go_memstats_mcache_inuse_bytes gauge
+go_memstats_mcache_inuse_bytes 19200
+# HELP go_memstats_mcache_sys_bytes Number of bytes used for mcache structures obtained from system. Equals to /memory/classes/metadata/mcache/inuse:bytes + /memory/classes/metadata/mcache/free:bytes.
+# TYPE go_memstats_mcache_sys_bytes gauge
+go_memstats_mcache_sys_bytes 31200
+# HELP go_memstats_mspan_inuse_bytes Number of bytes in use by mspan structures. Equals to /memory/classes/metadata/mspan/inuse:bytes.
+# TYPE go_memstats_mspan_inuse_bytes gauge
+go_memstats_mspan_inuse_bytes 6.809968e+07
+# HELP go_memstats_mspan_sys_bytes Number of bytes used for mspan structures obtained from system. Equals to /memory/classes/metadata/mspan/inuse:bytes + /memory/classes/metadata/mspan/free:bytes.
+# TYPE go_memstats_mspan_sys_bytes gauge
+go_memstats_mspan_sys_bytes 9.53904e+07
+# HELP go_memstats_next_gc_bytes Number of heap bytes when next garbage collection will take place. Equals to /gc/heap/goal:bytes.
+# TYPE go_memstats_next_gc_bytes gauge
+go_memstats_next_gc_bytes 8.593044328e+09
+# HELP go_memstats_other_sys_bytes Number of bytes used for other system allocations. Equals to /memory/classes/other:bytes.
+# TYPE go_memstats_other_sys_bytes gauge
+go_memstats_other_sys_bytes 1.0439574e+07
+# HELP go_memstats_stack_inuse_bytes Number of bytes obtained from system for stack allocator in non-CGO environments. Equals to /memory/classes/heap/stacks:bytes.
+# TYPE go_memstats_stack_inuse_bytes gauge
+go_memstats_stack_inuse_bytes 8.814592e+06
+# HELP go_memstats_stack_sys_bytes Number of bytes obtained from system for stack allocator. Equals to /memory/classes/heap/stacks:bytes + /memory/classes/os-stacks:bytes.
+# TYPE go_memstats_stack_sys_bytes gauge
+go_memstats_stack_sys_bytes 8.814592e+06
+# HELP go_memstats_sys_bytes Number of bytes obtained from system. Equals to /memory/classes/total:byte.
+# TYPE go_memstats_sys_bytes gauge
+go_memstats_sys_bytes 1.3384217816e+10
+# HELP go_sched_gomaxprocs_threads The current runtime.GOMAXPROCS setting, or the number of operating system threads that can execute user-level Go code simultaneously. Sourced from /sched/gomaxprocs:threads
+# TYPE go_sched_gomaxprocs_threads gauge
+go_sched_gomaxprocs_threads 16
+# HELP go_threads Number of OS threads created.
+# TYPE go_threads gauge
+go_threads 39
+# HELP gossip_aggregate_attestation_verification_milliseconds Time to verify gossiped attestations
+# TYPE gossip_aggregate_attestation_verification_milliseconds summary
+gossip_aggregate_attestation_verification_milliseconds_sum 9.4121822e+07
+gossip_aggregate_attestation_verification_milliseconds_count 2.743856e+06
+# HELP gossip_attestation_bad_block_total Increased when a gossip attestation references a bad block
+# TYPE gossip_attestation_bad_block_total counter
+gossip_attestation_bad_block_total 0
+# HELP gossip_attestation_bad_lmd_consistency_total Increased when a gossip attestation has bad LMD GHOST consistency
+# TYPE gossip_attestation_bad_lmd_consistency_total counter
+gossip_attestation_bad_lmd_consistency_total 0
+# HELP gossip_attestation_bad_selection_proof_total Increased when a gossip attestation has a bad selection proof
+# TYPE gossip_attestation_bad_selection_proof_total counter
+gossip_attestation_bad_selection_proof_total 1
+# HELP gossip_attestation_bad_signature_batch_total Increased when a gossip attestation has a bad signature batch
+# TYPE gossip_attestation_bad_signature_batch_total counter
+gossip_attestation_bad_signature_batch_total 0
+# HELP gossip_blob_sidecar_arrival_milliseconds Time for gossiped blob sidecars to arrive
+# TYPE gossip_blob_sidecar_arrival_milliseconds summary
+gossip_blob_sidecar_arrival_milliseconds_sum 6.1392998e+07
+gossip_blob_sidecar_arrival_milliseconds_count 27666
+# HELP gossip_blob_sidecar_verification_milliseconds Time to verify gossiped blob sidecars
+# TYPE gossip_blob_sidecar_verification_milliseconds summary
+gossip_blob_sidecar_verification_milliseconds_sum 103254
+gossip_blob_sidecar_verification_milliseconds_count 27666
+# HELP gossip_block_arrival_milliseconds Time for gossiped blocks to arrive
+# TYPE gossip_block_arrival_milliseconds summary
+gossip_block_arrival_milliseconds_sum 1.9428576e+07
+gossip_block_arrival_milliseconds_count 11067
+# HELP gossip_block_verification_milliseconds Time to verify gossiped blocks
+# TYPE gossip_block_verification_milliseconds summary
+gossip_block_verification_milliseconds_sum 38068
+gossip_block_verification_milliseconds_count 11067
+# HELP gossip_missing_parent_blob_sidecar_total The number of blob sidecars that were dropped due to missing parent block
+# TYPE gossip_missing_parent_blob_sidecar_total counter
+gossip_missing_parent_blob_sidecar_total 6
+# HELP gossip_pending_attestations_total increased when receiving a new pending attestation
+# TYPE gossip_pending_attestations_total counter
+gossip_pending_attestations_total 42121
+# HELP head_finalized_epoch Last finalized epoch of the head state
+# TYPE head_finalized_epoch gauge
+head_finalized_epoch 318866
+# HELP head_finalized_root Last finalized root of the head state
+# TYPE head_finalized_root gauge
+head_finalized_root -1.5498387735525809e+18
+# HELP head_state_defragmentation_milliseconds Milliseconds it takes to defragment the head state
+# TYPE head_state_defragmentation_milliseconds summary
+head_state_defragmentation_milliseconds_sum 3603
+head_state_defragmentation_milliseconds_count 11160
+# HELP hot_state_cache_hit The total number of cache hits on the hot state cache.
+# TYPE hot_state_cache_hit counter
+hot_state_cache_hit 32973
+# HELP hot_state_cache_miss The total number of cache misses on the hot state cache.
+# TYPE hot_state_cache_miss counter
+hot_state_cache_miss 416
+# HELP libp2p_autonat_next_probe_timestamp Time of next probe
+# TYPE libp2p_autonat_next_probe_timestamp gauge
+libp2p_autonat_next_probe_timestamp 1.72926967e+09
+# HELP libp2p_autonat_reachability_status Current node reachability
+# TYPE libp2p_autonat_reachability_status gauge
+libp2p_autonat_reachability_status 0
+# HELP libp2p_autonat_reachability_status_confidence Node reachability status confidence
+# TYPE libp2p_autonat_reachability_status_confidence gauge
+libp2p_autonat_reachability_status_confidence 0
+# HELP libp2p_eventbus_events_emitted_total Events Emitted
+# TYPE libp2p_eventbus_events_emitted_total counter
+libp2p_eventbus_events_emitted_total{event="EvtLocalAddressesUpdated"} 2
+libp2p_eventbus_events_emitted_total{event="EvtLocalProtocolsUpdated"} 14
+libp2p_eventbus_events_emitted_total{event="EvtPeerConnectednessChanged"} 67388
+libp2p_eventbus_events_emitted_total{event="EvtPeerIdentificationCompleted"} 169335
+libp2p_eventbus_events_emitted_total{event="EvtPeerIdentificationFailed"} 2442
+libp2p_eventbus_events_emitted_total{event="EvtPeerProtocolsUpdated"} 137606
+# HELP libp2p_eventbus_subscriber_event_queued Event Queued for subscriber
+# TYPE libp2p_eventbus_subscriber_event_queued counter
+libp2p_eventbus_subscriber_event_queued{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/gossipsub.go-L567"} 236723
+libp2p_eventbus_subscriber_event_queued{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/peer_notify.go-L15"} 306941
+libp2p_eventbus_subscriber_event_queued{subscriber_name="autonat"} 169337
+libp2p_eventbus_subscriber_event_queued{subscriber_name="identify (loop)"} 10
+libp2p_eventbus_subscriber_event_queued{subscriber_name="pstoremanager"} 67388
+# HELP libp2p_eventbus_subscriber_queue_full Subscriber Queue completely full
+# TYPE libp2p_eventbus_subscriber_queue_full gauge
+libp2p_eventbus_subscriber_queue_full{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/gossipsub.go-L567"} 0
+libp2p_eventbus_subscriber_queue_full{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/peer_notify.go-L15"} 0
+libp2p_eventbus_subscriber_queue_full{subscriber_name="autonat"} 0
+libp2p_eventbus_subscriber_queue_full{subscriber_name="identify (loop)"} 0
+libp2p_eventbus_subscriber_queue_full{subscriber_name="pstoremanager"} 0
+# HELP libp2p_eventbus_subscriber_queue_length Subscriber queue length
+# TYPE libp2p_eventbus_subscriber_queue_length gauge
+libp2p_eventbus_subscriber_queue_length{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/gossipsub.go-L567"} 1
+libp2p_eventbus_subscriber_queue_length{subscriber_name="/root/.asdf/installs/golang/1.22.4/packages/pkg/mod/github.com/libp2p/go-libp2p-pubsub/peer_notify.go-L15"} 1
+libp2p_eventbus_subscriber_queue_length{subscriber_name="autonat"} 1
+libp2p_eventbus_subscriber_queue_length{subscriber_name="identify (loop)"} 1
+libp2p_eventbus_subscriber_queue_length{subscriber_name="pstoremanager"} 1
+# HELP libp2p_eventbus_subscribers_total Number of subscribers for an event type
+# TYPE libp2p_eventbus_subscribers_total gauge
+libp2p_eventbus_subscribers_total{event="EvtLocalAddressesUpdated"} 2
+libp2p_eventbus_subscribers_total{event="EvtLocalProtocolsUpdated"} 1
+libp2p_eventbus_subscribers_total{event="EvtLocalReachabilityChanged"} 1
+libp2p_eventbus_subscribers_total{event="EvtPeerConnectednessChanged"} 2
+libp2p_eventbus_subscribers_total{event="EvtPeerIdentificationCompleted"} 3
+libp2p_eventbus_subscribers_total{event="EvtPeerProtocolsUpdated"} 1
+# HELP libp2p_identify_addrs_count Address Count
+# TYPE libp2p_identify_addrs_count gauge
+libp2p_identify_addrs_count 2
+# HELP libp2p_identify_addrs_received Number of addrs received
+# TYPE libp2p_identify_addrs_received histogram
+libp2p_identify_addrs_received_bucket{le="1"} 35405
+libp2p_identify_addrs_received_bucket{le="2"} 55344
+libp2p_identify_addrs_received_bucket{le="3"} 156269
+libp2p_identify_addrs_received_bucket{le="4"} 167738
+libp2p_identify_addrs_received_bucket{le="5"} 168655
+libp2p_identify_addrs_received_bucket{le="6"} 169007
+libp2p_identify_addrs_received_bucket{le="7"} 169038
+libp2p_identify_addrs_received_bucket{le="8"} 169122
+libp2p_identify_addrs_received_bucket{le="9"} 169217
+libp2p_identify_addrs_received_bucket{le="10"} 169252
+libp2p_identify_addrs_received_bucket{le="11"} 169290
+libp2p_identify_addrs_received_bucket{le="12"} 169296
+libp2p_identify_addrs_received_bucket{le="13"} 169303
+libp2p_identify_addrs_received_bucket{le="14"} 169307
+libp2p_identify_addrs_received_bucket{le="15"} 169310
+libp2p_identify_addrs_received_bucket{le="16"} 169316
+libp2p_identify_addrs_received_bucket{le="17"} 169316
+libp2p_identify_addrs_received_bucket{le="18"} 169318
+libp2p_identify_addrs_received_bucket{le="19"} 169318
+libp2p_identify_addrs_received_bucket{le="20"} 169321
+libp2p_identify_addrs_received_bucket{le="25"} 169322
+libp2p_identify_addrs_received_bucket{le="30"} 169324
+libp2p_identify_addrs_received_bucket{le="35"} 169324
+libp2p_identify_addrs_received_bucket{le="40"} 169324
+libp2p_identify_addrs_received_bucket{le="45"} 169335
+libp2p_identify_addrs_received_bucket{le="50"} 169335
+libp2p_identify_addrs_received_bucket{le="55"} 169335
+libp2p_identify_addrs_received_bucket{le="60"} 169335
+libp2p_identify_addrs_received_bucket{le="65"} 169335
+libp2p_identify_addrs_received_bucket{le="70"} 169335
+libp2p_identify_addrs_received_bucket{le="75"} 169335
+libp2p_identify_addrs_received_bucket{le="80"} 169335
+libp2p_identify_addrs_received_bucket{le="85"} 169335
+libp2p_identify_addrs_received_bucket{le="90"} 169335
+libp2p_identify_addrs_received_bucket{le="95"} 169335
+libp2p_identify_addrs_received_bucket{le="100"} 169335
+libp2p_identify_addrs_received_bucket{le="+Inf"} 169335
+libp2p_identify_addrs_received_sum 420458
+libp2p_identify_addrs_received_count 169335
+# HELP libp2p_identify_conn_push_support_total Identify Connection Push Support
+# TYPE libp2p_identify_conn_push_support_total counter
+libp2p_identify_conn_push_support_total{support="not supported"} 4456
+libp2p_identify_conn_push_support_total{support="supported"} 164857
+# HELP libp2p_identify_identify_push_total Identify Push
+# TYPE libp2p_identify_identify_push_total counter
+libp2p_identify_identify_push_total{dir="inbound"} 137606
+libp2p_identify_identify_push_total{dir="outbound"} 8
+# HELP libp2p_identify_identify_pushes_triggered_total Pushes Triggered
+# TYPE libp2p_identify_identify_pushes_triggered_total counter
+libp2p_identify_identify_pushes_triggered_total{trigger="addresses_updated"} 2
+libp2p_identify_identify_pushes_triggered_total{trigger="protocols_updated"} 2
+# HELP libp2p_identify_identify_total Identify
+# TYPE libp2p_identify_identify_total counter
+libp2p_identify_identify_total{dir="inbound"} 33086
+libp2p_identify_identify_total{dir="outbound"} 31729
+# HELP libp2p_identify_protocols_count Protocols Count
+# TYPE libp2p_identify_protocols_count gauge
+libp2p_identify_protocols_count 14
+# HELP libp2p_identify_protocols_received Number of Protocols received
+# TYPE libp2p_identify_protocols_received histogram
+libp2p_identify_protocols_received_bucket{le="1"} 15
+libp2p_identify_protocols_received_bucket{le="2"} 15
+libp2p_identify_protocols_received_bucket{le="3"} 1179
+libp2p_identify_protocols_received_bucket{le="4"} 1526
+libp2p_identify_protocols_received_bucket{le="5"} 1532
+libp2p_identify_protocols_received_bucket{le="6"} 1532
+libp2p_identify_protocols_received_bucket{le="7"} 1533
+libp2p_identify_protocols_received_bucket{le="8"} 1533
+libp2p_identify_protocols_received_bucket{le="9"} 1533
+libp2p_identify_protocols_received_bucket{le="10"} 1942
+libp2p_identify_protocols_received_bucket{le="11"} 2028
+libp2p_identify_protocols_received_bucket{le="12"} 2261
+libp2p_identify_protocols_received_bucket{le="13"} 143919
+libp2p_identify_protocols_received_bucket{le="14"} 152465
+libp2p_identify_protocols_received_bucket{le="15"} 155581
+libp2p_identify_protocols_received_bucket{le="16"} 156771
+libp2p_identify_protocols_received_bucket{le="17"} 156774
+libp2p_identify_protocols_received_bucket{le="18"} 169335
+libp2p_identify_protocols_received_bucket{le="19"} 169335
+libp2p_identify_protocols_received_bucket{le="20"} 169335
+libp2p_identify_protocols_received_bucket{le="25"} 169335
+libp2p_identify_protocols_received_bucket{le="30"} 169335
+libp2p_identify_protocols_received_bucket{le="35"} 169335
+libp2p_identify_protocols_received_bucket{le="40"} 169335
+libp2p_identify_protocols_received_bucket{le="45"} 169335
+libp2p_identify_protocols_received_bucket{le="50"} 169335
+libp2p_identify_protocols_received_bucket{le="55"} 169335
+libp2p_identify_protocols_received_bucket{le="60"} 169335
+libp2p_identify_protocols_received_bucket{le="65"} 169335
+libp2p_identify_protocols_received_bucket{le="70"} 169335
+libp2p_identify_protocols_received_bucket{le="75"} 169335
+libp2p_identify_protocols_received_bucket{le="80"} 169335
+libp2p_identify_protocols_received_bucket{le="85"} 169335
+libp2p_identify_protocols_received_bucket{le="90"} 169335
+libp2p_identify_protocols_received_bucket{le="95"} 169335
+libp2p_identify_protocols_received_bucket{le="100"} 169335
+libp2p_identify_protocols_received_bucket{le="+Inf"} 169335
+libp2p_identify_protocols_received_sum 2.265876e+06
+libp2p_identify_protocols_received_count 169335
+# HELP libp2p_rcmgr_conn_memory How many conns have reserved this bucket of memory, as reported to the Resource Manager
+# TYPE libp2p_rcmgr_conn_memory histogram
+libp2p_rcmgr_conn_memory_bucket{le="1024"} 0
+libp2p_rcmgr_conn_memory_bucket{le="4096"} 0
+libp2p_rcmgr_conn_memory_bucket{le="32768"} 0
+libp2p_rcmgr_conn_memory_bucket{le="1.048576e+06"} 0
+libp2p_rcmgr_conn_memory_bucket{le="3.3554432e+07"} 0
+libp2p_rcmgr_conn_memory_bucket{le="2.68435456e+08"} 0
+libp2p_rcmgr_conn_memory_bucket{le="5.36870912e+08"} 0
+libp2p_rcmgr_conn_memory_bucket{le="1.073741824e+09"} 0
+libp2p_rcmgr_conn_memory_bucket{le="2.147483648e+09"} 0
+libp2p_rcmgr_conn_memory_bucket{le="4.294967296e+09"} 0
+libp2p_rcmgr_conn_memory_bucket{le="+Inf"} 0
+libp2p_rcmgr_conn_memory_sum 0
+libp2p_rcmgr_conn_memory_count 0
+# HELP libp2p_rcmgr_connections Number of Connections
+# TYPE libp2p_rcmgr_connections gauge
+libp2p_rcmgr_connections{dir="inbound",scope="system"} 67
+libp2p_rcmgr_connections{dir="inbound",scope="transient"} 0
+libp2p_rcmgr_connections{dir="outbound",scope="system"} 12
+libp2p_rcmgr_connections{dir="outbound",scope="transient"} 0
+# HELP libp2p_rcmgr_fds Number of file descriptors reserved as reported to the Resource Manager
+# TYPE libp2p_rcmgr_fds gauge
+libp2p_rcmgr_fds{scope="system"} 79
+libp2p_rcmgr_fds{scope="transient"} 0
+# HELP libp2p_rcmgr_memory Amount of memory reserved as reported to the Resource Manager
+# TYPE libp2p_rcmgr_memory gauge
+libp2p_rcmgr_memory{protocol="",scope="system"} 6.6912256e+07
+libp2p_rcmgr_memory{protocol="/ipfs/id/1.0.0",scope="protocol"} 0
+libp2p_rcmgr_memory{protocol="/ipfs/id/push/1.0.0",scope="protocol"} 0
+# HELP libp2p_rcmgr_peer_connections Number of connections this peer has
+# TYPE libp2p_rcmgr_peer_connections histogram
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="1"} 30778
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="2"} 30881
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="3"} 30904
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="4"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="5"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="6"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="7"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="8"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="9"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="10"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="16"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="32"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="64"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="128"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="256"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="inbound",le="+Inf"} 30909
+libp2p_rcmgr_peer_connections_sum{dir="inbound"} 31073
+libp2p_rcmgr_peer_connections_count{dir="inbound"} 30909
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="1"} 5989
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="2"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="3"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="4"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="5"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="6"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="7"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="8"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="9"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="10"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="16"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="32"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="64"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="128"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="256"} 6002
+libp2p_rcmgr_peer_connections_bucket{dir="outbound",le="+Inf"} 6002
+libp2p_rcmgr_peer_connections_sum{dir="outbound"} 6015
+libp2p_rcmgr_peer_connections_count{dir="outbound"} 6002
+# HELP libp2p_rcmgr_peer_memory How many peers have reserved this bucket of memory, as reported to the Resource Manager
+# TYPE libp2p_rcmgr_peer_memory histogram
+libp2p_rcmgr_peer_memory_bucket{le="1024"} 0
+libp2p_rcmgr_peer_memory_bucket{le="4096"} 0
+libp2p_rcmgr_peer_memory_bucket{le="32768"} 57891
+libp2p_rcmgr_peer_memory_bucket{le="1.048576e+06"} 820425
+libp2p_rcmgr_peer_memory_bucket{le="3.3554432e+07"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="2.68435456e+08"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="5.36870912e+08"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="1.073741824e+09"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="2.147483648e+09"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="4.294967296e+09"} 1.027839e+06
+libp2p_rcmgr_peer_memory_bucket{le="+Inf"} 1.027839e+06
+libp2p_rcmgr_peer_memory_sum 8.78556258304e+11
+libp2p_rcmgr_peer_memory_count 1.027839e+06
+# HELP libp2p_rcmgr_peer_streams Number of streams this peer has
+# TYPE libp2p_rcmgr_peer_streams histogram
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="1"} 302752
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="2"} 596781
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="3"} 624327
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="4"} 625596
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="5"} 625897
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="6"} 625940
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="7"} 625972
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="8"} 625995
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="9"} 626021
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="10"} 626051
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="16"} 626144
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="32"} 626288
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="64"} 626438
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="128"} 626566
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="256"} 626609
+libp2p_rcmgr_peer_streams_bucket{dir="inbound",le="+Inf"} 626609
+libp2p_rcmgr_peer_streams_sum{dir="inbound"} 1.011265e+06
+libp2p_rcmgr_peer_streams_count{dir="inbound"} 626609
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="1"} 138261
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="2"} 221433
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="3"} 223651
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="4"} 223673
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="5"} 223684
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="6"} 223693
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="7"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="8"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="9"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="10"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="16"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="32"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="64"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="128"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="256"} 223697
+libp2p_rcmgr_peer_streams_bucket{dir="outbound",le="+Inf"} 223697
+libp2p_rcmgr_peer_streams_sum{dir="outbound"} 311484
+libp2p_rcmgr_peer_streams_count{dir="outbound"} 223697
+# HELP libp2p_rcmgr_previous_conn_memory How many conns have previously reserved this bucket of memory, as reported to the Resource Manager
+# TYPE libp2p_rcmgr_previous_conn_memory histogram
+libp2p_rcmgr_previous_conn_memory_bucket{le="1024"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="4096"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="32768"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="1.048576e+06"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="3.3554432e+07"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="2.68435456e+08"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="5.36870912e+08"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="1.073741824e+09"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="2.147483648e+09"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="4.294967296e+09"} 0
+libp2p_rcmgr_previous_conn_memory_bucket{le="+Inf"} 0
+libp2p_rcmgr_previous_conn_memory_sum 0
+libp2p_rcmgr_previous_conn_memory_count 0
+# HELP libp2p_rcmgr_previous_peer_connections Number of connections this peer previously had. This is used to get the current connection number per peer histogram by subtracting this from the peer_connections histogram
+# TYPE libp2p_rcmgr_previous_peer_connections histogram
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="1"} 30711
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="2"} 30814
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="3"} 30837
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="4"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="5"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="6"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="7"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="8"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="9"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="10"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="16"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="32"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="64"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="128"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="256"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="inbound",le="+Inf"} 30842
+libp2p_rcmgr_previous_peer_connections_sum{dir="inbound"} 31006
+libp2p_rcmgr_previous_peer_connections_count{dir="inbound"} 30842
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="1"} 5977
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="2"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="3"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="4"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="5"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="6"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="7"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="8"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="9"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="10"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="16"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="32"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="64"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="128"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="256"} 5990
+libp2p_rcmgr_previous_peer_connections_bucket{dir="outbound",le="+Inf"} 5990
+libp2p_rcmgr_previous_peer_connections_sum{dir="outbound"} 6003
+libp2p_rcmgr_previous_peer_connections_count{dir="outbound"} 5990
+# HELP libp2p_rcmgr_previous_peer_memory How many peers have previously reserved this bucket of memory, as reported to the Resource Manager
+# TYPE libp2p_rcmgr_previous_peer_memory histogram
+libp2p_rcmgr_previous_peer_memory_bucket{le="1024"} 0
+libp2p_rcmgr_previous_peer_memory_bucket{le="4096"} 0
+libp2p_rcmgr_previous_peer_memory_bucket{le="32768"} 57891
+libp2p_rcmgr_previous_peer_memory_bucket{le="1.048576e+06"} 820367
+libp2p_rcmgr_previous_peer_memory_bucket{le="3.3554432e+07"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="2.68435456e+08"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="5.36870912e+08"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="1.073741824e+09"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="2.147483648e+09"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="4.294967296e+09"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_bucket{le="+Inf"} 1.02776e+06
+libp2p_rcmgr_previous_peer_memory_sum 8.78489346048e+11
+libp2p_rcmgr_previous_peer_memory_count 1.02776e+06
+# HELP libp2p_rcmgr_previous_peer_streams Number of streams this peer has
+# TYPE libp2p_rcmgr_previous_peer_streams histogram
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="1"} 302674
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="2"} 596702
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="3"} 624248
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="4"} 625517
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="5"} 625818
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="6"} 625861
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="7"} 625893
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="8"} 625916
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="9"} 625942
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="10"} 625972
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="16"} 626065
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="32"} 626209
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="64"} 626359
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="128"} 626487
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="256"} 626530
+libp2p_rcmgr_previous_peer_streams_bucket{dir="inbound",le="+Inf"} 626530
+libp2p_rcmgr_previous_peer_streams_sum{dir="inbound"} 1.011185e+06
+libp2p_rcmgr_previous_peer_streams_count{dir="inbound"} 626530
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="1"} 138182
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="2"} 221354
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="3"} 223572
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="4"} 223594
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="5"} 223605
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="6"} 223614
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="7"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="8"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="9"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="10"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="16"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="32"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="64"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="128"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="256"} 223618
+libp2p_rcmgr_previous_peer_streams_bucket{dir="outbound",le="+Inf"} 223618
+libp2p_rcmgr_previous_peer_streams_sum{dir="outbound"} 311405
+libp2p_rcmgr_previous_peer_streams_count{dir="outbound"} 223618
+# HELP libp2p_rcmgr_streams Number of Streams
+# TYPE libp2p_rcmgr_streams gauge
+libp2p_rcmgr_streams{dir="inbound",protocol="",scope="system"} 80
+libp2p_rcmgr_streams{dir="inbound",protocol="",scope="transient"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/beacon_blocks_by_range/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/beacon_blocks_by_root/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/blob_sidecars_by_range/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/blob_sidecars_by_root/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/goodbye/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/metadata/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/ping/1/ssz_snappy",scope="protocol"} 1
+libp2p_rcmgr_streams{dir="inbound",protocol="/eth2/beacon_chain/req/status/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/ipfs/id/1.0.0",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/ipfs/id/push/1.0.0",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="inbound",protocol="/meshsub/1.1.0",scope="protocol"} 66
+libp2p_rcmgr_streams{dir="inbound",protocol="/meshsub/1.2.0",scope="protocol"} 13
+libp2p_rcmgr_streams{dir="outbound",protocol="",scope="system"} 79
+libp2p_rcmgr_streams{dir="outbound",protocol="",scope="transient"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/beacon_blocks_by_range/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/beacon_blocks_by_root/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/blob_sidecars_by_range/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/blob_sidecars_by_root/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/goodbye/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/metadata/2/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/ping/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/eth2/beacon_chain/req/status/1/ssz_snappy",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/ipfs/id/1.0.0",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/ipfs/id/push/1.0.0",scope="protocol"} 0
+libp2p_rcmgr_streams{dir="outbound",protocol="/meshsub/1.1.0",scope="protocol"} 66
+libp2p_rcmgr_streams{dir="outbound",protocol="/meshsub/1.2.0",scope="protocol"} 13
+# HELP libp2p_swarm_black_hole_filter_next_request_allowed_after Number of requests after which the next request will be allowed
+# TYPE libp2p_swarm_black_hole_filter_next_request_allowed_after gauge
+libp2p_swarm_black_hole_filter_next_request_allowed_after{name="IPv6"} 0
+# HELP libp2p_swarm_black_hole_filter_state State of the black hole filter
+# TYPE libp2p_swarm_black_hole_filter_state gauge
+libp2p_swarm_black_hole_filter_state{name="IPv6"} 0
+# HELP libp2p_swarm_black_hole_filter_success_fraction Fraction of successful dials among the last n requests
+# TYPE libp2p_swarm_black_hole_filter_success_fraction gauge
+libp2p_swarm_black_hole_filter_success_fraction{name="IPv6"} 0
+# HELP libp2p_swarm_connection_duration_seconds Duration of a Connection
+# TYPE libp2p_swarm_connection_duration_seconds histogram
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0625"} 2
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.125"} 12
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.25"} 30
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.5"} 149
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1"} 310
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2"} 507
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4"} 638
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8"} 768
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16"} 885
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32"} 990
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="64"} 1252
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="128"} 1845
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="256"} 2498
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="512"} 2631
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1024"} 2728
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2048"} 2779
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4096"} 2802
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8192"} 2813
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16384"} 2823
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32768"} 2828
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="65536"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="131072"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="262144"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="524288"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1.048576e+06"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="+Inf"} 2830
+libp2p_swarm_connection_duration_seconds_sum{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 862484.7923703255
+libp2p_swarm_connection_duration_seconds_count{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 2830
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0625"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.125"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.25"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.5"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16"} 629
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32"} 629
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="64"} 630
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="128"} 633
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="256"} 637
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="512"} 638
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1024"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2048"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4096"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8192"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16384"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32768"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="65536"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="131072"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="262144"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="524288"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.048576e+06"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 639
+libp2p_swarm_connection_duration_seconds_sum{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 8307.696189991004
+libp2p_swarm_connection_duration_seconds_count{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 639
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0625"} 3028
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.125"} 3435
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.25"} 8406
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.5"} 10069
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1"} 10400
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2"} 10468
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4"} 10485
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8"} 10570
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16"} 11400
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32"} 11537
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="64"} 11909
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="128"} 12755
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="256"} 13717
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="512"} 14665
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1024"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2048"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4096"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8192"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16384"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32768"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="65536"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="131072"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="262144"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="524288"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1.048576e+06"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="+Inf"} 14751
+libp2p_swarm_connection_duration_seconds_sum{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 664458.0725712813
+libp2p_swarm_connection_duration_seconds_count{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 14751
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0625"} 215
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.125"} 350
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.25"} 948
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.5"} 1939
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1"} 2566
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2"} 2703
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4"} 2903
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8"} 3271
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16"} 4498
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32"} 4800
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="64"} 5813
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="128"} 8197
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="256"} 10626
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="512"} 11203
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1024"} 11735
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2048"} 12102
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4096"} 12296
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8192"} 12398
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16384"} 12451
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32768"} 12483
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="65536"} 12504
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="131072"} 12514
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="262144"} 12514
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="524288"} 12514
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.048576e+06"} 12514
+libp2p_swarm_connection_duration_seconds_bucket{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 12514
+libp2p_swarm_connection_duration_seconds_sum{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 6.0785579335350655e+06
+libp2p_swarm_connection_duration_seconds_count{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 12514
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0625"} 148
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.125"} 198
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.25"} 283
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.5"} 525
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1"} 1183
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2"} 1388
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4"} 1432
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8"} 1467
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16"} 1489
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32"} 1502
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="64"} 1514
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="128"} 1519
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="256"} 1528
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="512"} 1550
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1024"} 1560
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2048"} 1581
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4096"} 1594
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="8192"} 1600
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="16384"} 1607
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="32768"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="65536"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="131072"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="262144"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="524288"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1.048576e+06"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="+Inf"} 1609
+libp2p_swarm_connection_duration_seconds_sum{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 245232.50710846076
+libp2p_swarm_connection_duration_seconds_count{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 1609
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0625"} 283
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.125"} 335
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.25"} 376
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.5"} 796
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1"} 985
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2"} 1128
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4"} 1135
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8"} 1137
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16"} 1155
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32"} 1265
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="64"} 1296
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="128"} 1339
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="256"} 1408
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="512"} 1483
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1024"} 1550
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2048"} 1594
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4096"} 1605
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8192"} 1612
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16384"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32768"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="65536"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="131072"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="262144"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="524288"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.048576e+06"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 1614
+libp2p_swarm_connection_duration_seconds_sum{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 252351.03645149778
+libp2p_swarm_connection_duration_seconds_count{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 1614
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0625"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.125"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.25"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.5"} 0
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1"} 4
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2"} 5
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4"} 5
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8"} 11
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16"} 12
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32"} 12
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="64"} 20
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="128"} 31
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="256"} 88
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="512"} 93
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1024"} 105
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2048"} 111
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4096"} 112
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="8192"} 116
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="16384"} 124
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="32768"} 129
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="65536"} 134
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="131072"} 135
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="262144"} 135
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="524288"} 135
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.048576e+06"} 135
+libp2p_swarm_connection_duration_seconds_bucket{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 135
+libp2p_swarm_connection_duration_seconds_sum{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 670970.1863515311
+libp2p_swarm_connection_duration_seconds_count{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 135
+# HELP libp2p_swarm_connections_closed_total Connections Closed
+# TYPE libp2p_swarm_connections_closed_total counter
+libp2p_swarm_connections_closed_total{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 2830
+libp2p_swarm_connections_closed_total{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 639
+libp2p_swarm_connections_closed_total{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 14751
+libp2p_swarm_connections_closed_total{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 12514
+libp2p_swarm_connections_closed_total{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 1609
+libp2p_swarm_connections_closed_total{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 1614
+libp2p_swarm_connections_closed_total{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 135
+# HELP libp2p_swarm_connections_opened_total Connections Opened
+# TYPE libp2p_swarm_connections_opened_total counter
+libp2p_swarm_connections_opened_total{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 2840
+libp2p_swarm_connections_opened_total{dir="inbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 639
+libp2p_swarm_connections_opened_total{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 14754
+libp2p_swarm_connections_opened_total{dir="inbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 12568
+libp2p_swarm_connections_opened_total{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 1612
+libp2p_swarm_connections_opened_total{dir="outbound",early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 1616
+libp2p_swarm_connections_opened_total{dir="outbound",early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 142
+# HELP libp2p_swarm_dial_errors_total Dial Error
+# TYPE libp2p_swarm_dial_errors_total counter
+libp2p_swarm_dial_errors_total{error="connection refused",ip_version="ip4",transport="tcp"} 240
+libp2p_swarm_dial_errors_total{error="deadline",ip_version="ip4",transport="tcp"} 787
+libp2p_swarm_dial_errors_total{error="other",ip_version="ip4",transport="tcp"} 938
+libp2p_swarm_dial_errors_total{error="other",ip_version="ip6",transport="tcp"} 3
+libp2p_swarm_dial_errors_total{error="timeout",ip_version="ip4",transport="tcp"} 651
+# HELP libp2p_swarm_dial_ranking_delay_seconds delay introduced by the dial ranking logic
+# TYPE libp2p_swarm_dial_ranking_delay_seconds histogram
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.001"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.01"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.05"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.1"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.2"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.3"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.4"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.5"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="0.75"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="1"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="2"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_bucket{le="+Inf"} 3370
+libp2p_swarm_dial_ranking_delay_seconds_sum 0.03122648499999999
+libp2p_swarm_dial_ranking_delay_seconds_count 3370
+# HELP libp2p_swarm_dials_per_peer_total Number of addresses dialed per peer
+# TYPE libp2p_swarm_dials_per_peer_total counter
+libp2p_swarm_dials_per_peer_total{num_dials="0",outcome="failed"} 44
+libp2p_swarm_dials_per_peer_total{num_dials="1",outcome="failed"} 2614
+libp2p_swarm_dials_per_peer_total{num_dials="1",outcome="success"} 3367
+libp2p_swarm_dials_per_peer_total{num_dials="2",outcome="failed"} 1
+libp2p_swarm_dials_per_peer_total{num_dials="2",outcome="success"} 3
+# HELP libp2p_swarm_handshake_latency_seconds Duration of the libp2p Handshake
+# TYPE libp2p_swarm_handshake_latency_seconds histogram
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0013000000000000002"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0016900000000000003"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0021970000000000006"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.0028561000000000007"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.003712930000000001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.004826809000000001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.006274851700000002"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.008157307210000003"} 2
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.010604499373000004"} 16
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.013785849184900006"} 38
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.01792160394037001"} 101
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.02329808512248101"} 110
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.030287510659225317"} 114
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.03937376385699291"} 135
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.05118589301409079"} 172
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.06654166091831802"} 186
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.08650415919381343"} 211
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.11245540695195747"} 249
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.14619202903754472"} 267
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.19004963774880815"} 313
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.2470645290734506"} 347
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.3211838877954858"} 421
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.41753905413413156"} 628
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.542800770374371"} 1178
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.7056410014866824"} 1294
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="0.9173333019326871"} 1379
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1.1925332925124934"} 1495
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="1.5502932802662415"} 1557
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2.015381264346114"} 1568
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="2.6199956436499483"} 1579
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="3.405994336744933"} 1589
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="4.427792637768413"} 1596
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="5.7561304290989375"} 1603
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="7.482969557828619"} 1605
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp",le="+Inf"} 1612
+libp2p_swarm_handshake_latency_seconds_sum{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 942.000067009999
+libp2p_swarm_handshake_latency_seconds_count{early_muxer="false",ip_version="ip4",muxer="/mplex/6.7.0",security="/noise",transport="tcp"} 1612
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0013000000000000002"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0016900000000000003"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0021970000000000006"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0028561000000000007"} 10
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.003712930000000001"} 27
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.004826809000000001"} 45
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.006274851700000002"} 157
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.008157307210000003"} 238
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.010604499373000004"} 279
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.013785849184900006"} 295
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.01792160394037001"} 302
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.02329808512248101"} 305
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.030287510659225317"} 326
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.03937376385699291"} 345
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.05118589301409079"} 365
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.06654166091831802"} 408
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.08650415919381343"} 444
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.11245540695195747"} 478
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.14619202903754472"} 496
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.19004963774880815"} 518
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.2470645290734506"} 540
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.3211838877954858"} 677
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.41753905413413156"} 1123
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.542800770374371"} 1246
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.7056410014866824"} 1350
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.9173333019326871"} 1438
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.1925332925124934"} 1525
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.5502932802662415"} 1583
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2.015381264346114"} 1610
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2.6199956436499483"} 1613
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="3.405994336744933"} 1614
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4.427792637768413"} 1615
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="5.7561304290989375"} 1616
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="7.482969557828619"} 1616
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 1616
+libp2p_swarm_handshake_latency_seconds_sum{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 657.0677256079994
+libp2p_swarm_handshake_latency_seconds_count{early_muxer="false",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 1616
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0013000000000000002"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0016900000000000003"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0021970000000000006"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.0028561000000000007"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.003712930000000001"} 0
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.004826809000000001"} 2
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.006274851700000002"} 3
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.008157307210000003"} 6
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.010604499373000004"} 9
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.013785849184900006"} 10
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.01792160394037001"} 12
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.02329808512248101"} 13
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.030287510659225317"} 14
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.03937376385699291"} 16
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.05118589301409079"} 19
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.06654166091831802"} 22
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.08650415919381343"} 22
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.11245540695195747"} 31
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.14619202903754472"} 31
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.19004963774880815"} 33
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.2470645290734506"} 49
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.3211838877954858"} 105
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.41753905413413156"} 115
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.542800770374371"} 119
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.7056410014866824"} 129
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="0.9173333019326871"} 137
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.1925332925124934"} 139
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="1.5502932802662415"} 140
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2.015381264346114"} 141
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="2.6199956436499483"} 142
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="3.405994336744933"} 142
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="4.427792637768413"} 142
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="5.7561304290989375"} 142
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="7.482969557828619"} 142
+libp2p_swarm_handshake_latency_seconds_bucket{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp",le="+Inf"} 142
+libp2p_swarm_handshake_latency_seconds_sum{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 46.23609076400001
+libp2p_swarm_handshake_latency_seconds_count{early_muxer="true",ip_version="ip4",muxer="/yamux/1.0.0",security="/noise",transport="tcp"} 142
+# HELP libp2p_swarm_key_types_total key type
+# TYPE libp2p_swarm_key_types_total counter
+libp2p_swarm_key_types_total{dir="inbound",key_type="Secp256k1"} 30801
+libp2p_swarm_key_types_total{dir="outbound",key_type="Secp256k1"} 3370
+# HELP local_value_gwei Local payload value in gwei
+# TYPE local_value_gwei gauge
+local_value_gwei 0
+# HELP log_entries_total Total number of log messages.
+# TYPE log_entries_total counter
+log_entries_total{level="error",prefix="execution"} 166
+log_entries_total{level="error",prefix="global"} 2221
+log_entries_total{level="error",prefix="sync"} 89
+log_entries_total{level="info",prefix="backfill"} 1
+log_entries_total{level="info",prefix="blockchain"} 26246
+log_entries_total{level="info",prefix="execution"} 2
+log_entries_total{level="info",prefix="httprest"} 1
+log_entries_total{level="info",prefix="initial-sync"} 8
+log_entries_total{level="info",prefix="node"} 1
+log_entries_total{level="info",prefix="p2p"} 2223
+log_entries_total{level="info",prefix="state-gen"} 6
+log_entries_total{level="info",prefix="sync"} 17
+log_entries_total{level="warning",prefix="blockchain"} 42
+# HELP multi_value_appended_element_references_count The number of appended element references that exist for the multivalue slice object.
+# TYPE multi_value_appended_element_references_count gauge
+multi_value_appended_element_references_count{field="balances"} 0
+multi_value_appended_element_references_count{field="blockRoots"} 0
+multi_value_appended_element_references_count{field="inactivityScores"} 0
+multi_value_appended_element_references_count{field="randaoMixes"} 0
+multi_value_appended_element_references_count{field="stateRoots"} 0
+multi_value_appended_element_references_count{field="validators"} 0
+# HELP multi_value_appended_elements_count The number of appended elements that exist for the multivalue slice object.
+# TYPE multi_value_appended_elements_count gauge
+multi_value_appended_elements_count{field="balances"} 0
+multi_value_appended_elements_count{field="blockRoots"} 0
+multi_value_appended_elements_count{field="inactivityScores"} 0
+multi_value_appended_elements_count{field="randaoMixes"} 0
+multi_value_appended_elements_count{field="stateRoots"} 0
+multi_value_appended_elements_count{field="validators"} 0
+# HELP multi_value_individual_element_references_count The number of individual element references that exist for the multivalue slice object.
+# TYPE multi_value_individual_element_references_count gauge
+multi_value_individual_element_references_count{field="balances"} 2116
+multi_value_individual_element_references_count{field="blockRoots"} 12257
+multi_value_individual_element_references_count{field="inactivityScores"} 0
+multi_value_individual_element_references_count{field="randaoMixes"} 7527
+multi_value_individual_element_references_count{field="stateRoots"} 12257
+multi_value_individual_element_references_count{field="validators"} 3969
+# HELP multi_value_individual_elements_count The number of individual elements that exist for the multivalue slice object.
+# TYPE multi_value_individual_elements_count gauge
+multi_value_individual_elements_count{field="balances"} 529
+multi_value_individual_elements_count{field="blockRoots"} 155
+multi_value_individual_elements_count{field="inactivityScores"} 0
+multi_value_individual_elements_count{field="randaoMixes"} 77
+multi_value_individual_elements_count{field="stateRoots"} 155
+multi_value_individual_elements_count{field="validators"} 53
+# HELP multi_value_object_count The number of instances that exist for the multivalue slice for a particular field.
+# TYPE multi_value_object_count gauge
+multi_value_object_count{field="balances"} 15
+multi_value_object_count{field="blockRoots"} 3
+multi_value_object_count{field="inactivityScores"} 10
+multi_value_object_count{field="randaoMixes"} 2
+multi_value_object_count{field="stateRoots"} 3
+multi_value_object_count{field="validators"} 3
+# HELP new_att_head_milliseconds Captures latency for new attestation head in milliseconds
+# TYPE new_att_head_milliseconds histogram
+new_att_head_milliseconds_bucket{le="1"} 0
+new_att_head_milliseconds_bucket{le="5"} 0
+new_att_head_milliseconds_bucket{le="20"} 0
+new_att_head_milliseconds_bucket{le="100"} 1
+new_att_head_milliseconds_bucket{le="500"} 1
+new_att_head_milliseconds_bucket{le="1000"} 1
+new_att_head_milliseconds_bucket{le="+Inf"} 1
+new_att_head_milliseconds_sum 26
+new_att_head_milliseconds_count 1
+# HELP new_block_head_milliseconds Captures latency for new block head in milliseconds
+# TYPE new_block_head_milliseconds histogram
+new_block_head_milliseconds_bucket{le="1"} 0
+new_block_head_milliseconds_bucket{le="5"} 0
+new_block_head_milliseconds_bucket{le="20"} 0
+new_block_head_milliseconds_bucket{le="100"} 11160
+new_block_head_milliseconds_bucket{le="500"} 11160
+new_block_head_milliseconds_bucket{le="1000"} 11160
+new_block_head_milliseconds_bucket{le="+Inf"} 11160
+new_block_head_milliseconds_sum 269510
+new_block_head_milliseconds_count 11160
+# HELP new_payload_invalid_node_count Count the number of invalid nodes after newPayload EE call
+# TYPE new_payload_invalid_node_count counter
+new_payload_invalid_node_count 0
+# HELP new_payload_optimistic_node_count Count the number of optimistic nodes after newPayload EE call
+# TYPE new_payload_optimistic_node_count counter
+new_payload_optimistic_node_count 1962
+# HELP new_payload_v1_latency_milliseconds Captures RPC latency for newPayloadV1 in milliseconds
+# TYPE new_payload_v1_latency_milliseconds histogram
+new_payload_v1_latency_milliseconds_bucket{le="25"} 1416
+new_payload_v1_latency_milliseconds_bucket{le="50"} 1986
+new_payload_v1_latency_milliseconds_bucket{le="100"} 5789
+new_payload_v1_latency_milliseconds_bucket{le="200"} 10303
+new_payload_v1_latency_milliseconds_bucket{le="500"} 11047
+new_payload_v1_latency_milliseconds_bucket{le="1000"} 11158
+new_payload_v1_latency_milliseconds_bucket{le="2000"} 11160
+new_payload_v1_latency_milliseconds_bucket{le="4000"} 11160
+new_payload_v1_latency_milliseconds_bucket{le="+Inf"} 11160
+new_payload_v1_latency_milliseconds_sum 1.214325e+06
+new_payload_v1_latency_milliseconds_count 11160
+# HELP new_payload_valid_node_count Count the number of valid nodes after newPayload EE call
+# TYPE new_payload_valid_node_count counter
+new_payload_valid_node_count 9198
+# HELP next_slot_cache_hit The total number of cache hits on the next slot state cache.
+# TYPE next_slot_cache_hit counter
+next_slot_cache_hit 22877
+# HELP next_slot_cache_miss The total number of cache misses on the next slot state cache.
+# TYPE next_slot_cache_miss counter
+next_slot_cache_miss 11583
+# HELP num_pending_attester_slashings Number of pending attester slashings in the pool
+# TYPE num_pending_attester_slashings gauge
+num_pending_attester_slashings 0
+# HELP num_pending_proposer_slashings Number of pending proposer slashings in the pool
+# TYPE num_pending_proposer_slashings gauge
+num_pending_proposer_slashings 0
+# HELP number_of_duplicates_removed Count the number of times a duplicate signature set has been removed.
+# TYPE number_of_duplicates_removed counter
+number_of_duplicates_removed 340801
+# HELP number_of_sets_aggregated Count the number of times different sets have been successfully aggregated in a batch.
+# TYPE number_of_sets_aggregated histogram
+number_of_sets_aggregated_bucket{le="10"} 505582
+number_of_sets_aggregated_bucket{le="50"} 893614
+number_of_sets_aggregated_bucket{le="100"} 927809
+number_of_sets_aggregated_bucket{le="200"} 927809
+number_of_sets_aggregated_bucket{le="400"} 927809
+number_of_sets_aggregated_bucket{le="800"} 927809
+number_of_sets_aggregated_bucket{le="1600"} 927809
+number_of_sets_aggregated_bucket{le="3200"} 927809
+number_of_sets_aggregated_bucket{le="+Inf"} 927809
+number_of_sets_aggregated_sum 1.3194184e+07
+number_of_sets_aggregated_count 927809
+# HELP number_of_times_resynced Count the number of times a node resyncs.
+# TYPE number_of_times_resynced counter
+number_of_times_resynced 0
+# HELP on_block_processing_milliseconds Total time in milliseconds to complete a call to postBlockProcess()
+# TYPE on_block_processing_milliseconds summary
+on_block_processing_milliseconds_sum 408628
+on_block_processing_milliseconds_count 11160
+# HELP p2p_attestation_subnet_attempted_broadcasts The number of attestations that were attempted to be broadcast.
+# TYPE p2p_attestation_subnet_attempted_broadcasts counter
+p2p_attestation_subnet_attempted_broadcasts 0
+# HELP p2p_attestation_subnet_recovered_broadcasts The number of attestations that were attempted to be broadcast with no peers on the subnet. The beacon node increments this counter when the broadcast is blocked until a subnet peer can be found.
+# TYPE p2p_attestation_subnet_recovered_broadcasts counter
+p2p_attestation_subnet_recovered_broadcasts 0
+# HELP p2p_blob_sidecar_committee_attempted_broadcasts The number of blob sidecar committee messages that were attempted to be broadcast.
+# TYPE p2p_blob_sidecar_committee_attempted_broadcasts counter
+p2p_blob_sidecar_committee_attempted_broadcasts 0
+# HELP p2p_blob_sidecar_committee_broadcasts The number of blob sidecar committee messages that were broadcast with no peer on.
+# TYPE p2p_blob_sidecar_committee_broadcasts counter
+p2p_blob_sidecar_committee_broadcasts 0
+# HELP p2p_message_failed_processing_total Count of messages that passed validation but failed processing.
+# TYPE p2p_message_failed_processing_total counter
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/beacon_blocks_by_range/2/ssz_snappy"} 123
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/beacon_blocks_by_root/2/ssz_snappy"} 25
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/blob_sidecars_by_range/1/ssz_snappy"} 73
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/blob_sidecars_by_root/1/ssz_snappy"} 140
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/metadata/2/ssz_snappy"} 8
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/ping/1/ssz_snappy"} 175
+p2p_message_failed_processing_total{topic="/eth2/beacon_chain/req/status/1/ssz_snappy"} 4766
+# HELP p2p_message_failed_validation_total Count of messages that failed validation.
+# TYPE p2p_message_failed_validation_total counter
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 6
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 11
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 29
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 24
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 20
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 19
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 14
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 9
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 22
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 3
+p2p_message_failed_validation_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 24
+# HELP p2p_message_ignored_validation_total Count of messages that were ignored in validation.
+# TYPE p2p_message_ignored_validation_total counter
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 6702
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1.0380278e+07
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 557
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 602
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 20320
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 19589
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 24072
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 6449
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 6538
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 4501
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 3454
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 3174
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 3022
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 523088
+p2p_message_ignored_validation_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 35
+# HELP p2p_message_received_total Count of messages received.
+# TYPE p2p_message_received_total counter
+p2p_message_received_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 6702
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1.312414e+07
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 2.563156e+06
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 2.561219e+06
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 3.244956e+06
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 3.243786e+06
+p2p_message_received_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 35154
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 13699
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 12464
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 9554
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 7814
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 6952
+p2p_message_received_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 5865
+p2p_message_received_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 25
+p2p_message_received_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 682345
+p2p_message_received_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 3645
+p2p_message_received_total{topic="/eth2/beacon_chain/req/beacon_blocks_by_range/2/ssz_snappy"} 1410
+p2p_message_received_total{topic="/eth2/beacon_chain/req/beacon_blocks_by_root/2/ssz_snappy"} 119
+p2p_message_received_total{topic="/eth2/beacon_chain/req/blob_sidecars_by_range/1/ssz_snappy"} 78
+p2p_message_received_total{topic="/eth2/beacon_chain/req/blob_sidecars_by_root/1/ssz_snappy"} 1231
+p2p_message_received_total{topic="/eth2/beacon_chain/req/goodbye/1/ssz_snappy"} 3856
+p2p_message_received_total{topic="/eth2/beacon_chain/req/metadata/2/ssz_snappy"} 10460
+p2p_message_received_total{topic="/eth2/beacon_chain/req/ping/1/ssz_snappy"} 63970
+p2p_message_received_total{topic="/eth2/beacon_chain/req/status/1/ssz_snappy"} 36895
+# HELP p2p_peer_count The number of peers in a given state.
+# TYPE p2p_peer_count gauge
+p2p_peer_count{state="Bad"} 1
+p2p_peer_count{state="Connected"} 76
+p2p_peer_count{state="Connecting"} 0
+p2p_peer_count{state="Disconnected"} 2448
+p2p_peer_count{state="Disconnecting"} 0
+# HELP p2p_pubsub_deliver_total The number of messages received for delivery of a particular topic
+# TYPE p2p_pubsub_deliver_total counter
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 2.743856e+06
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 2.562599e+06
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 2.560617e+06
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 3.224636e+06
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 3.224197e+06
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 11067
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 6880
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 5626
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 4779
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 4101
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 3559
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 2721
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 3
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 159254
+p2p_pubsub_deliver_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 3586
+# HELP p2p_pubsub_duplicate_total The number of duplicate messages sent for a particular topic
+# TYPE p2p_pubsub_duplicate_total counter
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 6840
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 4.3268044e+07
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 1.3282707e+07
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 1.3034532e+07
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 1.6306459e+07
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 1.4762647e+07
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 99473
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 47554
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 40793
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 33050
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 27940
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 24882
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 19550
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 52
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 1.32338e+06
+p2p_pubsub_duplicate_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 18699
+# HELP p2p_pubsub_graft_total The number of graft messages sent for a particular topic
+# TYPE p2p_pubsub_graft_total counter
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 13773
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 11788
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 951
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 1291
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 2213
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 2004
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 13063
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 13698
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 13584
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 13745
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 13518
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 13558
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 13260
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 14918
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/proposer_slashing/ssz_snappy"} 14654
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 14508
+p2p_pubsub_graft_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 12794
+# HELP p2p_pubsub_prune_total The number of prune messages sent for a particular topic
+# TYPE p2p_pubsub_prune_total counter
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 13104
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 11104
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 827
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 1178
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 2071
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 1865
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 12410
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 13057
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 12940
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 13098
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 12869
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 12930
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 12634
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 14191
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/proposer_slashing/ssz_snappy"} 13983
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 13850
+p2p_pubsub_prune_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 12394
+# HELP p2p_pubsub_reject_total The number of messages rejected of a particular topic
+# TYPE p2p_pubsub_reject_total counter
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 6
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 11
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 29
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 24
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 20
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 19
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 14
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 9
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 22
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 3
+p2p_pubsub_reject_total{reason="validation failed",topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 24
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 6702
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1.0380278e+07
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 557
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 602
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 20320
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 19589
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 24072
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 6449
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 6538
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 4501
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 3454
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 3174
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 3022
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 523088
+p2p_pubsub_reject_total{reason="validation ignored",topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 35
+p2p_pubsub_reject_total{reason="validation queue full",topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1514
+p2p_pubsub_reject_total{reason="validation throttled",topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1822
+# HELP p2p_pubsub_rpc_drop_pub_total The number of publish messages dropped via rpc for a particular topic
+# TYPE p2p_pubsub_rpc_drop_pub_total counter
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 3267
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_10/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_12/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_14/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_16/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_17/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_19/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_21/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_24/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_25/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_26/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_27/ssz_snappy"} 3
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_31/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_32/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_34/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_35/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 73161
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_4/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 66318
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_42/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_46/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_49/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_51/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_57/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 127417
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 120925
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_61/ssz_snappy"} 2
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_62/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_9/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 14
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 6
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 2
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 1
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 10
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 5
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 259
+p2p_pubsub_rpc_drop_pub_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 5
+# HELP p2p_pubsub_rpc_drop_sub_total The number of subscription messages dropped via rpc
+# TYPE p2p_pubsub_rpc_drop_sub_total counter
+p2p_pubsub_rpc_drop_sub_total 0
+# HELP p2p_pubsub_rpc_drop_total The number of messages dropped via rpc for a particular control message
+# TYPE p2p_pubsub_rpc_drop_total counter
+p2p_pubsub_rpc_drop_total{control_message="graft"} 55
+p2p_pubsub_rpc_drop_total{control_message="ihave"} 4629
+p2p_pubsub_rpc_drop_total{control_message="iwant"} 15
+p2p_pubsub_rpc_drop_total{control_message="prune"} 32881
+# HELP p2p_pubsub_rpc_recv_sub_total The number of subscription messages received via rpc
+# TYPE p2p_pubsub_rpc_recv_sub_total counter
+p2p_pubsub_rpc_recv_sub_total 537307
+# HELP p2p_pubsub_rpc_recv_total The number of messages received via rpc for a particular control message
+# TYPE p2p_pubsub_rpc_recv_total counter
+p2p_pubsub_rpc_recv_total{control_message="graft"} 208463
+p2p_pubsub_rpc_recv_total{control_message="ihave"} 6.542698e+06
+p2p_pubsub_rpc_recv_total{control_message="iwant"} 1.070397e+06
+p2p_pubsub_rpc_recv_total{control_message="prune"} 55182
+# HELP p2p_pubsub_rpc_sent_pub_total The number of publish messages sent via rpc for a particular topic
+# TYPE p2p_pubsub_rpc_sent_pub_total counter
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 3.3077706e+07
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_1/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_10/ssz_snappy"} 10
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_12/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_14/ssz_snappy"} 12
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_15/ssz_snappy"} 4
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_16/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_17/ssz_snappy"} 14
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_18/ssz_snappy"} 4
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_19/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_21/ssz_snappy"} 14
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_24/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_25/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_26/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_27/ssz_snappy"} 24
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_3/ssz_snappy"} 5
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_31/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_32/ssz_snappy"} 13
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_34/ssz_snappy"} 14
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_35/ssz_snappy"} 10
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_37/ssz_snappy"} 5
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_38/ssz_snappy"} 4
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 2.7148608e+07
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_4/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 2.7534297e+07
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_41/ssz_snappy"} 6
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_42/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_43/ssz_snappy"} 5
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_46/ssz_snappy"} 15
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_49/ssz_snappy"} 10
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_50/ssz_snappy"} 4
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_51/ssz_snappy"} 12
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_53/ssz_snappy"} 5
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_57/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 3.3773775e+07
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 3.3414106e+07
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_6/ssz_snappy"} 10
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_60/ssz_snappy"} 8
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_61/ssz_snappy"} 12
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_62/ssz_snappy"} 18
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_7/ssz_snappy"} 13
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_attestation_9/ssz_snappy"} 7
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 124989
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 86083
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 71506
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 61403
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 52780
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 46010
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 33837
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 25
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 1.952381e+06
+p2p_pubsub_rpc_sent_pub_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 34913
+# HELP p2p_pubsub_rpc_sent_sub_total The number of subscription messages sent via rpc
+# TYPE p2p_pubsub_rpc_sent_sub_total counter
+p2p_pubsub_rpc_sent_sub_total 561
+# HELP p2p_pubsub_rpc_sent_total The number of messages sent via rpc for a particular control message
+# TYPE p2p_pubsub_rpc_sent_total counter
+p2p_pubsub_rpc_sent_total{control_message="graft"} 75358
+p2p_pubsub_rpc_sent_total{control_message="ihave"} 5.925797e+06
+p2p_pubsub_rpc_sent_total{control_message="iwant"} 494835
+p2p_pubsub_rpc_sent_total{control_message="prune"} 217992
+# HELP p2p_pubsub_topic_active The topics that the peer is participating in gossipsub.
+# TYPE p2p_pubsub_topic_active gauge
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 0
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 0
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/proposer_slashing/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 1
+p2p_pubsub_topic_active{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 1
+# HELP p2p_pubsub_undeliverable_total The number of messages received which weren't able to be delivered of a particular topic
+# TYPE p2p_pubsub_undeliverable_total counter
+p2p_pubsub_undeliverable_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 55065
+p2p_pubsub_undeliverable_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 11
+p2p_pubsub_undeliverable_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 13
+p2p_pubsub_undeliverable_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 28
+p2p_pubsub_undeliverable_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 40
+# HELP p2p_pubsub_validate_total The number of messages received for validation of a particular topic
+# TYPE p2p_pubsub_validate_total counter
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 6702
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 1.3125962e+07
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 2.563156e+06
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 2.561219e+06
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 3.244956e+06
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 3.243786e+06
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 35150
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 13358
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 12188
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 9300
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 7574
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 6747
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 5752
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 25
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 682345
+p2p_pubsub_validate_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 3645
+# HELP p2p_repeat_attempts The number of repeat attempts the connection handler is triggered for a peer.
+# TYPE p2p_repeat_attempts counter
+p2p_repeat_attempts 704
+# HELP p2p_status_message_missing The number of attempts the connection handler rejects a peer for a missing status message.
+# TYPE p2p_status_message_missing counter
+p2p_status_message_missing 1048
+# HELP p2p_subscribed_topic_peer_total The number of peers subscribed to topics that a host node is also subscribed to.
+# TYPE p2p_subscribed_topic_peer_total gauge
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_attestation_39/ssz_snappy"} 19
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_attestation_40/ssz_snappy"} 23
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_attestation_58/ssz_snappy"} 14
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_attestation_59/ssz_snappy"} 14
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_0/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_1/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_2/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_3/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_4/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/blob_sidecar_5/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/proposer_slashing/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/sync_committee_contribution_and_proof/ssz_snappy"} 76
+p2p_subscribed_topic_peer_total{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 74
+# HELP p2p_sync_committee_subnet_attempted_broadcasts The number of sync committee that were attempted to be broadcast.
+# TYPE p2p_sync_committee_subnet_attempted_broadcasts counter
+p2p_sync_committee_subnet_attempted_broadcasts 0
+# HELP p2p_sync_committee_subnet_recovered_broadcasts The number of sync committee messages that were attempted to be broadcast with no peers on the subnet. The beacon node increments this counter when the broadcast is blocked until a subnet peer can be found.
+# TYPE p2p_sync_committee_subnet_recovered_broadcasts counter
+p2p_sync_committee_subnet_recovered_broadcasts 0
+# HELP p2p_topic_peer_count The number of peers subscribed to a given topic.
+# TYPE p2p_topic_peer_count gauge
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/attester_slashing/ssz_snappy"} 76
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/beacon_aggregate_and_proof/ssz_snappy"} 76
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/beacon_block/ssz_snappy"} 76
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/blob_sidecar_%!d(MISSING)/ssz_snappy"} 0
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/bls_to_execution_change/ssz_snappy"} 76
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/proposer_slashing/ssz_snappy"} 76
+p2p_topic_peer_count{topic="/eth2/6a95a1a9/voluntary_exit/ssz_snappy"} 74
+# HELP payload_id_cache_hit The number of payload id get requests that are present in the cache.
+# TYPE payload_id_cache_hit counter
+payload_id_cache_hit 0
+# HELP payload_id_cache_miss The number of payload id get requests that aren't present in the cache.
+# TYPE payload_id_cache_miss counter
+payload_id_cache_miss 0
+# HELP powchain_block_number The current block number in the proof-of-work chain
+# TYPE powchain_block_number gauge
+powchain_block_number 2.0993704e+07
+# HELP powchain_header_cache_hit The number of header requests that are present in the cache.
+# TYPE powchain_header_cache_hit counter
+powchain_header_cache_hit 53454
+# HELP powchain_header_cache_miss The number of header requests that aren't present in the cache.
+# TYPE powchain_header_cache_miss counter
+powchain_header_cache_miss 9164
+# HELP powchain_header_cache_size The number of headers in the header cache
+# TYPE powchain_header_cache_size gauge
+powchain_header_cache_size 4096
+# HELP powchain_missed_deposit_logs The number of times a missed deposit log is detected
+# TYPE powchain_missed_deposit_logs counter
+powchain_missed_deposit_logs 0
+# HELP powchain_sync_eth1_connected Boolean indicating whether an eth1 endpoint is currently connected: 0=false, 1=true.
+# TYPE powchain_sync_eth1_connected gauge
+powchain_sync_eth1_connected 1
+# HELP powchain_valid_deposits_received The number of valid deposits received in the deposit contract
+# TYPE powchain_valid_deposits_received counter
+powchain_valid_deposits_received 1.722734e+06
+# HELP process_attestations_milliseconds Captures latency for process attestations (forkchoice) in milliseconds
+# TYPE process_attestations_milliseconds histogram
+process_attestations_milliseconds_bucket{le="1"} 1
+process_attestations_milliseconds_bucket{le="5"} 9986
+process_attestations_milliseconds_bucket{le="20"} 11101
+process_attestations_milliseconds_bucket{le="100"} 11102
+process_attestations_milliseconds_bucket{le="500"} 11103
+process_attestations_milliseconds_bucket{le="1000"} 11103
+process_attestations_milliseconds_bucket{le="+Inf"} 11103
+process_attestations_milliseconds_sum 48898
+process_attestations_milliseconds_count 11103
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 49245.97
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1.048576e+06
+# HELP process_network_receive_bytes_total Number of bytes received by the process over the network.
+# TYPE process_network_receive_bytes_total counter
+process_network_receive_bytes_total 1.16178823476e+11
+# HELP process_network_transmit_bytes_total Number of bytes sent by the process over the network.
+# TYPE process_network_transmit_bytes_total counter
+process_network_transmit_bytes_total 1.35334366382e+11
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 96
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 7.501012992e+09
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.72913634458e+09
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.9792818176e+10
+# HELP process_virtual_memory_max_bytes Maximum amount of virtual memory available in bytes.
+# TYPE process_virtual_memory_max_bytes gauge
+process_virtual_memory_max_bytes 1.8446744073709552e+19
+# HELP proposer_indices_cache_hit The number of proposer indices requests that are present in the cache.
+# TYPE proposer_indices_cache_hit counter
+proposer_indices_cache_hit 1.37876e+06
+# HELP proposer_indices_cache_miss The number of proposer indices requests that aren't present in the cache.
+# TYPE proposer_indices_cache_miss counter
+proposer_indices_cache_miss 386
+# HELP proposer_slashings_included_total Number of proposer slashings included in blocks
+# TYPE proposer_slashings_included_total counter
+proposer_slashings_included_total 0
+# HELP prysm_version
+# TYPE prysm_version gauge
+prysm_version{buildDate="0",commit="Local build",version="Unknown"} 1
+# HELP reconstructed_execution_payload_count Count the number of execution payloads that are reconstructed using JSON-RPC from payload headers
+# TYPE reconstructed_execution_payload_count counter
+reconstructed_execution_payload_count 16245
+# HELP register_validator_latency_milliseconds Captures RPC latency for register validator in milliseconds
+# TYPE register_validator_latency_milliseconds histogram
+register_validator_latency_milliseconds_bucket{le="1"} 0
+register_validator_latency_milliseconds_bucket{le="2"} 0
+register_validator_latency_milliseconds_bucket{le="5"} 0
+register_validator_latency_milliseconds_bucket{le="10"} 0
+register_validator_latency_milliseconds_bucket{le="20"} 0
+register_validator_latency_milliseconds_bucket{le="50"} 0
+register_validator_latency_milliseconds_bucket{le="100"} 0
+register_validator_latency_milliseconds_bucket{le="200"} 0
+register_validator_latency_milliseconds_bucket{le="500"} 0
+register_validator_latency_milliseconds_bucket{le="1000"} 0
+register_validator_latency_milliseconds_bucket{le="+Inf"} 0
+register_validator_latency_milliseconds_sum 0
+register_validator_latency_milliseconds_count 0
+# HELP reorg_depth Captures depth of reorgs. Depth is defined as the number of blocks between the head and the common ancestor
+# TYPE reorg_depth histogram
+reorg_depth_bucket{le="1"} 0
+reorg_depth_bucket{le="2"} 20
+reorg_depth_bucket{le="4"} 20
+reorg_depth_bucket{le="8"} 20
+reorg_depth_bucket{le="16"} 20
+reorg_depth_bucket{le="32"} 21
+reorg_depth_bucket{le="+Inf"} 21
+reorg_depth_sum 62
+reorg_depth_count 21
+# HELP reorg_distance Captures distance of reorgs. Distance is defined as the number of blocks between the old head and the new head
+# TYPE reorg_distance histogram
+reorg_distance_bucket{le="1"} 0
+reorg_distance_bucket{le="2"} 0
+reorg_distance_bucket{le="4"} 20
+reorg_distance_bucket{le="8"} 20
+reorg_distance_bucket{le="16"} 20
+reorg_distance_bucket{le="32"} 21
+reorg_distance_bucket{le="64"} 21
+reorg_distance_bucket{le="+Inf"} 21
+reorg_distance_sum 82
+reorg_distance_count 21
+# HELP replay_blocks_count The number of blocks to replay to generate a state
+# TYPE replay_blocks_count histogram
+replay_blocks_count_bucket{le="64"} 48
+replay_blocks_count_bucket{le="256"} 48
+replay_blocks_count_bucket{le="1024"} 48
+replay_blocks_count_bucket{le="2048"} 48
+replay_blocks_count_bucket{le="4096"} 48
+replay_blocks_count_bucket{le="+Inf"} 48
+replay_blocks_count_sum 634
+replay_blocks_count_count 48
+# HELP replay_blocks_milliseconds Time it took to replay blocks
+# TYPE replay_blocks_milliseconds summary
+replay_blocks_milliseconds_sum 39442
+replay_blocks_milliseconds_count 48
+# HELP replay_to_slot_milliseconds Time it took to replay to slot
+# TYPE replay_to_slot_milliseconds summary
+replay_to_slot_milliseconds_sum 0
+replay_to_slot_milliseconds_count 0
+# HELP rpc_blobs_by_range_response_latency_milliseconds Captures total time to respond to rpc BlobsByRange requests in a milliseconds distribution
+# TYPE rpc_blobs_by_range_response_latency_milliseconds histogram
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="5"} 23
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="10"} 24
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="50"} 29
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="100"} 48
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="150"} 63
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="250"} 93
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="500"} 136
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="1000"} 174
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="2000"} 227
+rpc_blobs_by_range_response_latency_milliseconds_bucket{le="+Inf"} 269
+rpc_blobs_by_range_response_latency_milliseconds_sum 326175
+rpc_blobs_by_range_response_latency_milliseconds_count 269
+# HELP rpc_blocks_by_range_response_latency_milliseconds Captures total time to respond to rpc blocks by range requests in a milliseconds distribution
+# TYPE rpc_blocks_by_range_response_latency_milliseconds histogram
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="5"} 17
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="10"} 17
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="50"} 136
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="100"} 607
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="150"} 653
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="250"} 683
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="500"} 797
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="1000"} 857
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="2000"} 896
+rpc_blocks_by_range_response_latency_milliseconds_bucket{le="+Inf"} 947
+rpc_blocks_by_range_response_latency_milliseconds_sum 468844
+rpc_blocks_by_range_response_latency_milliseconds_count 947
+# HELP saved_orphaned_att_total Count the number of times an orphaned attestation is saved
+# TYPE saved_orphaned_att_total counter
+saved_orphaned_att_total 2291
+# HELP saved_sync_committee_contribution_total The number of saved sync committee contribution total.
+# TYPE saved_sync_committee_contribution_total counter
+saved_sync_committee_contribution_total 159254
+# HELP saved_sync_committee_message_total The number of saved sync committee message total.
+# TYPE saved_sync_committee_message_total counter
+saved_sync_committee_message_total 0
+# HELP skip_slot_cache_hit The total number of cache hits on the skip slot cache.
+# TYPE skip_slot_cache_hit counter
+skip_slot_cache_hit 109
+# HELP skip_slot_cache_miss The total number of cache misses on the skip slot cache.
+# TYPE skip_slot_cache_miss counter
+skip_slot_cache_miss 11259
+# HELP slasher_attestation_distance_epochs The number of epochs between att target and source
+# TYPE slasher_attestation_distance_epochs histogram
+slasher_attestation_distance_epochs_bucket{le="0"} 0
+slasher_attestation_distance_epochs_bucket{le="1"} 0
+slasher_attestation_distance_epochs_bucket{le="2"} 0
+slasher_attestation_distance_epochs_bucket{le="3"} 0
+slasher_attestation_distance_epochs_bucket{le="4"} 0
+slasher_attestation_distance_epochs_bucket{le="5"} 0
+slasher_attestation_distance_epochs_bucket{le="10"} 0
+slasher_attestation_distance_epochs_bucket{le="20"} 0
+slasher_attestation_distance_epochs_bucket{le="50"} 0
+slasher_attestation_distance_epochs_bucket{le="100"} 0
+slasher_attestation_distance_epochs_bucket{le="+Inf"} 0
+slasher_attestation_distance_epochs_sum 0
+slasher_attestation_distance_epochs_count 0
+# HELP slasher_attestations_deferred_total Total number of attestations deferred by slasher for future processing
+# TYPE slasher_attestations_deferred_total counter
+slasher_attestations_deferred_total 0
+# HELP slasher_attestations_dropped_total Total number of attestations dropped by slasher due to invalidity
+# TYPE slasher_attestations_dropped_total counter
+slasher_attestations_dropped_total 0
+# HELP slasher_attestations_processed_total Total number of attestations successfully processed by slasher
+# TYPE slasher_attestations_processed_total counter
+slasher_attestations_processed_total 0
+# HELP slasher_attestations_pruned_total Total number of old attestations pruned by slasher
+# TYPE slasher_attestations_pruned_total counter
+slasher_attestations_pruned_total 0
+# HELP slasher_blocks_processed_total Total number of blocks successfully processed by slasher
+# TYPE slasher_blocks_processed_total counter
+slasher_blocks_processed_total 0
+# HELP slasher_blocks_received_total Total number of blocks received by slasher
+# TYPE slasher_blocks_received_total counter
+slasher_blocks_received_total 0
+# HELP slasher_chunks_saved_total Total number of slasher chunks saved to disk
+# TYPE slasher_chunks_saved_total counter
+slasher_chunks_saved_total 0
+# HELP slasher_double_proposals_total Total slashable proposals successfully detected by slasher
+# TYPE slasher_double_proposals_total counter
+slasher_double_proposals_total 0
+# HELP slasher_double_votes_total Total slashable double votes successfully detected by slasher
+# TYPE slasher_double_votes_total counter
+slasher_double_votes_total 0
+# HELP slasher_proposals_pruned_total Total number of old proposals pruned by slasher
+# TYPE slasher_proposals_pruned_total counter
+slasher_proposals_pruned_total 0
+# HELP slasher_surrounded_votes_total Total slashable surrounded votes successfully detected by slasher
+# TYPE slasher_surrounded_votes_total counter
+slasher_surrounded_votes_total 0
+# HELP slasher_surrounding_votes_total Total slashable surrounding votes successfully detected by slasher
+# TYPE slasher_surrounding_votes_total counter
+slasher_surrounding_votes_total 0
+# HELP state_transition_processing_milliseconds Total time to call a state transition in validateStateTransition()
+# TYPE state_transition_processing_milliseconds summary
+state_transition_processing_milliseconds_sum 1.377492e+06
+state_transition_processing_milliseconds_count 11160
+# HELP submit_blinded_block_latency_milliseconds Captures RPC latency for submitting blinded block in milliseconds
+# TYPE submit_blinded_block_latency_milliseconds histogram
+submit_blinded_block_latency_milliseconds_bucket{le="1"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="2"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="5"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="10"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="20"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="50"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="100"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="200"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="500"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="1000"} 0
+submit_blinded_block_latency_milliseconds_bucket{le="+Inf"} 0
+submit_blinded_block_latency_milliseconds_sum 0
+submit_blinded_block_latency_milliseconds_count 0
+# HELP sync_committee_index_cache_hit_total The number of committee requests that are present in the sync committee index cache.
+# TYPE sync_committee_index_cache_hit_total counter
+sync_committee_index_cache_hit_total 159253
+# HELP sync_committee_index_cache_miss_total The number of committee requests that aren't present in the sync committee index cache.
+# TYPE sync_committee_index_cache_miss_total counter
+sync_committee_index_cache_miss_total 1
+# HELP sync_committee_messages_unknown_root The number of sync committee messages that are checked against DB to see if there vote is for an unknown root
+# TYPE sync_committee_messages_unknown_root counter
+sync_committee_messages_unknown_root 0
+# HELP sync_head_state_hit The number of sync head state requests that are present in the cache.
+# TYPE sync_head_state_hit counter
+sync_head_state_hit 785166
+# HELP sync_head_state_miss The number of sync head state requests that are not present in the cache.
+# TYPE sync_head_state_miss counter
+sync_head_state_miss 11104
+# HELP total_effective_balance_cache_hit The number of get requests that are present in the cache.
+# TYPE total_effective_balance_cache_hit counter
+total_effective_balance_cache_hit 23447
+# HELP total_effective_balance_cache_miss The number of get requests that aren't present in the cache.
+# TYPE total_effective_balance_cache_miss counter
+total_effective_balance_cache_miss 513
+# HELP txs_per_slot_count Count the number of txs per slot
+# TYPE txs_per_slot_count gauge
+txs_per_slot_count 240
+# HELP unaggregated_attestations_in_pool_total The number of unaggregated attestations in the pool.
+# TYPE unaggregated_attestations_in_pool_total gauge
+unaggregated_attestations_in_pool_total 16
+# HELP validator_count The total number of validators
+# TYPE validator_count gauge
+validator_count{state="Active"} 1.073433e+06
+validator_count{state="Exited"} 544764
+validator_count{state="Exiting"} 344
+validator_count{state="Pending"} 308
+validator_count{state="Slashed"} 446
+validator_count{state="Slashing"} 0
+# HELP validator_entry_cache_delete_total The total number of cache deletes on the validator entry cache.
+# TYPE validator_entry_cache_delete_total counter
+validator_entry_cache_delete_total 0
+# HELP validator_entry_cache_hit_total The total number of cache hits on the validator entry cache.
+# TYPE validator_entry_cache_hit_total counter
+validator_entry_cache_hit_total 0
+# HELP validator_entry_cache_miss_total The total number of cache misses on the validator entry cache.
+# TYPE validator_entry_cache_miss_total counter
+validator_entry_cache_miss_total 0
+# HELP validators_total_balance The total balance of validators, in GWei
+# TYPE validators_total_balance gauge
+validators_total_balance{state="Active"} 3.441287043671616e+16
+validators_total_balance{state="Exiting"} 1.1011013590801e+13
+validators_total_balance{state="Pending"} 8.833e+12
+validators_total_balance{state="Slashing"} 0
+# HELP validators_total_effective_balance The total effective balance of validators, in GWei
+# TYPE validators_total_effective_balance gauge
+validators_total_effective_balance{state="Active"} 3.4349458e+16
+validators_total_effective_balance{state="Exiting"} 1.1008e+13
+validators_total_effective_balance{state="Slashing"} 0
