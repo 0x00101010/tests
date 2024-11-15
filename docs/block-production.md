@@ -1,12 +1,12 @@
 ```mermaid
 sequenceDiagram
-    box grey Leader Sequencer
+    box Leader Sequencer
         participant op-node
         participant op-geth
         participant rollup-boost
         participant op-conductor
     end
-    box grey custom builder
+    box custom builder
         participant builder
     end
     participant op-leader-proxy
