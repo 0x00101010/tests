@@ -12,7 +12,7 @@ sequenceDiagram
     participant op-leader-proxy
     participant receipts-listener
 
-    rect blue
+    rect rgb(164, 199, 235)
         Note right of op-node: 1.
         op-node ->> rollup-boost: FCU
         activate rollup-boost
@@ -27,7 +27,7 @@ sequenceDiagram
         deactivate rollup-boost
     end
 
-    rect blue
+    rect rgb(164, 199, 235)
         note right of op-node: 2.
         loop every 250 ms
             builder ->> builder: build flashblocks
@@ -43,7 +43,7 @@ sequenceDiagram
 
     op-node ->> op-node: wait for block time
 
-    rect blue
+    rect rgb(164, 199, 235)
         note right of op-node: 3.
         op-node ->> rollup-boost: GetPayloadV3
         activate rollup-boost
@@ -65,7 +65,7 @@ sequenceDiagram
         deactivate rollup-boost
     end
 
-    rect blue
+    rect rgb(164, 199, 235)
         note right of op-node: 5.
         op-node ->> rollup-boost: NewPayloadV3
         rollup-boost ->> op-geth: NewPayloadV3
