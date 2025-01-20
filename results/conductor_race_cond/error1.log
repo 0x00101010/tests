@@ -1,0 +1,30 @@
+=== RUN   TestControlLoop/TestFailureAndRetry2
+=== NAME  TestControlLoop
+    service.go:106:             INFO [12-07|10:55:53.225] initializing OpConductor                 version=v0.0.1
+    service.go:351:             INFO [12-07|10:55:53.225] starting OpConductor
+    service.go:357:             INFO [12-07|10:55:53.225] starting JSON-RPC server
+    service.go:381:             INFO [12-07|10:55:53.235] OpConductor started
+    service.go:606:             INFO [12-07|10:55:53.235] queued action
+after start conductor
+counter 1
+added wg
+before execute next
+    service.go:570:             INFO [12-07|10:55:53.235] entering loop action fn..
+waiting for next
+after next
+after execute next
+counter 1
+    service.go:579:             INFO [12-07|10:55:53.236] entering loop action..
+    service.go:596:             INFO [12-07|10:55:53.236] consumed action
+    service.go:649:             DEBUG[12-07|10:55:53.236] entering action with status              status="leader: false, healthy: true, active: false"
+    service.go:718:             DEBUG[12-07|10:55:53.236] exiting action with status and error     status="leader: false, healthy: true, active: false" err=<nil>
+    service.go:598:             INFO [12-07|10:55:53.236] action executed
+    service.go:600:             INFO [12-07|10:55:53.236] exiting loop action..
+loop action done.........................
+counter 0
+wg done
+    service.go:572:             INFO [12-07|10:55:53.236] loop action fn executed..
+    service.go:570:             INFO [12-07|10:55:53.236] entering loop action fn..
+waiting for next
+after next
+    service.go:579:             INFO [12-07|10:55:53.236] entering loop action..
